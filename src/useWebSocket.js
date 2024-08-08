@@ -1,9 +1,11 @@
 // src/hooks/useWebSocket.js
-import { useState, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from 'react';
+import useWebSocket, { ReadyState } from 'react-use-websocket';
 
-const useWebSocket = (url) => {
-  const [ws, setWs] = useState(null);
-  const [message, setMessage] = useState(null);
+const useWebSockets = (url) => {
+  const [socketUrl, setSocketUrl] = useState(url);
+  const [messageHistory, setMessageHistory] = useState<MessageEvent<any>[]>([]);
+  const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
 
   useEffect(() => {
     const socket = new WebSocket(url);
