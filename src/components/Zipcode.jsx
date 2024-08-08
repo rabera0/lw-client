@@ -59,7 +59,7 @@ function Zipcode() {
         </form>
         <br></br>
         <br></br>
-        {message && <p>Received from server: {message}</p>}
+        {message && <p>Received from server: {zipcode}</p>}
         <br></br>
         
         <img src={logo} className="logo" alt="Logo" />
