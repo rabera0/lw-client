@@ -14,7 +14,7 @@ const useWebSockets = (url) => {
   }, [lastMessage]);
 
   const handleClickChangeSocketUrl = useCallback(
-    () => setSocketUrl('wss://pinnate-uttermost-fiber.glitch.me'),
+    () => setSocketUrl('wss://pinnate-uttermost-fiber.glitch.me:443'),
     []
   );
 
