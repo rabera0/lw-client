@@ -23,6 +23,9 @@ function Zipcode() {
 //redirecting based on if user is in atlanta or elsewhere nationally
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (zipcode) {
+      handleClickSendMessage(zipcode);
+    }
     if (checkZipcode(zipcode)) {
       setIsAtlanta(true);
       navigate('/atlanta', { state: { zipcode } }); 
@@ -32,8 +35,6 @@ function Zipcode() {
     }
   };
   
-  console.log({ message });
-
     return (
       <div className="Zipcode">
         <h1>THE AT&T PERCH LIVING MURAL</h1>
@@ -43,6 +44,7 @@ function Zipcode() {
         <br></br>
         <br></br>
         <br></br>
+         <h1>WebSocket Status: {connectionStatus}</h1>
         <form onSubmit={handleSubmit}>
           <input 
             placeholder="enter your input"
@@ -59,8 +61,12 @@ function Zipcode() {
         </form>
         <br></br>
         <br></br>
+         <ul>
+        {messageHistory.map((msg, index) => (
+          <li key={index}>{msg.data}</li>
+        ))}
+      </ul>
         <br></br>
-        
         <img src={logo} className="logo" alt="Logo" />
         <br></br>
         <br></br>
