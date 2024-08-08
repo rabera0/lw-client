@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Lucida Handwriting','Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+body, html {
+  margin: auto;
+  padding: 0;
+  color:#fff;
+  font-family: Arial, sans-serif;
+  background-color: #1887c7;
+  text-align: left;
+  padding: 5%;
+}
+
+
+/* .container {
+  padding: 20px;
+} */
+
+
+/* Mobile first approach */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: left;
+}
+
+
+h1 {
+  margin-right: 100px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+}
+
+h3 {
+  font-family: 'Lucida Handwriting';
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+h4 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  text-align: left;
+}
+
+input::placeholder {
+  color: #1887c7;
+  padding: 5px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.zip {
+  width: 80%;
+ color: #1887c7;
+ border-radius: 10px;
+ border: none;
+padding: 5px;
+font-size: 18px;
+text-align: center;
+}
+main {
+  margin-top: 20px;
+}
+
+
+button {
+  text-decoration: none;
+  width: 100%;
+  padding: 15px;
+  background-color: #073f7c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+.logo {
+  height: 20vmin;
+  align-items: center;
+  pointer-events: none;
+}
+
+
+
+
+
+@media screen and (max-width: 1200){
+  body {
+    overflow: visible;
+  }
+}
