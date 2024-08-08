@@ -1,25 +1,24 @@
-const WebSocket = require("ws");
+const WebSocket = require('ws');
 
 const PORT = 5000;
 
-const wsServer = new WebSocket.Server({
-  port: PORT,
-});
+const wsServer = new WebSocket.Server({ port: PORT });
 
-wsServer.on("connection", function (socket) {
-  // feedback on console
-  console.log("a client just connected");
+wsServer.on('connection', function (socket) {
+  // Feedback on console
+  console.log('A client just connected');
 
-  //attach behavior to incoming socket
-  socket.on("message", function (msg) {
-    console.log("Recieved message from client: " + msg);
-    //socket.send("Take this back: " + msg);
+  // Attach behavior to incoming socket messages
+  socket.on('message', function (msg) {
+    console.log('Received message from client: ' + msg);
 
-    //broadcast message to all connected clients
-    wsServer.clinets.forEach(function (client) {
-      client.send("someone said: " + msg);
+    // Broadcast message to all connected clients
+    wsServer.clients.forEach(function (client) {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send('Someone said: ' + msg);
+      }
     });
   });
 });
 
-console.log(new Date() + "Server is hosted on port " + PORT);
+console.log(new Date() + ' Server is hosted on port ' + PORT);
