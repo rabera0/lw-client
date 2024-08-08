@@ -8,7 +8,7 @@ import International from './components/International';
 import National from './components/National';
 import Atlanta from './components/Atlanta';
 import Admin from './components/Admin';
-import FinalPage from './components/finalPage';
+import FinalPage from './components/FinalPage';
 
 function App() {
   return (
