@@ -33,6 +33,7 @@ function Zipcode() {
   
   
   const { message } = useWebSocket('wss://pinnate-uttermost-fiber.glitch.me/');
+  console.log({ message });
 
     return (
       <div className="Zipcode">
