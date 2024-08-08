@@ -1,11 +1,9 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
-// import '../App.css';
 import logo from '../att-logo.png';
 
 function FinalPage() {
     return (
-      <div className="International">
+      <div className="FinalPage">
         <h1>THE AT&T PERCH LIVING MURAL</h1>
         <h4> Connecting </h4>
         <h3> Changes</h3>
