@@ -3,13 +3,14 @@ import { useState } from 'react';
 import atlzips from '../data/atlzips.json';
 import { useNavigate } from 'react-router-dom';
 import logo from '../att-logo.png';
-import useWebSocket from '../useWebSocket';
+import useWebSockets from '../useWebSocket';
 // import '../App.css';
 
 function Zipcode() {
   const [zipcode, setZipcode] = useState("");
   const [isAtlanta, setIsAtlanta] = useState(false);
   const navigate = useNavigate();
+  const { messageHistory, connectionStatus, handleClickChangeSocketUrl, handleClickSendMessage } = useWebSockets('wss://https://pinnate-uttermost-fiber.glitch.me');
 
    //console.log(atlzips);
 
@@ -31,8 +32,6 @@ function Zipcode() {
     }
   };
   
-  
-  const { message } = useWebSocket('wss://pinnate-uttermost-fiber.glitch.me/');
   console.log({ message });
 
     return (
@@ -60,7 +59,6 @@ function Zipcode() {
         </form>
         <br></br>
         <br></br>
-        {message && <p>Received from server: {zipcode}</p>}
         <br></br>
         
         <img src={logo} className="logo" alt="Logo" />

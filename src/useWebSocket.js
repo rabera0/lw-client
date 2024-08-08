@@ -1,40 +1,39 @@
 // src/hooks/useWebSocket.js
-import React, { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 
 const useWebSockets = (url) => {
   const [socketUrl, setSocketUrl] = useState(url);
-  const [messageHistory, setMessageHistory] = useState<MessageEvent<any>[]>([]);
+  const [messageHistory, setMessageHistory] = useState([]);
   const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
 
   useEffect(() => {
-    const socket = new WebSocket(url);
+    if (lastMessage !== null) {
+      setMessageHistory((prev) => [...prev, lastMessage]);
+    }
+  }, [lastMessage]);
 
-    socket.onopen = () => {
-      console.log("WebSocket connection established");
-      socket.send("Hello server!");
-    };
+  const handleClickChangeSocketUrl = useCallback(
+    () => setSocketUrl('wss://pinnate-uttermost-fiber.glitch.me'),
+    []
+  );
 
-    socket.onmessage = (event) => {
-      console.log("Received message from server:", event.data);
-      setMessage(event.data);
-    };
+  const handleClickSendMessage = useCallback(() => sendMessage('Hello'), [sendMessage]);
 
-    socket.onclose = () => {
-      console.log("WebSocket connection closed");
-    };
+  const connectionStatus = {
+    [ReadyState.CONNECTING]: 'Connecting',
+    [ReadyState.OPEN]: 'Open',
+    [ReadyState.CLOSING]: 'Closing',
+    [ReadyState.CLOSED]: 'Closed',
+    [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
+  }[readyState];
 
-    setWs(socket);
-
-    return () => {
-      if (socket.readyState === 1) {
-        // <-- This is important
-        socket.close();
-      }
-    };
-  }, [url]);
-
-  return { ws, message };
+  return {
+    messageHistory,
+    connectionStatus,
+    handleClickChangeSocketUrl,
+    handleClickSendMessage,
+  };
 };
 
-export default useWebSocket;
+export default useWebSockets;
