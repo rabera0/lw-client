@@ -10,7 +10,7 @@ function Zipcode() {
   const [zipcode, setZipcode] = useState("");
   const [isAtlanta, setIsAtlanta] = useState(false);
   const navigate = useNavigate();
-  const { messageHistory, connectionStatus, handleClickChangeSocketUrl, handleClickSendMessage } = useWebSockets('wss://pinnate-uttermost-fiber.glitch.me');
+  const { messageHistory, connectionStatus, handleClickChangeSocketUrl, handleClickSendMessage } = useWebSockets('wss://feather-silver-kiwi.glitch.me');
 
    //console.log(atlzips);
 
@@ -24,7 +24,7 @@ function Zipcode() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (zipcode) {
-      handleClickSendMessage(zipcode);
+      handleClickSendMessage("zipcode", zipcode);
     }
     if (checkZipcode(zipcode)) {
       setIsAtlanta(true);

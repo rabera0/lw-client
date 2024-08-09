@@ -13,11 +13,11 @@ const useWebSockets = (url) => {
   }, [lastMessage]);
 
   const handleClickChangeSocketUrl = useCallback(
-    () => setSocketUrl('wss://pinnate-uttermost-fiber.glitch.me:5000'),
+    () => setSocketUrl('wss://feather-silver-kiwi.glitch.me'),
     []
   );
 
-  const handleClickSendMessage = useCallback(() => sendMessage('Hello'), [sendMessage]);
+  const handleClickSendMessage = useCallback(() => sendMessage('zipcode', "zipcode"), [sendMessage]);
 
   const connectionStatus = {
     [ReadyState.CONNECTING]: 'Connecting',
