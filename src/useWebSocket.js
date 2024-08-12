@@ -17,7 +17,7 @@ const useWebSockets = (url) => {
     []
   );
 
-  const handleClickSendMessage = (https://lofty-tar-author.glitch.me/sa) => useCallback(() => sendJsonMessage({ type: 'zipcode', zipcode: 11111}), [sendJsonMessage]);
+  const handleClickSendMessage = (zipc) => useCallback(() => sendJsonMessage({ type: 'zipcode', zipcode: 11111}), [sendJsonMessage]);
 
   const connectionStatus = {
     [ReadyState.CONNECTING]: 'Connecting',
