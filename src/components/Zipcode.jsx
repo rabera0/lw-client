@@ -10,7 +10,7 @@ function Zipcode() {
   const [zipcode, setZipcode] = useState("");
   const [isAtlanta, setIsAtlanta] = useState(false);
   const navigate = useNavigate();
-  const { messageHistory, connectionStatus, handleClickChangeSocketUrl, handleClickSendMessage } = useWebSockets('wss://feather-silver-kiwi.glitch.me');
+  const { messageHistory, connectionStatus, handleClickChangeSocketUrl, handleClickSendMessage } = useWebSockets('wss://lofty-tar-author.glitch.me/');
 
    //console.log(atlzips);
 

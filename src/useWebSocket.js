@@ -13,7 +13,7 @@ const useWebSockets = (url) => {
   }, [lastMessage]);
 
   const handleClickChangeSocketUrl = useCallback(
-    () => setSocketUrl('wss://feather-silver-kiwi.glitch.me'),
+    () => setSocketUrl('wss://lofty-tar-author.glitch.me/'),
     []
   );
 
