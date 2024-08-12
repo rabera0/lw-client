@@ -13,11 +13,11 @@ const useWebSockets = (url) => {
   }, [lastMessage]);
 
   const handleClickChangeSocketUrl = useCallback(
-    () => setSocketUrl('wss://lofty-tar-author.glitch.me/'),
+    () => setSocketUrl(url),
     []
   );
 
-  const handleClickSendMessage = useCallback(() => sendJsonMessage({ type: 'zipcode', zipcode: 11111}), [sendJsonMessage]);
+  const handleClickSendMessage = (https://lofty-tar-author.glitch.me/sa) => useCallback(() => sendJsonMessage({ type: 'zipcode', zipcode: 11111}), [sendJsonMessage]);
 
   const connectionStatus = {
     [ReadyState.CONNECTING]: 'Connecting',
