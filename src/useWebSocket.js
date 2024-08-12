@@ -17,7 +17,11 @@ const useWebSockets = (url) => {
     []
   );
 
-  const handleClickSendMessage = (zipcode) => useCallback(() => sendJsonMessage({ type: 'zipcode', zipcode: 11111}), [sendJsonMessage]);
+ const handleClickSendMessage = (zipcode, sendJsonMessage) => {
+  return useCallback(() => {
+    sendJsonMessage({ type: 'zipcode', zipcode });
+  }, [sendJsonMessage, zipcode]);
+};
 
   const connectionStatus = {
     [ReadyState.CONNECTING]: 'Connecting',
