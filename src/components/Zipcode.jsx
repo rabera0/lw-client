@@ -24,7 +24,7 @@ function Zipcode() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (zipcode) {
-      handleClickSendMessage(zipcode.toString());
+      handleClickSendMessage(JSON.stringify({ type: 'zipcode', zipcode }));
     }
     if (checkZipcode(zipcode)) {
       setIsAtlanta(true);
