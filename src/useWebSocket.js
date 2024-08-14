@@ -4,7 +4,7 @@ import useWebSocket, { ReadyState } from 'react-use-websocket';
 const useWebSockets = (url) => {
   const [socketUrl, setSocketUrl] = useState(url);
   const [messageHistory, setMessageHistory] = useState([]);
-  const { sendMessage, lastMessage, readyState, sendJsonMessage } = useWebSocket(socketUrl);
+  const { sendJsonMessage, lastMessage, readyState } = useWebSocket(socketUrl);
 
   useEffect(() => {
     if (lastMessage !== null) {
@@ -12,16 +12,13 @@ const useWebSockets = (url) => {
     }
   }, [lastMessage]);
 
-  const handleClickChangeSocketUrl = useCallback(
-    () => setSocketUrl(url),
-    []
-  );
+  const handleClickChangeSocketUrl = useCallback(() => {
+    setSocketUrl(url);
+  }, [url]);
 
- const handleClickSendMessage = (zipcode, sendJsonMessage) => {
-  return useCallback(() => {
+  const handleClickSendMessage = useCallback((zipcode) => {
     sendJsonMessage({ type: 'zipcode', zipcode });
-  }, [sendJsonMessage, zipcode]);
-};
+  }, [sendJsonMessage]);
 
   const connectionStatus = {
     [ReadyState.CONNECTING]: 'Connecting',

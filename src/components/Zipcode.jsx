@@ -6,8 +6,8 @@ import logo from '../att-logo.png';
 import useWebSockets from '../useWebSocket';
 // import '../App.css';
 
-function Zipcode() {
-  const [zipcode, setZipcode] = useState("");
+const Zipcode = () => {
+  const [zipcode, setZipcode] = useState('');
   const [isAtlanta, setIsAtlanta] = useState(false);
   const navigate = useNavigate();
   const { messageHistory, connectionStatus, handleClickChangeSocketUrl, handleClickSendMessage } = useWebSockets('wss://lofty-tar-author.glitch.me/');
