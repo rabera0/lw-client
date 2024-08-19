@@ -40,9 +40,6 @@ const Zipcode = () => {
         <h1>THE AT&T PERCH LIVING MURAL</h1>
         <br></br>
         <p>Where are you from?</p>
-      
-        <br></br>
-        <br></br>
         <br></br>
         <form onSubmit={handleSubmit}>
           <input 
@@ -50,7 +47,8 @@ const Zipcode = () => {
             className="zip"
             name="zip"
             id="zip"
-            type="text" 
+            type="number" 
+            inputProps={{ inputMode: 'numeric' }}
             value={zipcode}
             onChange={(event) => {
               const { value } = event.target;
