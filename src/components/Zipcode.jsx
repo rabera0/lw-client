@@ -47,7 +47,7 @@ const Zipcode = () => {
             className="zip"
             name="zip"
             id="zip"
-            type="number" 
+            type="tel" 
             inputProps={{ inputMode: 'numeric' }}
             value={zipcode}
             onChange={(event) => {
@@ -58,11 +58,9 @@ const Zipcode = () => {
         </form>
         <br></br>
         <br></br>
-         <ul>
-        {messageHistory.map((msg, index) => (
-          <li key={index}>{msg.data}</li>
-        ))}
-      </ul>
+        <button type="submit">Submit</button>
+        <br></br>
+        <br></br>
         <br></br>
         <img src={logo} className="logo" alt="Logo" />
         <br></br>
