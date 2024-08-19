@@ -32,22 +32,21 @@ const Zipcode = () => {
     if (messageContainer) {
       // Clear previous messages
       messageContainer.innerHTML = '';
-  
-      // Create a new <h4> element
-      const h4 = document.createElement('h4');
-      h4.textContent = message;
-  
+      // Create a new <h5> element
+      const h5 = document.createElement('h5');
+      h5.textContent = message;
       // Append the <p> element to the container
-      messageContainer.appendChild(h4);
+      messageContainer.appendChild(h5);
     }
   };
 
 //redirecting based on if user is in atlanta or elsewhere nationally
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (zipcode) {
-      handleClickSendMessage(zipcode);
-    } 
+       // if (zipcode) {
+    //   handleClickSendMessage(zipcode);
+    // } 
+    handleClickSendMessage(zipcode);
     if (!checkZipcode(zipcode)) {
       displayMessage('Zip code does not exist.');
       return;
@@ -83,11 +82,12 @@ const Zipcode = () => {
               setZipcode(value.replace(/[^\d{5}]$/, "").substr(0, 5));
             }}
           />
+           <br></br>
+          <br></br>
+          <button type="submit">Submit</button>
+          <br></br>
+          <div id="message-container"></div>
         </form>
-        <br></br>
-        <div id="message-container"></div>
-        <br></br>
-        <button type="submit">Submit</button>
         <br></br>
         <br></br>
         <br></br>
