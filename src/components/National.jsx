@@ -21,8 +21,7 @@ function National(zip) {
       <div className="National">
         <h1>THE AT&T PERCH LIVING MURAL</h1>
         <p>From     To</p>
-        <h4> ATL {">>"} {city} </h4>
-        <p>Your zipcode is: {zipcode}</p> 
+        <h4> ATL {">>"} {city} </h4> 
         <br></br>
         <br></br>
         <br></br>

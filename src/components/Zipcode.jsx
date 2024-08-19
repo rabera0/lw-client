@@ -47,8 +47,10 @@ const Zipcode = () => {
             className="zip"
             name="zip"
             id="zip"
-            type="tel" 
-            inputProps={{ inputMode: 'numeric' }}
+            type="text" 
+            inputMode="numeric" 
+            pattern="[0-9]*"
+            maxLength="5"
             value={zipcode}
             onChange={(event) => {
               const { value } = event.target;
@@ -58,7 +60,6 @@ const Zipcode = () => {
         </form>
         <br></br>
         <br></br>
-        <button type="submit">Submit</button>
         <br></br>
         <br></br>
         <br></br>
