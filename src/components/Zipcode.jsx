@@ -60,6 +60,7 @@ const Zipcode = () => {
         </form>
         <br></br>
         <br></br>
+        <button type="submit">Submit</button>
         <br></br>
         <br></br>
         <br></br>
