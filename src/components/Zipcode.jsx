@@ -4,6 +4,7 @@ import atlzips from '../data/atlzips.json';
 import { useNavigate } from 'react-router-dom';
 import logo from '../att-logo.png';
 import useWebSockets from '../useWebSocket';
+import uszips from '../data/USCities.json';
 // import '../App.css';
 
 const Zipcode = () => {
@@ -15,9 +16,30 @@ const Zipcode = () => {
    //console.log(atlzips);
 
 // checing atlanta zipcode
-  const checkZipcode = (zip) => {
+  const checkAtl = (zip) => {
     const zipString = zip.toString();
     return atlzips.AtlantaZipCodes.includes(zipString);
+  };
+
+  // checing if existing zipcode
+  const checkZipcode = (zip) => {
+    const zipString = zip.toString();
+    return uszips.some(entry => entry.zip_code.toString() === zipString);
+  };
+
+  const displayMessage = (message) => {
+    const messageContainer = document.getElementById('message-container');
+    if (messageContainer) {
+      // Clear previous messages
+      messageContainer.innerHTML = '';
+  
+      // Create a new <h4> element
+      const h4 = document.createElement('h4');
+      h4.textContent = message;
+  
+      // Append the <p> element to the container
+      messageContainer.appendChild(h4);
+    }
   };
 
 //redirecting based on if user is in atlanta or elsewhere nationally
@@ -25,8 +47,12 @@ const Zipcode = () => {
     event.preventDefault();
     if (zipcode) {
       handleClickSendMessage(zipcode);
-    }
-    if (checkZipcode(zipcode)) {
+    } 
+    if (!checkZipcode(zipcode)) {
+      displayMessage('Zip code does not exist.');
+      return;
+    } 
+    if (checkAtl(zipcode)) {
       setIsAtlanta(true);
       navigate('/atlanta', { state: { zipcode } }); 
     } else {
@@ -59,6 +85,7 @@ const Zipcode = () => {
           />
         </form>
         <br></br>
+        <div id="message-container"></div>
         <br></br>
         <button type="submit">Submit</button>
         <br></br>
