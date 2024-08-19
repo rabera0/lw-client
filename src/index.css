@@ -20,7 +20,7 @@ body, html {
   color:#fff;
   font-family: Arial, sans-serif;
   background-color: #1887c7;
-  text-align: left;
+  text-align: center;
   padding: 5%;
 }
 
@@ -98,7 +98,7 @@ button {
   background-color: #073f7c;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   font-size: 16px;
   cursor: pointer;
   margin-bottom: 10px;
@@ -115,8 +115,6 @@ button:hover {
   align-items: center;
   pointer-events: none;
 }
-
-
 
 
 

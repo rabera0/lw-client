@@ -44,7 +44,6 @@ const Zipcode = () => {
         <br></br>
         <br></br>
         <br></br>
-         <h1>WebSocket Status: {connectionStatus}</h1>
         <form onSubmit={handleSubmit}>
           <input 
             placeholder="enter your input"
