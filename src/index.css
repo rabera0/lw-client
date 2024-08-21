@@ -15,7 +15,7 @@ code {
 body,
 html {
   margin: auto;
-  padding:0px;
+  padding:5%;
   color: #fff;
   font-family: Arial, sans-serif;
   background-color: #2195CB;
@@ -79,6 +79,8 @@ input::placeholder {
   overflow: hidden; 
   border: none; 
   background-color: #2195CB;
+  margin: 0;
+  padding: 0;
   
 }
 
