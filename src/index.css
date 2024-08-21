@@ -22,11 +22,6 @@ html {
   text-align: center;
 }
 
-/* .container {
-  padding: 20px;
-} */
-
-/* Mobile first approach */
 header {
   background-color: #333;
   color: #fff;
@@ -79,7 +74,8 @@ input::placeholder {
 }
 
 .iframe {
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden; 
   border: none; 
   background-color: #2195CB;
@@ -90,7 +86,7 @@ input::placeholder {
   width: 100vw;
   height: 100vh;
   overflow: hidden; 
-  pointer-events:none;
+  position: relative;
 }
 
 .zip {
@@ -103,9 +99,9 @@ input::placeholder {
   font-size: 16px;
   text-align: center;
 }
-main {
+/* main {
   margin-top: 20px;
-}
+} */
 
 button {
   text-decoration: none;
@@ -133,5 +129,6 @@ button:hover {
 @media screen and (max-width: 1200) {
   body {
     overflow: hidden;
+    position: relative;
   }
 }
