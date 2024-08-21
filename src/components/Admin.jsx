@@ -1,7 +1,8 @@
 import React from 'react';
 import logo from '../att-logo.png';
-//import slider from './slider.jsx'
-// import useWebSocket from '../useWebSocket';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+ import useWebSocket from '../useWebSocket';
 //import { Link } from 'react-router-dom';
 // import '../App.css';
 
@@ -26,7 +27,8 @@ const Admin = () => {
   if (!isAuthenticated) {
     return (
       <div>
-        <h2>Login to Admin Page</h2>
+        <h2>Admin Page</h2>
+        <h2>Login</h2>
         <form onSubmit={(e) => {
           e.preventDefault();
           // Simulate login check
@@ -41,12 +43,10 @@ const Admin = () => {
           }
         }}>
           <div>
-            <label>Username:</label>
-            <input name="username" type="text" required />
+            <input name="username" placeholder="Username" type="text" required />
           </div>
           <div>
-            <label>Password:</label>
-            <input name="password" type="password" required />
+            <input name="password" placeholder="Password" type="password" required />
           </div>
           <button type="submit">Login</button>
         </form>
