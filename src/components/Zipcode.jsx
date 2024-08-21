@@ -46,9 +46,12 @@ const Zipcode = () => {
        // if (zipcode) {
     //   handleClickSendMessage(zipcode);
     // } 
+     if (zipcode.length !== 5 || !/^\d{5}$/.test(zipcode)) {
+      return;
+    }
     handleClickSendMessage(zipcode);
     if (!checkZipcode(zipcode)) {
-      displayMessage('Zip code does not exist. Try again');
+      displayMessage('Zip code does not exist. Please try again');
       return;
     } 
     if (checkAtl(zipcode)) {
