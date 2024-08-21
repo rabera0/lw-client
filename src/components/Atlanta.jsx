@@ -19,23 +19,11 @@ function Atlanta({ zip }) {
 
     return (
       <div className="Atlanta">
-        <h1>THE AT&T PERCH LIVING MURAL</h1>
-        <h2> Connecting Neighborhoods... </h2>
-        {/* <p>Your zipcode is: {zipcode}</p> */}
-        <br></br>
-        <h4>{ city }</h4>
-        <h1>Watch the mural to see your impact</h1>
-        <br></br>
-        <br></br>
-        <h1>#attatlperch</h1> 
-        <br></br>
-        <br></br>
-        <img src={logo} className="logo" alt="Logo" />
-        <br></br>
-        <br></br> 
+        <iframe src="https://readymag.website/u170488020/4927140/?link_target=parent"></iframe>
       </div>
       
     );
   }
   
   export default Atlanta;
+
