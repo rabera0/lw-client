@@ -15,7 +15,7 @@ code {
 body,
 html {
   margin: auto;
-  padding: 0;
+  padding:0px;
   color: #fff;
   font-family: Arial, sans-serif;
   background-color: #2195CB;
@@ -79,11 +79,9 @@ input::placeholder {
 }
 
 .iframe {
-  width: 100%;
   height: 100%;
   overflow: hidden; 
   border: none; 
-  pointer-events:none;
   background-color: #2195CB;
   
 }
