@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import uszips from "../data/USCities.json";
 import logo from "../att-logo.png";
@@ -18,11 +18,27 @@ function Atlanta({ zip }) {
   const city = zipcode ? findCityByZip(zipcode) : "ZIP code not provided";
   // State to track iframe loading
   const [isLoaded, setIsLoaded] = useState(false);
+  const iframeRef = useRef(null);
 
   // Handle iframe load event
+    // Handle iframe load event
   const handleLoad = () => {
-    setIsLoaded(true);
+    if (iframeRef.current) {
+      // Access iframe content document and attempt to modify its styles
+      const iframeDocument = iframeRef.current.contentDocument;
+      if (iframeDocument) {
+        const style = iframeDocument.createElement('style');
+        style.textContent = `
+          .mag .mag-pages-container .container .page .content-scroll-wrapper .content-bounds .page-content-container {
+            overflow: hidden !important;
+          }
+        `;
+        iframeDocument.head.appendChild(style);
+      }
+    }
+    setIsLoaded(true); // Update state after iframe content is loaded and styled
   };
+  
 
   return (
     <div className="Atlanta">
@@ -56,13 +72,13 @@ function Atlanta({ zip }) {
         <br></br>  --> */}
       <iframe
         src="https://readymag.website/u170488020/4927140/?link_target=parent"
+        scrolling="no"
         style={{
           visibility: isLoaded ? "visible" : "hidden",
           transition: "visibility 0s linear 0.5s",
         }}
         onLoad={handleLoad}
         frameBorder="0"
-        scrolling="no"
         width="100%"
         height="100%"
       ></iframe>

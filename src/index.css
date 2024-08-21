@@ -87,6 +87,8 @@ input::placeholder {
   height: 100vh;
   overflow: hidden; 
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .zip {
