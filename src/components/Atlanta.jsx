@@ -33,7 +33,7 @@ function Atlanta({ zip }) {
         <img src={logo} className="logo" alt="Logo" />
         <br></br>
         <br></br>  --> */}
-       <iframe class="iframe" src="https://readymag.website/u170488020/4927140/?link_target=parent" frameborder="0"></iframe>
+       <iframe class="iframe" src="https://readymag.website/u170488020/4927140/?link_target=parent" allowtransparency="true" frameborder="0" style="visibility:hidden;" onload="this.style.visibility = 'visible'"";></iframe>
       </div>
       
     );

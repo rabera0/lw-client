@@ -84,6 +84,8 @@ input::placeholder {
   overflow: hidden; 
   border: none; 
   pointer-events:none;
+  background-color: #2195CB;
+  
 }
 
 .Atlanta {
