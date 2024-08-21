@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../att-logo.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
  import useWebSockets from '../useWebSocket';
 //import { Link } from 'react-router-dom';
@@ -8,16 +8,28 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Admin = () => {
+  const defaultMode = 'Mode 1';
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAuthenticated') === 'true');
-  const [selectedMode, setSelectedMode] = useState('');
+  const [selectedMode, setSelectedMode] = useState(localStorage.getItem('selectedMode') || defaultMode);
   const navigate = useNavigate();
-   const { messageHistory, connectionStatus, handleClickChangeSocketUrl, handleClickSendMode } = useWebSockets('wss://lofty-tar-author.glitch.me/');
- 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    //help here for sending mode 1,2 or 3 through sockets
-    handleClickSendMode(mode);
-  };
+  const { handleClickSendMode } = useWebSockets('wss://lofty-tar-author.glitch.me/'); // Update with your WebSocket URL
+
+  useEffect(() => {
+    const handleNewMessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (data.type === 'UPDATE_MODE') {
+        setSelectedMode(data.mode);
+        localStorage.setItem('selectedMode', data.mode);
+      }
+    };
+
+    const ws = new WebSocket('wss://lofty-tar-author.glitch.me/'); // Update with your WebSocket URL
+    ws.onmessage = handleNewMessage;
+
+    return () => {
+      ws.close();
+    };
+  }, []);
   
   const handleLogin = () => {
     if (localStorage.getItem('isAuthenticated') === 'true') {
