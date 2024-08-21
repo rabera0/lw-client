@@ -48,7 +48,7 @@ const Zipcode = () => {
     // } 
     handleClickSendMessage(zipcode);
     if (!checkZipcode(zipcode)) {
-      displayMessage('Zip code does not exist.');
+      displayMessage('Zip code does not exist. Try again');
       return;
     } 
     if (checkAtl(zipcode)) {
