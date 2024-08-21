@@ -20,6 +20,10 @@ const useWebSockets = (url) => {
     sendJsonMessage({ type: 'zipcode', zipcode });
   }, [sendJsonMessage]);
 
+  const handleClickSendMode = useCallback((mode) => {
+    sendJsonMessage({ type: 'SET_MODE', mode });
+  }, [sendJsonMessage]);
+  
   const connectionStatus = {
     [ReadyState.CONNECTING]: 'Connecting',
     [ReadyState.OPEN]: 'Open',

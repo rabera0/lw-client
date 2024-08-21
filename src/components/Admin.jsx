@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../att-logo.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
- import useWebSocket from '../useWebSocket';
+ import useWebSockets from '../useWebSocket';
 //import { Link } from 'react-router-dom';
 // import '../App.css';
 
@@ -11,17 +11,19 @@ const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAuthenticated') === 'true');
   const [selectedMode, setSelectedMode] = useState('');
   const navigate = useNavigate();
-   const { messageHistory, connectionStatus, handleClickChangeSocketUrl, handleClickSendMessage } = useWebSockets('wss://lofty-tar-author.glitch.me/');
-
+   const { messageHistory, connectionStatus, handleClickChangeSocketUrl, handleClickSendMode } = useWebSockets('wss://lofty-tar-author.glitch.me/');
+ 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    //help here for sending mode 1,2 or 3 through sockets
+    handleClickSendMode(mode);
+  };
+  
   const handleLogin = () => {
     if (localStorage.getItem('isAuthenticated') === 'true') {
       setIsAuthenticated(true);
     }
   };
-  
-  const handleSubmit = (event) => {
-    event.preventDefault(); 
-    handleClickSendMessage();
 
   const handleLogout = () => {
     localStorage.removeItem('isAuthenticated');
