@@ -8,7 +8,6 @@ import International from './components/International';
 import National from './components/National';
 import Atlanta from './components/Atlanta';
 import Admin from './components/Admin';
-import FinalPage from './components/FinalPage';
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
           <Route path="/national" element={<National />} />
           <Route path="/atlanta" element={<Atlanta />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="/finalpage" element={<FinalPage />} />
       </Routes>
     </div>
     </BrowserRouter>

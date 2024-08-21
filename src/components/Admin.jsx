@@ -11,24 +11,29 @@ const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAuthenticated') === 'true');
   const [selectedMode, setSelectedMode] = useState('');
   const navigate = useNavigate();
+   const { messageHistory, connectionStatus, handleClickChangeSocketUrl, handleClickSendMessage } = useWebSockets('wss://lofty-tar-author.glitch.me/');
 
   const handleLogin = () => {
     if (localStorage.getItem('isAuthenticated') === 'true') {
       setIsAuthenticated(true);
     }
   };
+  
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
+    handleClickSendMessage();
 
   const handleLogout = () => {
     localStorage.removeItem('isAuthenticated');
     setIsAuthenticated(false);
-    navigate('/');
+    navigate('/admin');
   };
 
   if (!isAuthenticated) {
     return (
-      <div>
+      <div className="Admin">
         <h2>Admin Page</h2>
-        <h2>Login</h2>
+        <p>Login</p>
         <form onSubmit={(e) => {
           e.preventDefault();
           // Simulate login check
@@ -45,9 +50,11 @@ const Admin = () => {
           <div>
             <input name="username" placeholder="Username" type="text" required />
           </div>
+          <br></br>
           <div>
             <input name="password" placeholder="Password" type="password" required />
           </div>
+          <br></br>
           <button type="submit">Login</button>
         </form>
       </div>
@@ -55,7 +62,7 @@ const Admin = () => {
   }
 
   return (
-    <div>
+    <div className="Admin">
       <h1>Admin Dashboard</h1>
       <div>
         <button onClick={() => setSelectedMode('Mode 1')}>Mode 1</button>
