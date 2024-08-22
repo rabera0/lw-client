@@ -8,7 +8,7 @@ function Proceed() {
       <div className="Proceed">
         <h1>THE AT&T PERCH LIVING MURAL</h1>
         <br></br>
-        <p>Where are you from?</p>
+        <p>What is your zipcode?</p>
       
         <br></br>
         <br></br>

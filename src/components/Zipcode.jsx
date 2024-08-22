@@ -67,7 +67,7 @@ const Zipcode = () => {
       <div className="Zipcode">
         <h1>THE AT&T PERCH LIVING MURAL</h1>
         <br></br>
-        <p>Where are you from?</p>
+        <p>What is your zipcode?</p>
         <br></br>
         <form onSubmit={handleSubmit}>
           <input 
