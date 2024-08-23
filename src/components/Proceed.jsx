@@ -12,15 +12,23 @@ function Proceed() {
       
         <br></br>
         <br></br>
+          <Link to='/zipcode'>
+          <button>Atlanta Visitor</button>
+        </Link> 
         <br></br>
+        <br></br>
+          <Link to='/zipcode'>
+          <button>US Visitor</button>
+        </Link>
+        <br></br>
+        <br></br>
+        
         <Link to='/international'>
-          <button>International Visitors</button>
+          <button>International Visitor</button>
         </Link>
+     
         <br></br>
-        <br></br>
-        <Link to='/zipcode'>
-          <button>National Visitors</button>
-        </Link>
+      
         <br></br>
         <br></br>
         <img src={logo} className="logo" alt="Logo" />
