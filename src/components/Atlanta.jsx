@@ -51,7 +51,7 @@ function Atlanta() {
         </div>
       )}
       <h1>THE AT&T PERCH LIVING MURAL</h1>
-      <h2>Connecting Neighborhoods...</h2>
+      
       <p>Hello "county message" </p>
       <br />
       <h4>{city}</h4>

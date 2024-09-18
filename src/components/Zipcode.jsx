@@ -56,7 +56,7 @@ const Zipcode = () => {
     } 
     if (checkAtl(zipcode)) {
       setIsAtlanta(true);
-      navigate('/atlanta', { state: { zipcode } }); 
+      navigate('/animation', { state: { zipcode } }); 
     } else {
       setIsAtlanta(false);
       navigate('/national', { state: { zipcode } });
