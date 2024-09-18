@@ -1,27 +1,26 @@
 import React, { useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../att-logo.png';
 // import '../App.css';
 
 function Animation() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Set a timer to redirect after 5 seconds (5000 milliseconds)
     const timer = setTimeout(() => {
-      history.push('/Atlanta');
+      navigate('/Atlanta');
     }, 5000);
 
     // Cleanup the timer on component unmount
     return () => clearTimeout(timer);
-  }, [history]);
+  }, [navigate]);
 
   return (
     <div className="Animation">
       <h1>THE AT&T PERCH LIVING MURAL</h1>
       <br />
       <p>Animation here</p>
-      <Link to='/Atlanta'></Link>
       <br />
       <br />
       <br />

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import uszips from "../data/USCities.json";
 import logo from "../att-logo.png";
 //import { Link } from 'react-router-dom';
@@ -11,21 +11,33 @@ function findCityByZip(zipCode) {
   return result ? result.city : "ZIP code not found";
 }
 
-function Atlanta({ zip }) {
+function Atlanta() {
   const location = useLocation();
+  const navigate = useNavigate();
   const zipcode = location.state?.zipcode;
 
   const city = zipcode ? findCityByZip(zipcode) : "ZIP code not provided";
-  // State to track iframe loading
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isFading, setIsFading] = useState(false);
 
   // Handle iframe load event
   const handleLoad = () => {
     setIsLoaded(true);
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsFading(true);
+      setTimeout(() => {
+        navigate('/finalpage');
+      }, 1000); // Duration of fade-out effect
+    }, 3000); // Wait for 5 seconds before starting the fade
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
   return (
-    <div className="Atlanta">
+    <div className={`Atlanta ${isFading ? 'fade-out' : ''}`}>
       {!isLoaded && (
         <div
           style={{
@@ -37,11 +49,10 @@ function Atlanta({ zip }) {
           }}
         >
           Loading...
-          {/* Replace with a spinner or a more sophisticated loading indicator if needed */}
         </div>
       )}
       <h1>THE AT&T PERCH LIVING MURAL</h1>
-      <h2> Connecting Neighborhoods... </h2>
+      <h2>Connecting Neighborhoods...</h2>
       <br />
       <h4>{city}</h4>
       <h1>Watch the mural to see your impact</h1>
@@ -56,5 +67,19 @@ function Atlanta({ zip }) {
     </div>
   );
 }
-// <p>Your zipcode is: {zipcode}</p>
+
 export default Atlanta;
+// <p>Your zipcode is: {zipcode}</p>
+      // {!isLoaded && (
+      //   <div
+      //     style={{
+      //       position: "absolute",
+      //       top: "50%",
+      //       left: "50%",
+      //       transform: "translate(-50%, -50%)",
+      //       zIndex: 1,
+      //     }}
+      //   >
+      //     Loading...
+      //   </div>
+      // )}
