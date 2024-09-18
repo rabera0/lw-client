@@ -15,14 +15,14 @@ function Animation() {
       setTimeout(() => {
         navigate('/atlanta', { state: { zipcode } }); // Pass zipcode to /atlanta
       }, 1000); // Duration of fade-out effect
-    }, 2500); // Wait for 5 seconds before starting the fade
+    }, 3500); // Wait for 3.5 seconds before starting the fade
 
     return () => clearTimeout(timer); // Cleanup the timer
   }, [navigate, zipcode]);
 
   return (
-    <div className={`Animation ${isFading ? 'fade-out' : ''}`}>
-      <h1 className={`title ${isFading ? 'fade-out' : ''}`}>THE AT&T PERCH LIVING MURAL</h1>
+    <div className={`Animation`}>
+      <h1 className={`title`}>THE AT&T PERCH LIVING MURAL</h1>
       <br />
       <h2 className={`subtitle ${isFading ? 'fade-out' : ''}`}>Connecting Neighborhoods...</h2>
       <p className={`animation-text ${isFading ? 'fade-out' : ''}`}>Animation here</p>
@@ -31,7 +31,7 @@ function Animation() {
       <br />
       <br />
       <br />
-      <img src={logo} className={`logo ${isFading ? 'fade-out' : ''}`} alt="Logo" />
+      <img src={logo} className={`logo`} alt="Logo" />
       <br />
       <br />
     </div>

@@ -31,13 +31,13 @@ function Atlanta() {
       setTimeout(() => {
         navigate('/finalpage');
       }, 1000); // Duration of fade-out effect
-    }, 2500); // Wait for 5 seconds before starting the fade
+    }, 3500); // Wait for 3.5 seconds before starting the fade
 
     return () => clearTimeout(timer);
   }, [navigate]);
 
   return (
-    <div className={`Atlanta ${isFading ? 'fade-out' : ''}`}>
+    <div className={`Atlanta`}>
       {!isLoaded && (
         <div
           style={{
