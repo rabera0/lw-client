@@ -55,18 +55,6 @@ function Atlanta({ zip }) {
         <img src={logo} className="logo" alt="Logo" />
         <br></br>
         <br></br>  --> */}
-      <iframe
-        src="https://readymag.website/u170488020/4927140/?link_target=parent"
-        scrolling="no"
-        style={{
-          visibility: isLoaded ? "visible" : "hidden",
-          transition: "visibility 0s linear 0.5s",
-        }}
-        onLoad={handleLoad}
-        frameBorder="0"
-        width="100%"
-        height="100%"
-      ></iframe>
     </div>
   );
 }
