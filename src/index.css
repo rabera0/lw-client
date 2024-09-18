@@ -72,8 +72,12 @@ header {
 
 .FinalPage {
   padding: 10%;
+
 }
 
+.FinalText{
+    justify-content: center;
+}
 
 .iframe {
 /*   width: 100%;
@@ -109,7 +113,7 @@ h2 {
 
 h3 {
   font-family: 'Dancing Script', cursive; /* Use the imported font */
-  font-size: 50px;
+  font-size: 55px;
   font-weight: bold;
   text-align: center;
   margin: 0px;
@@ -120,7 +124,7 @@ h4 {
   font-size: 30px;
   font-weight: bold;
   text-align: center;
-  margin:
+  margin: 10px;
 }
 
 h5 {

@@ -48,14 +48,18 @@ function Atlanta() {
             zIndex: 1,
           }}
         >
-          Loading...
         </div>
       )}
       <h1>THE AT&T PERCH LIVING MURAL</h1>
       <h2>Connecting Neighborhoods...</h2>
+      <p>Hello "county message" </p>
       <br />
       <h4>{city}</h4>
-      <h1>Watch the mural to see your impact</h1>
+      <br />
+      <br />
+      <p>Welcome to the AT&T Perch.</p>
+      <br />
+      <p>Watch the mural to see your impact</p>
       <br />
       <br />
       <h1>#attatlperch</h1>
