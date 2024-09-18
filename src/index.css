@@ -50,13 +50,19 @@ header {
 }
 
 .Atlanta {
-  width: 100vw;
+/*   width: 100vw;
   height: 100vh;
   overflow: hidden !important; 
   position: relative;
   margin: 0 !important;
-  padding:0 !important;
+  padding:0 !important; */
+  padding: 10%;
 }
+
+.FinalPage {
+  padding: 10%;
+}
+
 
 .iframe {
 /*   width: 100%;

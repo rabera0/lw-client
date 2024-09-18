@@ -23,7 +23,6 @@ function Atlanta({ zip }) {
   const handleLoad = () => {
     setIsLoaded(true);
   };
-  
 
   return (
     <div className="Atlanta">
@@ -41,22 +40,21 @@ function Atlanta({ zip }) {
           {/* Replace with a spinner or a more sophisticated loading indicator if needed */}
         </div>
       )}
-      {/*        <h1>THE AT&T PERCH LIVING MURAL</h1>
-        <h2> Connecting Neighborhoods... </h2>
-       <p>Your zipcode is: {zipcode}</p> 
-        <br></br>
-        <h4>{ city }</h4>
-        <h1>Watch the mural to see your impact</h1>
-        <br></br>
-        <br></br>
-        <h1>#attatlperch</h1> 
-        <br></br>
-        <br></br>
-        <img src={logo} className="logo" alt="Logo" />
-        <br></br>
-        <br></br>  --> */}
+      <h1>THE AT&T PERCH LIVING MURAL</h1>
+      <h2> Connecting Neighborhoods... </h2>
+      <br />
+      <h4>{city}</h4>
+      <h1>Watch the mural to see your impact</h1>
+      <br />
+      <br />
+      <h1>#attatlperch</h1>
+      <br />
+      <br />
+      <img src={logo} className="logo" alt="Logo" />
+      <br />
+      <br />
     </div>
   );
 }
-
+// <p>Your zipcode is: {zipcode}</p>
 export default Atlanta;
