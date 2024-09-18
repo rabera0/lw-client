@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../att-logo.png';
 // import '../App.css';
@@ -7,14 +7,18 @@ function Animation() {
   const navigate = useNavigate();
   const location = useLocation();
   const zipcode = location.state?.zipcode; // Get the zipcode from the state
+  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/atlanta', { state: { zipcode } }); // Pass zipcode to /atlanta
-    }, 3000); // Redirect after 5 seconds
+      setIsFading(true); // Start fading out
+      setTimeout(() => {
+        navigate('/atlanta', { state: { zipcode } }); // Pass zipcode to /atlanta
+      }, 1000); // Duration of fade-out effect
+    }, 3000); // Wait for 5 seconds before starting the fade
 
     return () => clearTimeout(timer); // Cleanup the timer
-  }, [navigate, zipcode]); // Include zipcode in the dependency array
+  }, [navigate, zipcode]);
 
   return (
     <div className="Animation">
