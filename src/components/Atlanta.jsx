@@ -31,7 +31,7 @@ function Atlanta() {
       setTimeout(() => {
         navigate('/finalpage');
       }, 1000); // Duration of fade-out effect
-    }, 3000); // Wait for 5 seconds before starting the fade
+    }, 2500); // Wait for 5 seconds before starting the fade
 
     return () => clearTimeout(timer);
   }, [navigate]);
