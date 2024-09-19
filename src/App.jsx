@@ -5,11 +5,12 @@ import Landing from './components/Landing';
 import Proceed from './components/Proceed';
 import Zipcode from './components/Zipcode';
 import International from './components/International';
-import National from './components/National';
+import StateMap from './components/StateMap';
 import Atlanta from './components/Atlanta';
 import Admin from './components/Admin';
 import Final from './components/FinalPage';
-import Animation from './components/Animation';
+import AtlMap from './components/AtlMap';
+import State from './components/State';
 
 function App() {
   return (
@@ -20,10 +21,11 @@ function App() {
           <Route path="/proceed" element={<Proceed />} />
           <Route path="/zipcode" element={<Zipcode />} />
           <Route path="/international" element={<International />} />
-          <Route path="/national" element={<National />} />
+          <Route path="/statemap" element={<StateMap />} />
           <Route path="/atlanta" element={<Atlanta />} />
-          <Route path="/animation" element={<Animation />} />
+          <Route path="/atlmap" element={<AtlMap />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/state" element={<State />} />
           <Route path="/finalpage" element={<Final />} />
       </Routes>
     </div>
