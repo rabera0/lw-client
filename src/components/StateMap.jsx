@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import uszips from '../data/USCities.json';
 import logo from '../att-logo.png';
+import '../index.css';
 import Graph from './Graph'; // Import the Graph component
 
 
@@ -25,7 +26,7 @@ function StateMap() {
       setTimeout(() => {
         navigate('/state', { state: { zipcode } }); // Pass state to /state
       }, 1000); // Duration of fade-out effect
-    }, 3500); // Wait for 3.5 seconds before starting the fade
+    }, 150500); // Wait for 3.5 seconds before starting the fade
 
     return () => clearTimeout(timer); // Cleanup the timer
   }, [navigate, zipcode]);

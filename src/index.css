@@ -35,7 +35,7 @@ header {
 .Admin {
   padding: 10%;
 }
-.National{
+.AtlMap{
   padding: 10%;
 }
 .International {
@@ -48,7 +48,7 @@ header {
   padding: 10%;
 }
 
-.Animation {
+.StateMap {
   padding: 10%;
 }
 
@@ -171,4 +171,98 @@ button:hover {
     overflow: hidden;
     position: relative;
   }
+}
+
+#graphContainer {
+  position: relative;
+  width: 100vw; /* Allow it to fill the parent */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto;
+  transform: scale(0.6);
+  transform-origin: top left;
+  /* background-color: rgba(224, 228, 231, 0.473); */
+}
+
+/* Adjust the graph canvas */
+#graphCanvas {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw; /* Fill the container */
+}
+
+
+/* Define custom properties with initial values */
+@property --p {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --l {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --a {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* Keyframes for the pulse animation */
+@keyframes pulse {
+  0% {
+    background: radial-gradient(white var(--p),#009fdb);
+    transform: scale(1);
+    --p: 0%;
+    --l: 0px;
+    --a: 0deg;
+    filter: blur(0px);
+    box-shadow: 0 0 0px 0px #009fdb; /* No shadow initially */
+  }
+  50% {
+    background: radial-gradient(white var(--p),#009fdb);
+    transform: scale(1.1);
+    --p: 80%;
+    --l: 80px;
+    --a: 180deg;
+    filter: blur(5px);
+    box-shadow: 0 0 10px 5px #009fdb; /* Box shadow during animation */
+  }
+  100% {
+    background: radial-gradient(white var(--p),#009fdb);
+    transform: scale(1);
+    --p: 0%;
+    --l: 0px;
+    --a: 0deg;
+    filter: blur(0px);
+    box-shadow: 0 0 0px 0px #009fdb; /* No shadow at end */
+  }
+}
+
+/* Initial state of the box */
+.box {
+  z-index: 1; /* Higher z-index for nodes */
+  position: absolute;
+  border-radius: 100%;
+  /* background: radial-gradient(white var(--p),#009fdb); */
+  box-shadow: 0 0 0px 0px #009fdb; /* No shadow initially */
+  filter: blur(0px); /* No blur initially */
+  --p: 0%;
+  --l: 0px;
+  --a: 0deg;
+  cursor: pointer;
+  /* margin: 15px; */
+  display: inline-block;
+  transition: background 0.5s, filter 0.5s, box-shadow 0.5s, transform 0.5s;
+  /* background: linear-gradient(white var(--p), #009fdb var(--p)); */
+}
+
+/* Pulsing effect when 'pulse' class is added */
+.box.pulse {
+  animation: pulse 3s;
+  animation-iteration-count: 1; /* Run the animation once */
 }

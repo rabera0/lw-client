@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import '../Graph.css';
+import '../index.css';
 
 const Graph = ({ zipcode }) => {
   const graph = {
@@ -378,7 +378,7 @@ const Graph = ({ zipcode }) => {
 
   return (
     <div style={{ width: '100%', maxWidth: '500px', margin: '0 auto' }}>
-      <div id="graphContainer" style={{ position: 'relative', width: '500px', height: '500px' }}>
+      <div id="graphContainer" style={{ position: 'relative', width: '500px', height: '350px' }}>
         <canvas 
           id="graphCanvas" 
           style={{ 
