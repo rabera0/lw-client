@@ -8,8 +8,8 @@ function Proceed() {
       <div className="Proceed">
         <h1>THE AT&T PERCH LIVING MURAL</h1>
         <br></br>
+        <br></br>
         <p>What is your zipcode?</p>
-      
         <br></br>
         <br></br>
           <Link to='/zipcode'>
@@ -28,7 +28,8 @@ function Proceed() {
         </Link>
      
         <br></br>
-      
+        <br></br>
+        <br></br>
         <br></br>
         <br></br>
         <img src={logo} className="logo" alt="Logo" />

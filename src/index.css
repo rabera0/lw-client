@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Lucida Handwriting",
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
@@ -16,8 +15,6 @@ code {
 
 body,
 html {
-  margin: auto;
-  padding:0;
   color: #fff;
   font-family: Arial, sans-serif;
   background-color: #2195CB;
@@ -88,7 +85,7 @@ header {
   
 }
 input {
-  width: 90%;
+  width: 100%;
   background-color: #ffffff;
   color: #2195CB;
   border-radius: 15px;
