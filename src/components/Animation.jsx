@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../att-logo.png';
+import Graph from './Graph'; // Import the Graph component
 // import '../App.css';
 
 function Animation() {
@@ -25,17 +26,16 @@ function Animation() {
       <h1 className={`title`}>THE AT&T PERCH LIVING MURAL</h1>
       <br />
       <h2 className={`subtitle ${isFading ? 'fade-out' : ''}`}>Connecting Neighborhoods...</h2>
-      <p className={`animation-text ${isFading ? 'fade-out' : ''}`}>Animation here</p>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      {/* Replace 'Animation here' with the Graph component */}
+      <Graph zipcode={zipcode} />
+      {/* <div className={`animation-container`}>
+        <Graph />
+      </div> */}
       <img src={logo} className={`logo`} alt="Logo" />
       <br />
       <br />
     </div>
-);
+  );
 }
 
 export default Animation;
