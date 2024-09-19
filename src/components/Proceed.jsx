@@ -23,7 +23,7 @@ function Proceed() {
         <br></br>
         <br></br>
         
-        <Link to='/international'>
+        <Link to='/intlmap'>
           <button>International Visitor</button>
         </Link>
      

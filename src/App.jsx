@@ -5,6 +5,7 @@ import Landing from './components/Landing';
 import Proceed from './components/Proceed';
 import Zipcode from './components/Zipcode';
 import International from './components/International';
+import IntlMap from './components/IntlMap';
 import StateMap from './components/StateMap';
 import Atlanta from './components/Atlanta';
 import Admin from './components/Admin';
@@ -21,6 +22,7 @@ function App() {
           <Route path="/proceed" element={<Proceed />} />
           <Route path="/zipcode" element={<Zipcode />} />
           <Route path="/international" element={<International />} />
+          <Route path="/intlmap" element={<IntlMap />} />
           <Route path="/statemap" element={<StateMap />} />
           <Route path="/atlanta" element={<Atlanta />} />
           <Route path="/atlmap" element={<AtlMap />} />
