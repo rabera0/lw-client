@@ -34,7 +34,7 @@ function AtlMap() {
   
 
   return (
-    <div className={`AtlMap`}>
+     <div className={`AtlMap ${isFadingIn ? 'fade-in' : ''}`}>
       <h1 className={`title`}>THE AT&T PERCH LIVING MURAL</h1>
       <br />
       <h2 className={`subtitle ${isFading ? 'fade-out' : ''}`}>Connecting Neighborhoods...</h2>
