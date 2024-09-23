@@ -9,7 +9,9 @@ function AtlMap() {
   const location = useLocation();
   const zipcode = location.state?.zipcode; // Get the zipcode from the state
   const [isFading, setIsFading] = useState(false);
+  const [isFadingIn, setIsFadingIn] = useState(true);
 
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsFading(true); // Start fading out
@@ -20,6 +22,16 @@ function AtlMap() {
 
     return () => clearTimeout(timer); // Cleanup the timer
   }, [navigate, zipcode]);
+  
+    // Cleanup for fade-in after the component mounts
+  useEffect(() => {
+    const fadeInTimer = setTimeout(() => {
+      setIsFadingIn(false); // End fade-in
+    }, 100); // Quick delay to allow CSS transition
+
+    return () => clearTimeout(fadeInTimer);
+  }, []);
+  
 
   return (
     <div className={`AtlMap`}>

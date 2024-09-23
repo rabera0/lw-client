@@ -7,7 +7,6 @@ import logo from "../att-logo.png";
 
 // zipcodeMessages.js
 const zipcodeMessages = [
-    { zip: "Mistype", message: "Welcome to the Perch! Happy to connect you to Atlanta!" },
     { zip: "30339", message: "Hello Vinings! Welcome to the AT&T Perch!" },
     { zip: "30305", message: "Hello “Golden Triangle” Buckhead and Northside area, Welcome to the AT&T Perch" },
     { zip: "30342", message: "Hello “Golden Triangle” Buckhead and Northside area, Welcome to the AT&T Perch" },
@@ -65,7 +64,7 @@ function Atlanta() {
   const [isFading, setIsFading] = useState(false);
 
   // Retrieve the message from zipcodeMessages based on the provided zipcode
-  const message = zipcodeMessages.find(item => item.zip === zipcode)?.message || "Welcome!";
+  const message = zipcodeMessages.find(item => item.zip === zipcode)?.message || "Welcome to the Perch! Happy to connect you to Atlanta!";
   console.log(message);
   
   useEffect(() => {
