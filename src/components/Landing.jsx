@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../att-logo.png';
 import Footer from './Footer'; 
+import Header from './Header';
 
 function Landing() {
   const [opacity, setOpacity] = useState(0); // State for fade-in
@@ -33,7 +34,6 @@ function Landing() {
       </p>
       <br />
       <br />
-      <Footer />
       <br />
       <br />
       <br />
@@ -43,6 +43,9 @@ function Landing() {
       <Link to='/proceed'>
         <button>Proceed</button>
       </Link>
+    </div>
+    <div>
+     <Footer />
     </div>
   );
 }

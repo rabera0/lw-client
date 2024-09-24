@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import logo from '../att-logo.png';
 import useWebSockets from '../useWebSocket';
 import uszips from '../data/USCities.json';
+import Footer from './Footer';
+import Header from './Header';
 // import '../App.css';
 
 const Zipcode = () => {
@@ -96,7 +98,7 @@ const Zipcode = () => {
         <br></br>
         <br></br>
         <br></br>
-        <img src={logo} className="logo" alt="Logo" />
+        <Footer />
         <br></br>
         <br></br>
       </div>

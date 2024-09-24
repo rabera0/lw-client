@@ -4,6 +4,8 @@ import uszips from '../data/USCities.json';
 import logo from '../att-logo.png';
 import '../index.css';
 import Graph from './Graph'; // Import the Graph component
+import Footer from './Footer';
+import Header from './Header';
 
 function findStateByZip(zipCode) {
   const numericZipCode = Number(zipCode);
@@ -47,7 +49,7 @@ function StateMap() {
       <Graph zipcode={30303} />
       <br />
       <br />
-      <img src={logo} className="logo" alt="Logo" />
+      <Footer />
       <br />
       <br />
     </div>

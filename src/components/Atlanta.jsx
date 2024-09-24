@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import uszips from "../data/USCities.json";
 import logo from "../att-logo.png";
+import Footer from './Footer';
+import Header from './Header';
 //import { Link } from 'react-router-dom';
 // import '../App.css';
 
@@ -115,7 +117,7 @@ function Atlanta() {
       <h1>#attatlperch</h1>
       <br />
       <br />
-      <img src={logo} className="logo" alt="Logo" />
+      <Footer />
       <br />
       <br />
     </div>

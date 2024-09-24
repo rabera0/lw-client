@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../att-logo.png';
 import Graph from './Graph'; // Import the Graph component
+import Footer from './Footer';
+import Header from './Header';
 
 function AtlMap() {
   const navigate = useNavigate();
@@ -35,7 +37,7 @@ function AtlMap() {
       <br />
       <h2 className={`subtitle ${isFading ? 'fade-out' : ''}`}>Connecting Neighborhoods...</h2>
       <Graph zipcode={zipcode} />
-      <img src={logo} className={`logo`} alt="Logo" />
+      <Footer />
       <br />
       <br />
     </div>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../att-logo.png';
+import Footer from './Footer';
+import Header from './Header';
 
 function FinalPage() {
     const navigate = useNavigate();
@@ -38,7 +40,7 @@ function FinalPage() {
             <br />
             <br />
             <br />
-            <img src={logo} className="logo" alt="Logo" />
+            <Footer />
             <br />
             <br />
         </div>

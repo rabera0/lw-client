@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../att-logo.png';
+import Footer from './Footer';
+import Header from './Header';
 // import '../App.css';
 
 function Proceed() {
@@ -32,7 +33,7 @@ function Proceed() {
         <br></br>
         <br></br>
         <br></br>
-        <img src={logo} className="logo" alt="Logo" />
+        <Footer />
         <br></br>
         <br></br>
       </div>

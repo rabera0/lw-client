@@ -2,6 +2,8 @@ import React from 'react';
 //import { Link } from 'react-router-dom';
 // import '../App.css';
 import logo from '../att-logo.png';
+import Footer from './Footer';
+import Header from './Header';
 
 function International() {
     return (
@@ -14,7 +16,7 @@ function International() {
         <br></br>  
         <br></br>
         <br></br>
-        <img src={logo} className="logo" alt="Logo" />
+        <Footer />
         <br></br>
         <br></br>  
       </div>

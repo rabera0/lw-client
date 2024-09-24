@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../att-logo.png';
 import uszips from '../data/USCities.json';
+import Footer from './Footer';
+import Header from './Header';
 
 const stateMessages = {
   "Alabama": "Hey Alabama! Just a quick hop across the state line, we're thrilled to have our Southern neighbors here. Roll Tide or War Eagle, we're all connected today! Welcome to The AT&T Perch!",
@@ -106,7 +108,7 @@ function State() {
       <p>{message}</p>
       <br />
       <br />
-      <img src={logo} className="logo" alt="Logo" />
+      <Footer />
       <br />
       <br />
     </div>
