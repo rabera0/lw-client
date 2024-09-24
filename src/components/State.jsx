@@ -67,6 +67,7 @@ function State() {
   const location = useLocation();
   const zipcode = location.state?.zipcode; // Get the zipcode from the state
   const [isFading, setIsFading] = useState(false);
+  const [opacity, setOpacity] = useState(0); // State for fade-in
 
   console.log("ZIP Code:", zipcode); // Log the zipcode
 
@@ -76,8 +77,12 @@ function State() {
   // Get the corresponding state message
   const message = state !== 'ZIP code not found' ? stateMessages[state] : "Sorry, we don't have a message for that state.";
   console.log("Message:", message); // Log the message
-  
+
   useEffect(() => {
+    const fadeInTimer = setTimeout(() => {
+      setOpacity(1); // Set opacity to 1 after a delay to trigger fade-in
+    }, 100); // Delay before starting fade in
+
     const timer = setTimeout(() => {
       setIsFading(true);
       setTimeout(() => {
@@ -85,11 +90,14 @@ function State() {
       }, 1000); // Duration of fade-out effect
     }, 3500); // Wait for 3.5 seconds before starting the fade
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(fadeInTimer);
+      clearTimeout(timer);
+    };
   }, [navigate]);
 
   return (
-    <div className="National">
+    <div className="State" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
       <h1>THE AT&T PERCH LIVING MURAL</h1>
       <p>From     To</p>
       <h4>ATL {">>"} {state}</h4>

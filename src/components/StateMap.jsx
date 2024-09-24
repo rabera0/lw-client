@@ -5,7 +5,6 @@ import logo from '../att-logo.png';
 import '../index.css';
 import Graph from './Graph'; // Import the Graph component
 
-
 function findStateByZip(zipCode) {
   const numericZipCode = Number(zipCode);
   const result = uszips.find(entry => entry.zip_code === numericZipCode);
@@ -17,22 +16,30 @@ function StateMap() {
   const location = useLocation();
   const zipcode = location.state?.zipcode;
   const [isFading, setIsFading] = useState(false);
-  
+  const [opacity, setOpacity] = useState(0); // State for fade-in
+
   const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
 
   useEffect(() => {
+    const fadeInTimer = setTimeout(() => {
+      setOpacity(1); // Set opacity to 1 after a delay to trigger fade-in
+    }, 100); // Delay before starting fade in
+
     const timer = setTimeout(() => {
       setIsFading(true); // Start fading out
       setTimeout(() => {
         navigate('/state', { state: { zipcode } }); // Pass state to /state
       }, 1000); // Duration of fade-out effect
-    }, 150500); // Wait for 3.5 seconds before starting the fade
+    }, 3500); // Wait for 3.5 seconds before starting the fade
 
-    return () => clearTimeout(timer); // Cleanup the timer
+    return () => {
+      clearTimeout(fadeInTimer);
+      clearTimeout(timer); // Cleanup the timers
+    };
   }, [navigate, zipcode]);
 
   return (
-    <div className="StateMap">
+    <div className="StateMap" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
       <h1>THE AT&T PERCH LIVING MURAL</h1>
       <p>From     To</p>
       <h4>ATL {">>"} {state}</h4>

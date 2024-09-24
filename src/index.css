@@ -52,6 +52,10 @@ header {
   padding: 10%;
 }
 
+.State {
+  padding: 10%;
+}
+
 /* Fade-in effect */
 .fade-in {
   opacity: 0;
@@ -71,7 +75,6 @@ header {
   opacity: 0;
 }
 
-
 .Atlanta {
 /*   width: 100vw;
   height: 100vh;
@@ -90,6 +93,25 @@ header {
 .FinalText{
     justify-content: center;
 }
+
+
+
+.footer {
+  position: fixed; /* Fix it to the bottom */
+  bottom: 0; /* Align it to the bottom */
+  left: 0; /* Align it to the left */
+  right: 0; /* Stretch it to the right */
+  text-align: center; /* Center the content */
+  background: white; /* Background color */
+  padding: 10px; /* Padding for spacing */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.logo {
+  width: 100px; /* Set your desired width */
+  /* Add any other styles you want */
+}
+
 
 .iframe {
 /*   width: 100%;
