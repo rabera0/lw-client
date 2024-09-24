@@ -43,10 +43,9 @@ function Landing() {
       <Link to='/proceed'>
         <button>Proceed</button>
       </Link>
+      <Footer />
     </div>
-    <div>
-     <Footer />
-    </div>
+    
   );
 }
 
