@@ -62,24 +62,32 @@ function Atlanta() {
   const city = zipcode ? findCityByZip(zipcode) : "ZIP code not provided";
   const [isLoaded, setIsLoaded] = useState(false);
   const [isFading, setIsFading] = useState(false);
+  const [opacity, setOpacity] = useState(0); // State for fade-in
 
-  // Retrieve the message from zipcodeMessages based on the provided zipcode
   const message = zipcodeMessages.find(item => item.zip === zipcode)?.message || "Welcome to the Perch! Happy to connect you to Atlanta!";
   console.log(message);
-  
+
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // Fade in effect
+    const fadeInTimer = setTimeout(() => {
+      setOpacity(1);
+    }, 100); // Delay before starting fade in
+
+    const fadeOutTimer = setTimeout(() => {
       setIsFading(true);
       setTimeout(() => {
         navigate('/finalpage');
       }, 1000); // Duration of fade-out effect
-    }, 3500); // Wait for 3.5 seconds before starting the fade
+    }, 3500); // Wait for 3.5 seconds before starting the fade out
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(fadeInTimer);
+      clearTimeout(fadeOutTimer);
+    };
   }, [navigate]);
 
   return (
-    <div className={`Atlanta`}>
+    <div className={`Atlanta`} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
       {!isLoaded && (
         <div
           style={{

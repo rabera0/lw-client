@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../att-logo.png';
 import Graph from './Graph'; // Import the Graph component
-// import '../App.css';
 
 function AtlMap() {
   const navigate = useNavigate();
   const location = useLocation();
   const zipcode = location.state?.zipcode; // Get the zipcode from the state
   const [isFading, setIsFading] = useState(false);
-  const [isFadingIn, setIsFadingIn] = useState(true);
+  const [opacity, setOpacity] = useState(0); // State for fade-in
 
-  
   useEffect(() => {
+    // Fade in effect
+    const fadeInTimer = setTimeout(() => {
+      setOpacity(1);
+    }, 100); // Delay before starting fade in
+
     const timer = setTimeout(() => {
       setIsFading(true); // Start fading out
       setTimeout(() => {
@@ -20,29 +23,18 @@ function AtlMap() {
       }, 1000); // Duration of fade-out effect
     }, 3500); // Wait for 3.5 seconds before starting the fade
 
-    return () => clearTimeout(timer); // Cleanup the timer
+    return () => {
+      clearTimeout(fadeInTimer);
+      clearTimeout(timer); // Cleanup the timer
+    };
   }, [navigate, zipcode]);
-  
-    // Cleanup for fade-in after the component mounts
-  useEffect(() => {
-    const fadeInTimer = setTimeout(() => {
-      setIsFadingIn(false); // End fade-in
-    }, 100); // Quick delay to allow CSS transition
-
-    return () => clearTimeout(fadeInTimer);
-  }, []);
-  
 
   return (
-     <div className={`AtlMap ${isFadingIn ? 'fade-in' : ''}`}>
+    <div className={`AtlMap`} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
       <h1 className={`title`}>THE AT&T PERCH LIVING MURAL</h1>
       <br />
       <h2 className={`subtitle ${isFading ? 'fade-out' : ''}`}>Connecting Neighborhoods...</h2>
-      {/* Replace 'Animation here' with the Graph component */}
       <Graph zipcode={zipcode} />
-      {/* <div className={`animation-container`}>
-        <Graph />
-      </div> */}
       <img src={logo} className={`logo`} alt="Logo" />
       <br />
       <br />

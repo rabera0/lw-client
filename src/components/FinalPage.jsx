@@ -1,20 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../att-logo.png';
 
 function FinalPage() {
     const navigate = useNavigate();
+    const [opacity, setOpacity] = useState(0); // State for fade-in
 
     useEffect(() => {
+        // Fade in effect
+        const fadeInTimer = setTimeout(() => {
+            setOpacity(1);
+        }, 100); // Delay before starting fade in
+
         const timer = setTimeout(() => {
             navigate('/'); // Navigate to /Landing after the timeout
         }, 5000); // Adjust the timeout duration (5000 ms = 5 seconds)
 
-        return () => clearTimeout(timer); // Cleanup the timer on component unmount
+        return () => {
+            clearTimeout(fadeInTimer);
+            clearTimeout(timer); // Cleanup the timer on component unmount
+        };
     }, [navigate]);
 
     return (
-        <div className="FinalPage">
+        <div className="FinalPage" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
             <h1>THE AT&T PERCH LIVING MURAL</h1>
             <br />
             <br />
