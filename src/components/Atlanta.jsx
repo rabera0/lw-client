@@ -102,12 +102,10 @@ function Atlanta() {
         </div>
       )}
       <h1>THE AT&T PERCH LIVING MURAL</h1>
-      
+      <br />
+      <br />
       <p>{message}</p> {/* Replace "county message" with the retrieved message */}
-      <br />
       <h4>{city}</h4>
-      <br />
-      <br />
       <p>Welcome to the AT&T Perch.</p>
       <br />
       <p>Watch the mural to see your impact</p>
