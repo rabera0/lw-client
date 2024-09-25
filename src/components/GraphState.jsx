@@ -220,18 +220,27 @@ const Graph = ({ zipcode }) => {
     }
   }, [zipcode]);
   
-function findStateByZip(zipCode) {
-  const numericZipCode = Number(zipCode);
-  const result = uszips.find(entry => entry.zip_code === numericZipCode);
-  return result ? result.state : 'ZIP code not found';
-}
+  function findStateByZip(zipCode) {
+    const numericZipCode = Number(zipCode);
+    const result = uszips.find(entry => entry.zip_code === numericZipCode);
+    return result ? result.state : 'ZIP code not found';
+  }
 
-const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
+  const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
   
   function findDirectionByState(state) {
     const result = stateDirection.find(entry => entry.zip_code === numericZipCode);
-    return result ? result.state : 
+    return result ? result.state  : '23';  
   }
+  
+  const direction = state ? findDirectionByState(zipcode) : '23';
+  
+  function findNodeByDirection(direction) {
+      const result = direction.find(entry => entry.zip_code === direction);
+    return result ? result.state  : 'Direction not found'; 
+  }
+  
+  const targetNode = direction ? findNodeByDirection(direction) : 'Target Node not provided';
   
   // Setup function
   const setup = () => {
