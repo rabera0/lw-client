@@ -210,16 +210,6 @@ const Graph = ({ zipcode }) => {
   let bfsComplete = false;
   const nodeDivs = {};
 
-  useEffect(() => {
-    setup();
-    if (zipcode) {
-      const startNode = findNodeByZipcode(zipcode);
-      if (startNode !== null) {
-        handleNodeClick(startNode);
-      }
-    }
-  }, [zipcode]);
-  
   function findStateByZip(zipCode) {
     const numericZipCode = Number(zipCode);
     const result = uszips.find(entry => entry.zip_code === numericZipCode);
@@ -240,7 +230,18 @@ const Graph = ({ zipcode }) => {
     return result ? result.state  : 'Direction not found'; 
   }
   
-  const targetNode = direction ? findNodeByDirection(direction) : 'Target Node not provided';
+  const startNode = direction ? findNodeByDirection(direction) : 'Target Node not provided';
+  
+  
+  useEffect(() => {
+    setup();
+    if (zipcode) {
+      const startNode = findNodeByZipcode(zipcode);
+      if (startNode !== null) {
+        handleNodeClick(startNode);
+      }
+    }
+  }, [zipcode]);
   
   // Setup function
   const setup = () => {
@@ -330,6 +331,8 @@ const Graph = ({ zipcode }) => {
     bfsComplete = false;
 
     let targetNode = "23"; // Set your target node here
+    
+    bfsLevels = getBFSLevels(startNode);
     bfsLevels = getBFSLevels(targetNode);
     console.log("BFS Levels:", bfsLevels);
 
@@ -337,36 +340,36 @@ const Graph = ({ zipcode }) => {
     requestAnimationFrame(animate);
   };
 
-  const findShortestPath = (startNode, targetNode) => { 
-    let visited = new Set();
-    console.log("FindShortestPath startNode:", startNode);
-    console.log("FindShortestPath targetNode:", targetNode);
+//   const findShortestPath = (startNode, targetNode) => { 
+//     let visited = new Set();
+//     // console.log("FindShortestPath startNode:", startNode);
+//     // console.log("FindShortestPath targetNode:", targetNode);
     
-    let queue = [[startNode]];
-    while (queue.length > 0) {
-        let path = queue.shift();
-        let node = path[path.length - 1];
+//     let queue = [[startNode]];
+//     while (queue.length > 0) {
+//         let path = queue.shift();
+//         let node = path[path.length - 1];
 
-        console.log("Current path:", path);
-        console.log(`Comparing node type: ${node} (type: ${typeof node}) with targetNode: ${targetNode} (type: ${typeof targetNode})`);
+//         console.log("Current path:", path);
+//         console.log(`Comparing node type: ${node} (type: ${typeof node}) with targetNode: ${targetNode} (type: ${typeof targetNode})`);
 
-        if (node === targetNode) {
-            console.log("Found path:", path);
-            return path;
-        }
+//         if (node === targetNode) {
+//             console.log("Found path:", path);
+//             return path;
+//         }
 
-        if (!visited.has(node)) {
-            visited.add(node);
-            const neighbors = graph.nodes[node] || [];
-            neighbors.forEach((neighbor) => {
-                let newPath = [...path, neighbor.toString()]; // Ensure neighbor is a string
-                queue.push(newPath);
-            });
-        }
-    }
-    console.log("No path found");
-    return [];
-};
+//         if (!visited.has(node)) {
+//             visited.add(node);
+//             const neighbors = graph.nodes[node] || [];
+//             neighbors.forEach((neighbor) => {
+//                 let newPath = [...path, neighbor.toString()]; // Ensure neighbor is a string
+//                 queue.push(newPath);
+//             });
+//         }
+//     }
+//     console.log("No path found");
+//     return [];
+// };
 
 
   const getBFSLevels = (startNode) => {
