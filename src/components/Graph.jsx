@@ -131,7 +131,6 @@ const Graph = ({ zipcode }) => {
     "33": [30294],
   };
   
-
   let nodeSize = {};
   let nodeColors = {};
   let shortestPath = [];
@@ -394,8 +393,6 @@ const Graph = ({ zipcode }) => {
       {/* Other elements can go here */}
     </div>
   );
-        };
-
-
+};
 
 export default Graph;

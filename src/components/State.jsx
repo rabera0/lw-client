@@ -74,11 +74,10 @@ function State() {
   console.log("ZIP Code:", zipcode); // Log the zipcode
 
   const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
-  console.log("State:", state); // Log the state
+  // console.log("State:", state); // Log the state
 
   // Get the corresponding state message
   const message = state !== 'ZIP code not found' ? stateMessages[state] : "Sorry, we don't have a message for that state.";
-  console.log("Message:", message); // Log the message
 
   useEffect(() => {
     const fadeInTimer = setTimeout(() => {

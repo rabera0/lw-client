@@ -67,7 +67,6 @@ function Atlanta() {
   const [opacity, setOpacity] = useState(0); // State for fade-in
 
   const message = zipcodeMessages.find(item => item.zip === zipcode)?.message || "Welcome to the Perch! Happy to connect you to Atlanta!";
-  console.log(message);
 
   useEffect(() => {
     // Fade in effect
