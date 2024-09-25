@@ -31,7 +31,7 @@ function StateMap() {
       setIsFading(true); // Start fading out
       setTimeout(() => {
         navigate('/state', { state: { zipcode } }); // Pass state to /state
-      }, 1000); // Duration of fade-out effect
+      }, 2000); // Duration of fade-out effect
     }, 3500); // Wait for 3.5 seconds before starting the fade
 
     return () => {

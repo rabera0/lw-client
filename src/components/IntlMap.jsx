@@ -24,7 +24,7 @@ function IntlMap() {
       setIsFading(true);
       setTimeout(() => {
         navigate('/International');
-      }, 1000); // Duration of fade-out effect
+      }, 2000); // Duration of fade-out effect
     }, 3500); // Wait for 3.5 seconds before starting the fade
 
     return () => {
@@ -36,7 +36,7 @@ function IntlMap() {
     return (
       <div className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
         <h1>THE AT&T PERCH LIVING MURAL</h1>
-        <h2> Welcome to America! </h2>
+        <h2> Connecting Atlanta to the World... </h2>
         <br></br>
         <br></br>
         <br></br>

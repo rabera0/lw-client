@@ -35,12 +35,15 @@ function International() {
     return (
       <div className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
         <h1>THE AT&T PERCH LIVING MURAL</h1>
-        <h2> Welcome to America! </h2>
         <br></br>
         <br></br>
         <br></br>
-        <br></br>  
         <br></br>
+        <p> Glad to have you here in</p>
+        <h2>AMERICA</h2> 
+        <p>Watch the mural to see your impact</p>
+        <br />
+        <h1>#attatlperch</h1>
         <br></br>
         <Footer />
         <br></br>
