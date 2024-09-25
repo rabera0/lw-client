@@ -66,8 +66,8 @@ function findStateByZip(zipCode) {
   return result ? result.state : 'ZIP code not found';
 }
 
-function triggerDirectionByZip(zipCode) {
-  const numericZipCode = Number(zipCode);
+function triggerDirectionByState(zipCode) {
+  
 }
 
 function StateMap() {
@@ -79,6 +79,8 @@ function StateMap() {
 
   const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
 
+  const ;
+  
   useEffect(() => {
     const fadeInTimer = setTimeout(() => {
       setOpacity(1); // Set opacity to 1 after a delay to trigger fade-in
