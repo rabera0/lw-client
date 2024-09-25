@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import '../index.css';
+import uszips from '../data/USCities.json';
 
-const Graph = ({ zipcode }, { state }) => {
+const Graph = ({ zipcode }) => {
   const graph = {
     nodes: {
       "0": [1, 2, 3, 4, 5, 34],
@@ -218,7 +219,15 @@ const Graph = ({ zipcode }, { state }) => {
       }
     }
   }, [zipcode]);
+  
+function findStateByZip(zipCode) {
+  const numericZipCode = Number(zipCode);
+  const result = uszips.find(entry => entry.zip_code === numericZipCode);
+  return result ? result.state : 'ZIP code not found';
+}
 
+  const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
+  
   // Setup function
   const setup = () => {
     const container = document.getElementById('graphContainer');

@@ -13,9 +13,6 @@ function findStateByZip(zipCode) {
   return result ? result.state : 'ZIP code not found';
 }
 
-function triggerDirectionByState(zipCode) {
-  
-}
 
 function StateMap() {
   const navigate = useNavigate();
