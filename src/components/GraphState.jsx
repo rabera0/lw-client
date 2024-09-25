@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import '../index.css';
 
-const Graph = ({ zipcode }) => {
+const Graph = ({ zipcode }, { state }) => {
   const graph = {
     nodes: {
       "0": [1, 2, 3, 4, 5, 34],
@@ -130,6 +130,70 @@ const Graph = ({ zipcode }) => {
     "32": [30354],
     "33": [30294],
   };
+  
+  const directionNode = {
+    "N":"6",
+    "S":"32",
+    "E":"14",
+    "W":"22",
+    "NW":"1",
+    "NE":"8",
+    "SW":"30",
+    "SE":"33"
+  }
+  
+  const stateDirection = {
+  "Indiana": "N",
+  "Kentucky": "N",
+  "Michigan": "N",
+  "Minnesota": "N",
+  "Ohio": "N",
+  "Tennessee": "N",
+  "Wisconsin": "N",
+  "Iowa": "N",
+  "Connecticut": "NE",
+  "Delaware": "NE",
+  "Georgia": "NE",
+  "Maryland": "NE",
+  "Maine": "NE",
+  "Massachusetts": "NE",
+  "New Hampshire": "NE",
+  "New Jersey": "NE",
+  "New York": "NE",
+  "North Carolina": "NE",
+  "Pennsylvania": "NE",
+  "Rhode Island": "NE",
+  "Vermont": "NE",
+  "Virginia": "NE",
+  "West Virginia": "NE",
+  "South Carolina": "E",
+  "Florida": "SE",
+  "Hawaii": "SW",
+  "Louisiana": "SW",
+  "New Mexico": "W",
+  "Texas": "W",
+  "Alabama": "W",
+  "Arizona": "W",
+  "Arkansas": "W",
+  "California": "W",
+  "Colorado": "NW",
+  "Mississippi": "W",
+  "Nebraska": "NW",
+  "Oklahoma": "NW",
+  "Kansas": "NW",
+  "Utah": "NW",
+  "Wyoming": "NW",
+  "Alaska": "NW",
+  "Idaho": "NW",
+  "Illinois": "NW",
+  "Missouri": "NW",
+  "Montana": "NW",
+  "Nevada": "NW",
+  "North Dakota": "NW",
+  "Oregon": "NW",
+  "South Dakota": "NW",
+  "Washington": "NW"
+}
   
   let nodeSize = {};
   let nodeColors = {};
