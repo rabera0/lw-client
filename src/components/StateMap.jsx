@@ -7,10 +7,67 @@ import Graph from './Graph'; // Import the Graph component
 import Footer from './Footer';
 import Header from './Header';
 
+const stateDirection = {
+  "Indiana": "N",
+  "Kentucky": "N",
+  "Michigan": "N",
+  "Minnesota": "N",
+  "Ohio": "N",
+  "Tennessee": "N",
+  "Wisconsin": "N",
+  "Iowa": "N",
+  "Connecticut": "NE",
+  "Delaware": "NE",
+  "Georgia": "NE",
+  "Maryland": "NE",
+  "Maine": "NE",
+  "Massachusetts": "NE",
+  "New Hampshire": "NE",
+  "New Jersey": "NE",
+  "New York": "NE",
+  "North Carolina": "NE",
+  "Pennsylvania": "NE",
+  "Rhode Island": "NE",
+  "Vermont": "NE",
+  "Virginia": "NE",
+  "West Virginia": "NE",
+  "South Carolina": "E",
+  "Florida": "SE",
+  "Hawaii": "SW",
+  "Louisiana": "SW",
+  "New Mexico": "W",
+  "Texas": "W",
+  "Alabama": "W",
+  "Arizona": "W",
+  "Arkansas": "W",
+  "California": "W",
+  "Colorado": "NW",
+  "Mississippi": "W",
+  "Nebraska": "NW",
+  "Oklahoma": "NW",
+  "Kansas": "NW",
+  "Utah": "NW",
+  "Wyoming": "NW",
+  "Alaska": "NW",
+  "Idaho": "NW",
+  "Illinois": "NW",
+  "Missouri": "NW",
+  "Montana": "NW",
+  "Nevada": "NW",
+  "North Dakota": "NW",
+  "Oregon": "NW",
+  "South Dakota": "NW",
+  "Washington": "NW"
+}
+
 function findStateByZip(zipCode) {
   const numericZipCode = Number(zipCode);
   const result = uszips.find(entry => entry.zip_code === numericZipCode);
   return result ? result.state : 'ZIP code not found';
+}
+
+function triggerDirectionByZip(zipCode) {
+  const numericZipCode = Number(zipCode);
 }
 
 function StateMap() {
