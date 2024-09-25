@@ -319,46 +319,60 @@ const Graph = ({ zipcode }) => {
     requestAnimationFrame(animate);
   };
 
-  const updateNodeColors = (elapsedTime) => {
+const updateNodeColors = (elapsedTime) => {
     if (!pathComplete) {
-      let stepDuration = shortestPathDuration / shortestPath.length;
-      if (pathIndex < shortestPath.length) {
-        let node = shortestPath[pathIndex];
-        if (elapsedTime >= stepDuration * (pathIndex + 1)) {
-          nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
-          nodeDivs[node].style.background = nodeColors[node];
-          nodeDivs[node].style.border = 'none';
-          triggerPulseAnimation(node);
-          pathIndex++;
+        let stepDuration = shortestPathDuration / shortestPath.length;
+        if (pathIndex < shortestPath.length) {
+            let node = shortestPath[pathIndex];
+            if (elapsedTime >= stepDuration * (pathIndex + 1)) {
+                nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
+                nodeDivs[node].style.background = nodeColors[node];
+                nodeDivs[node].style.border = 'none';
+                triggerPulseAnimation(node);
+                pathIndex++;
+            }
+            if (pathIndex >= shortestPath.length) {
+                pathComplete = true;
+            }
         }
-        if (pathIndex >= shortestPath.length) {
-          pathComplete = true;
-        }
-      }
     }
 
     if (pathComplete && !bfsComplete) {
-      let stepDuration = bfsDuration / bfsLevels.length;
-      let levelToUpdate = Math.floor((elapsedTime - shortestPathDuration) / stepDuration);
+        let stepDuration = bfsDuration / bfsLevels.length;
+        let levelToUpdate = Math.floor((elapsedTime - shortestPathDuration) / stepDuration);
 
-      if (levelToUpdate < bfsLevels.length) {
-        let levelNodes = bfsLevels[levelToUpdate];
-        for (let node of levelNodes) {
-          nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
-          nodeDivs[node].style.background = nodeColors[node];
-          nodeDivs[node].style.border = 'none'; // Remove the border
-          triggerPulseAnimation(node);
+        if (levelToUpdate < bfsLevels.length) {
+            let levelNodes = bfsLevels[levelToUpdate];
+            colorNodesWithDelay(levelNodes, 100); // Introduce a 100ms delay
         }
-      }
 
-      if (levelToUpdate >= bfsLevels.length - 1) {
-        bfsComplete = true;
-        setTimeout(() => {
-          resetNodeColors();
-        }, 3000);
-      }
+        if (levelToUpdate >= bfsLevels.length - 1) {
+            bfsComplete = true;
+            setTimeout(() => {
+                resetNodeColors();
+            }, 3000);
+        }
     }
-  };
+};
+
+// Function to color nodes with a delay
+const colorNodesWithDelay = (levelNodes, delay) => {
+    let currentIndex = 0;
+
+    const colorNextNode = () => {
+        if (currentIndex < levelNodes.length) {
+            let node = levelNodes[currentIndex];
+            nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
+            nodeDivs[node].style.background = nodeColors[node];
+            nodeDivs[node].style.border = 'none'; // Remove the border
+            triggerPulseAnimation(node);
+            currentIndex++;
+            setTimeout(colorNextNode, delay); // Call the next node coloring after a delay
+        }
+    };
+
+    colorNextNode(); // Start the coloring process
+};
 
   const resetNodeColors = () => {
     for (let key in nodeDivs) {
