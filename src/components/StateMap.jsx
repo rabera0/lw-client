@@ -49,7 +49,6 @@ function StateMap() {
       <h4>ATL {">>"} {state}</h4>
       <br />
       <Graph zipcode={30303} />
-      <GraphState zipcode={zipcode}/>
       <br />
       <br />
       <Footer />
