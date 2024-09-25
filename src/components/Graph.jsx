@@ -159,6 +159,7 @@ const Graph = ({ zipcode }) => {
     "Florida": "SE",
     "Hawaii": "SW",
     "Louisiana": "SW",
+    "New Mexico": "W",
     "Texas": "SW",
     "Alabama": "W",
     "Arizona": "W",
