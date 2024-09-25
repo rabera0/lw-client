@@ -229,7 +229,7 @@ const Graph = ({ zipcode }) => {
   const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
   
   function findDirectionByState(state) {
-    const result = stateDirection.find(entry => entry.zip_code === numericZipCode);
+    const result = stateDirection.find(entry => entry.zip_code === state);
     return result ? result.state  : '23';  
   }
   
