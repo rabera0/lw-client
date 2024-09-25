@@ -226,7 +226,12 @@ function findStateByZip(zipCode) {
   return result ? result.state : 'ZIP code not found';
 }
 
-  const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
+const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
+  
+  function findDirectionByState(state) {
+    const result = stateDirection.find(entry => entry.zip_code === numericZipCode);
+    return result ? result.state : 
+  }
   
   // Setup function
   const setup = () => {
