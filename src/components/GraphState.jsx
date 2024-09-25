@@ -216,21 +216,19 @@ const Graph = ({ zipcode }) => {
     return result ? result.state : 'ZIP code not found';
   }
 
-  const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
-  
+  // Function to find direction by state
   function findDirectionByState(state) {
-    const result = stateDirection.find(entry => entry.zip_code === state);
-    return result ? result.state  : '23';  
+    return stateDirection[state] || null; // Return null if state not found
   }
-  
-  const direction = state ? findDirectionByState(zipcode) : '23';
-  
+
+  // Function to find node by direction
   function findNodeByDirection(direction) {
-      const result = direction.find(entry => entry.zip_code === direction);
-    return result ? result.state  : 'Direction not found'; 
+    return directionNode[direction] || null; // Return null if direction not found
   }
   
-  const startNode = direction ? findNodeByDirection(direction) : 'Target Node not provided';
+  const state = zipcode ? findStateByZip(zipcode) : null;
+  const direction = state ? findDirectionByState(state) : null;
+  const startNode = direction ? findNodeByDirection(direction) : '23'
   
   
   useEffect(() => {
@@ -339,38 +337,6 @@ const Graph = ({ zipcode }) => {
     animationStartTime = performance.now();
     requestAnimationFrame(animate);
   };
-
-//   const findShortestPath = (startNode, targetNode) => { 
-//     let visited = new Set();
-//     // console.log("FindShortestPath startNode:", startNode);
-//     // console.log("FindShortestPath targetNode:", targetNode);
-    
-//     let queue = [[startNode]];
-//     while (queue.length > 0) {
-//         let path = queue.shift();
-//         let node = path[path.length - 1];
-
-//         console.log("Current path:", path);
-//         console.log(`Comparing node type: ${node} (type: ${typeof node}) with targetNode: ${targetNode} (type: ${typeof targetNode})`);
-
-//         if (node === targetNode) {
-//             console.log("Found path:", path);
-//             return path;
-//         }
-
-//         if (!visited.has(node)) {
-//             visited.add(node);
-//             const neighbors = graph.nodes[node] || [];
-//             neighbors.forEach((neighbor) => {
-//                 let newPath = [...path, neighbor.toString()]; // Ensure neighbor is a string
-//                 queue.push(newPath);
-//             });
-//         }
-//     }
-//     console.log("No path found");
-//     return [];
-// };
-
 
   const getBFSLevels = (startNode) => {
     let levels = [];
