@@ -237,9 +237,6 @@ const Graph = ({ zipcode }) => {
   useEffect(() => {
     setup();
     if (zipcode) {
-      console.log("yoohoo " + zipcode)
-      const startNode = findNodeByZipcode(zipcode);
-      console.log("wahoo " + startNode)
       if (startNode !== null) {
         handleNodeClick(startNode);
       }
@@ -338,7 +335,7 @@ const Graph = ({ zipcode }) => {
     
     bfsLevels = getBFSLevels(startNode);
   //  bfsLevels = getBFSLevels(targetNode);
-    console.log("BFS Levels:", bfsLevels);
+   console.log("wahoo " + startNode)
 
     animationStartTime = performance.now();
     requestAnimationFrame(animate);
@@ -371,7 +368,7 @@ const Graph = ({ zipcode }) => {
   const animate = () => {
     const elapsedTime = performance.now() - animationStartTime;
 
-    if (elapsedTime > shortestPathDuration + bfsDuration + clearDuration) {
+    if (elapsedTime > bfsDuration + clearDuration) {
       return; // Stop the animation
     }
 
@@ -380,6 +377,7 @@ const Graph = ({ zipcode }) => {
   };
   
   const updateNodeColors = (elapsedTime) => {
+    console.log("yellow " + elapsedTime)
       if (!pathComplete) {
           let stepDuration = shortestPathDuration / shortestPath.length;
           if (pathIndex < shortestPath.length) {
