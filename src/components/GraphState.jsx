@@ -466,9 +466,9 @@ const colorNodesWithDelay = (levelNodes, delay) => {
 
   const triggerPulseAnimation = (node) => {
     const nodeDiv = nodeDivs[node];
-    nodeDiv.classList.add('pulse-animation');
+    nodeDiv.classList.add('pulse');
     setTimeout(() => {
-      nodeDiv.classList.remove('pulse-animation');
+      nodeDiv.classList.remove('pulse');
     }, 2000); // Duration of the pulse animation in milliseconds
   };
 

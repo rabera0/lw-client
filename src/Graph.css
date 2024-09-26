@@ -56,7 +56,7 @@ body {
 /* Keyframes for the pulse animation */
 @keyframes pulse {
   0% {
-    background: radial-gradient(white var(--p),#009fdb);
+    background: transparent;
     transform: scale(1);
     --p: 0%;
     --l: 0px;
@@ -65,7 +65,8 @@ body {
     box-shadow: 0 0 0px 0px #009fdb; /* No shadow initially */
   }
   50% {
-    background: radial-gradient(white var(--p),#009fdb);
+/*     background: radial-gradient(white var(--p),#009fdb); */
+    background: transparent;
     transform: scale(1.1);
     --p: 80%;
     --l: 80px;
@@ -74,7 +75,8 @@ body {
     box-shadow: 0 0 10px 5px #009fdb; /* Box shadow during animation */
   }
   100% {
-    background: radial-gradient(white var(--p),#009fdb);
+/*     background: radial-gradient(white var(--p),#009fdb); */
+    background: transparent;
     transform: scale(1);
     --p: 0%;
     --l: 0px;

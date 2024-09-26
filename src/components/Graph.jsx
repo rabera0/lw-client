@@ -139,8 +139,8 @@ const Graph = ({ zipcode }) => {
   let levelIndex = 0;
   let animationStartTime;
   const shortestPathDuration = 1500;
-  const bfsDuration = 3000;
-  const clearDuration = 3000;
+  const bfsDuration = 4000;
+  const clearDuration = 5000;
   let pathComplete = false;
   let bfsComplete = false;
   const nodeDivs = {};
@@ -187,7 +187,8 @@ const Graph = ({ zipcode }) => {
       nodeDiv.style.top = `${vertexList[key].y - size / 2}px`;
       nodeDiv.style.width = `${size}px`;
       nodeDiv.style.height = `${size}px`;
-      nodeDiv.style.backgroundColor = nodeColors[key];
+      // nodeDiv.style.backgroundColor = nodeColors[key];
+      nodeDiv.style.backgroundColor = 'transparent';
       nodeDiv.style.border = '2px solid rgb(255, 255, 255)'; // White border
       nodeDiv.style.borderRadius = '50%';
       nodeDiv.style.transition = 'background 0.5s ease';
@@ -325,9 +326,9 @@ const Graph = ({ zipcode }) => {
           if (pathIndex < shortestPath.length) {
               let node = shortestPath[pathIndex];
               if (elapsedTime >= stepDuration * (pathIndex + 1)) {
-                  nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
+                  nodeColors[node] = 'transparent';
                   nodeDivs[node].style.background = nodeColors[node];
-                  nodeDivs[node].style.border = 'none';
+                  // nodeDivs[node].style.border = 'none';
                   triggerPulseAnimation(node);
                   pathIndex++;
               }
@@ -343,14 +344,14 @@ const Graph = ({ zipcode }) => {
 
           if (levelToUpdate < bfsLevels.length) {
               let levelNodes = bfsLevels[levelToUpdate];
-              colorNodesWithDelay(levelNodes, 80); // 80ms delay
+              colorNodesWithDelay(levelNodes, 800); // 80ms delay
           }
 
           if (levelToUpdate >= bfsLevels.length - 1) {
               bfsComplete = true;
               setTimeout(() => {
-                  resetNodeColors();
-              }, 3000);
+                resetNodeColors();
+              }, 9000);
           }
       }
   };
@@ -363,9 +364,9 @@ const colorNodesWithDelay = (levelNodes, delay) => {
         if (currentIndex < levelNodes.length) {
             let node = levelNodes[currentIndex];
             // nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
-            nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
+            nodeColors[node] = 'transparent'; // Set background to transparent
             nodeDivs[node].style.background = nodeColors[node];
-            nodeDivs[node].style.border = 'none'; // Remove the border
+            // nodeDivs[node].style.border = 'none'; // Remove the border
             triggerPulseAnimation(node);
             currentIndex++;
             setTimeout(colorNextNode, delay); // Call the next node coloring after a delay
