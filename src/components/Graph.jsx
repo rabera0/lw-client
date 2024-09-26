@@ -362,6 +362,7 @@ const colorNodesWithDelay = (levelNodes, delay) => {
     const colorNextNode = () => {
         if (currentIndex < levelNodes.length) {
             let node = levelNodes[currentIndex];
+            // nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
             nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
             nodeDivs[node].style.background = nodeColors[node];
             nodeDivs[node].style.border = 'none'; // Remove the border
@@ -383,9 +384,9 @@ const colorNodesWithDelay = (levelNodes, delay) => {
 
   const triggerPulseAnimation = (node) => {
     const nodeDiv = nodeDivs[node];
-    nodeDiv.classList.add('pulse-animation');
+    nodeDiv.classList.add('pulse');
     setTimeout(() => {
-      nodeDiv.classList.remove('pulse-animation');
+      nodeDiv.classList.remove('pulse');
     }, 3000); // Duration of the pulse animation in milliseconds
   };
 
