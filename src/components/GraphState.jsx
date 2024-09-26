@@ -237,7 +237,9 @@ const Graph = ({ zipcode }) => {
   useEffect(() => {
     setup();
     if (zipcode) {
+      console.log("yoohoo " + zipcode)
       const startNode = findNodeByZipcode(zipcode);
+      console.log("wahoo " + startNode)
       if (startNode !== null) {
         handleNodeClick(startNode);
       }
@@ -308,19 +310,19 @@ const Graph = ({ zipcode }) => {
     // });
   };
 
-  const findNodeByZipcode = (zipcode) => {
-    console.log("Zipcode:", zipcode);
-    // Convert zipcode to number if it's a string
-    const numericZipcode = typeof zipcode === 'string' ? Number(zipcode) : zipcode;
+//   const findNodeByZipcode = (zipcode) => {
+//     console.log("Zipcode:", zipcode);
+//     // Convert zipcode to number if it's a string
+//     const numericZipcode = typeof zipcode === 'string' ? Number(zipcode) : zipcode;
   
-    for (let node in nodeZipData) {
-      if (nodeZipData[node].includes(numericZipcode)) {
-        console.log("Associated Node:", node);
-        return node; // Return the node key associated with the zipcode
-      }
-    }
-    return null; // Return null if no node is found
-  };
+//     for (let node in nodeZipData) {
+//       if (nodeZipData[node].includes(numericZipcode)) {
+//         console.log("Associated Node:", node);
+//         return node; // Return the node key associated with the zipcode
+//       }
+//     }
+//     return null; // Return null if no node is found
+//   };
  
 
   const handleNodeClick = (startNode) => {
@@ -335,7 +337,7 @@ const Graph = ({ zipcode }) => {
     let targetNode = "23"; // Set your target node here
     
     bfsLevels = getBFSLevels(startNode);
-    bfsLevels = getBFSLevels(targetNode);
+  //  bfsLevels = getBFSLevels(targetNode);
     console.log("BFS Levels:", bfsLevels);
 
     animationStartTime = performance.now();
