@@ -218,17 +218,20 @@ const Graph = ({ zipcode }) => {
 
   // Function to find direction by state
   function findDirectionByState(state) {
+    console.log("state: " + state)
     return stateDirection[state] || null; // Return null if state not found
   }
 
   // Function to find node by direction
   function findNodeByDirection(direction) {
+    console.log("direction: " + direction)
     return directionNode[direction] || null; // Return null if direction not found
   }
   
   const state = zipcode ? findStateByZip(zipcode) : null;
   const direction = state ? findDirectionByState(state) : null;
   const startNode = direction ? findNodeByDirection(direction) : '23'
+  console.log("start node: " + startNode)
   
   
   useEffect(() => {
@@ -321,6 +324,7 @@ const Graph = ({ zipcode }) => {
  
 
   const handleNodeClick = (startNode) => {
+    console.log("handle node click: " + startNode)
     shortestPath = [];
     bfsLevels = [];
     pathIndex = 0;
