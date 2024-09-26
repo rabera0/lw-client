@@ -404,47 +404,40 @@ const Graph = ({ zipcode }) => {
   const updateNodeColors = (elapsedTime) => {
       if (!pathComplete) {
           let stepDuration = shortestPathDuration / shortestPath.length;
-          
-        
-          // if (pathIndex < shortestPath.length) {
-          //     let node = shortestPath[pathIndex];
-          //   console.log("node" + node);
-          //   
-          //     if (pathIndex >= shortestPath.length) {
-          //         pathComplete = true;
-          //     }
-          // }
 
-          if (pathIndex < shortestPath.length) {
-              let levelNodes = shortestPath[pathIndex];
+          let levelToUpdate = Math.floor((elapsedTime) / stepDuration);
+        
+          if (levelToUpdate < shortestPath.length) {
+              let levelNodes = shortestPath[levelToUpdate];
               colorNodesWithDelay(levelNodes, 80); // 80ms delay
           }
 
-          if (pathIndex >= shortestPath.length) {
+          if (levelToUpdate >= shortestPath.length) {
               setTimeout(() => {
                   pathComplete = true;
-              }, 3000);
-          }
-      }
-
-      if (pathComplete && !bfsComplete) {
-          let stepDuration = bfsDuration / bfsLevels.length;
-          
-        
-          let levelToUpdate = Math.floor((elapsedTime - shortestPathDuration) / stepDuration);
-
-          if (levelToUpdate < bfsLevels.length) {
-              let levelNodes = bfsLevels[levelToUpdate];
-              colorNodesWithDelay(levelNodes, 80); // 80ms delay
-          }
-
-          if (levelToUpdate >= bfsLevels.length - 1) {
-              bfsComplete = true;
-              setTimeout(() => {
                   resetNodeColors();
               }, 3000);
           }
       }
+//       if (pathComplete && !bfsComplete) {
+//           let stepDuration = bfsDuration / bfsLevels.length;
+        
+//           let levelToUpdate = Math.floor((elapsedTime - shortestPathDuration) / stepDuration);
+
+//           if (levelToUpdate < bfsLevels.length) {
+//               let levelNodes = bfsLevels[levelToUpdate];
+//               colorNodesWithDelay(levelNodes, 80); // 80ms delay
+//           }
+
+//           if (levelToUpdate >= bfsLevels.length - 1) {
+//               bfsComplete = true;
+//             console.log(bfsComplete)
+//               setTimeout(() => {
+//                 console.log("BFS complete")
+//                   resetNodeColors();
+//               }, 3000);
+//           }
+//       }
   };
 
 // Function to color nodes with a delay
@@ -478,7 +471,7 @@ const colorNodesWithDelay = (levelNodes, delay) => {
     nodeDiv.classList.add('pulse-animation');
     setTimeout(() => {
       nodeDiv.classList.remove('pulse-animation');
-    }, 1000); // Duration of the pulse animation in milliseconds
+    }, 500); // Duration of the pulse animation in milliseconds
   };
 
   return (
