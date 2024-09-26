@@ -27,14 +27,14 @@ function StateMap() {
   useEffect(() => {
     const fadeInTimer = setTimeout(() => {
       setOpacity(1); // Set opacity to 1 after a delay to trigger fade-in
-    }, 1000); // Delay before starting fade in
+    }, 100); // Delay before starting fade in
 
     const timer = setTimeout(() => {
       setIsFading(true); // Start fading out
       setTimeout(() => {
         navigate('/state', { state: { zipcode } }); // Pass state to /state
       }, 3000); // Duration of fade-out effect
-    }, 3500); // Wait for 3.5 seconds before starting the fade
+    }, 4500); // Wait for 4.5 seconds before starting the fade
 
     return () => {
       clearTimeout(fadeInTimer);
