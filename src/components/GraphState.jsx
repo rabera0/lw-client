@@ -44,7 +44,7 @@ const Graph = ({ zipcode }) => {
       "36": [2, 11, 20, 23],
       "37": [23, 24, 27]
     }
-  };
+};
 
   const vertexList = {
     "0": { "x": 134, "y": 70 },
@@ -323,7 +323,6 @@ const Graph = ({ zipcode }) => {
  
 
   const handleNodeClick = (startNode) => {
-    console.log("handle node click: " + startNode)
     shortestPath = [];
     bfsLevels = [];
     pathIndex = 0;
@@ -333,9 +332,8 @@ const Graph = ({ zipcode }) => {
 
     let targetNode = "23"; // Set your target node here
     shortestPath = findShortestPath(startNode);
-    bfsLevels = getBFSLevels(targetNode);
+    // bfsLevels = getBFSLevels(targetNode);
   //  bfsLevels = getBFSLevels(targetNode);
-   console.log("wahoo " + startNode)
 
     animationStartTime = performance.now();
     requestAnimationFrame(animate);
@@ -366,29 +364,29 @@ const Graph = ({ zipcode }) => {
 };
   
 
-  const getBFSLevels = (startNode) => {
-    let levels = [];
-    let visited = new Set();
-    let queue = [[startNode]];
+//   const getBFSLevels = (startNode) => {
+//     let levels = [];
+//     let visited = new Set();
+//     let queue = [[startNode]];
 
-    while (queue.length > 0) {
-      let level = queue.shift();
-      levels.push(level);
-      let nextLevel = [];
+//     while (queue.length > 0) {
+//       let level = queue.shift();
+//       levels.push(level);
+//       let nextLevel = [];
 
-      level.forEach((node) => {
-        if (!visited.has(node)) {
-          visited.add(node);
-          nextLevel.push(...graph.nodes[node].filter((neighbor) => !visited.has(neighbor)));
-        }
-      });
+//       level.forEach((node) => {
+//         if (!visited.has(node)) {
+//           visited.add(node);
+//           nextLevel.push(...graph.nodes[node].filter((neighbor) => !visited.has(neighbor)));
+//         }
+//       });
 
-      if (nextLevel.length > 0) {
-        queue.push(nextLevel);
-      }
-    }
-    return levels;
-  };
+//       if (nextLevel.length > 0) {
+//         queue.push(nextLevel);
+//       }
+//     }
+//     return levels;
+//   };
 
   const animate = () => {
     const elapsedTime = performance.now() - animationStartTime;
@@ -409,13 +407,13 @@ const Graph = ({ zipcode }) => {
         
           if (levelToUpdate < shortestPath.length) {
               let levelNodes = shortestPath[levelToUpdate];
-              colorNodesWithDelay(levelNodes, 80); // 80ms delay
+              colorNodesWithDelay(levelNodes, 200); // 80ms delay
           }
 
           if (levelToUpdate >= shortestPath.length) {
               setTimeout(() => {
                   pathComplete = true;
-                  resetNodeColors();
+                //  resetNodeColors();
               }, 3000);
           }
       }
@@ -471,7 +469,7 @@ const colorNodesWithDelay = (levelNodes, delay) => {
     nodeDiv.classList.add('pulse-animation');
     setTimeout(() => {
       nodeDiv.classList.remove('pulse-animation');
-    }, 500); // Duration of the pulse animation in milliseconds
+    }, 2000); // Duration of the pulse animation in milliseconds
   };
 
   return (
