@@ -62,7 +62,7 @@ body {
     --l: 0px;
     --a: 0deg;
     filter: blur(0px);
-    box-shadow: 0 0 0px 0px #009fdb; /* No shadow initially */
+    box-shadow: 0 0 0px 0px #ffffff; /* No shadow initially */
   }
   50% {
 /*     background: radial-gradient(white var(--p),#009fdb); */
@@ -72,7 +72,7 @@ body {
     --l: 80px;
     --a: 180deg;
     filter: blur(5px);
-    box-shadow: 0 0 10px 5px #009fdb; /* Box shadow during animation */
+    box-shadow: 0 0 10px 5px #ffffff; /* Box shadow during animation */
   }
   100% {
 /*     background: radial-gradient(white var(--p),#009fdb); */
@@ -82,7 +82,7 @@ body {
     --l: 0px;
     --a: 0deg;
     filter: blur(0px);
-    box-shadow: 0 0 0px 0px #009fdb; /* No shadow at end */
+    box-shadow: 0 0 0px 0px #ffffff; /* No shadow at end */
   }
 }
 

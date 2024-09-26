@@ -27,7 +27,7 @@ function StateMap() {
   useEffect(() => {
     const fadeInTimer = setTimeout(() => {
       setOpacity(1); // Set opacity to 1 after a delay to trigger fade-in
-    }, 100); // Delay before starting fade in
+    }, 1000); // Delay before starting fade in
 
     const timer = setTimeout(() => {
       setIsFading(true); // Start fading out

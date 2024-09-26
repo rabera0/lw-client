@@ -326,7 +326,7 @@ const Graph = ({ zipcode }) => {
           if (pathIndex < shortestPath.length) {
               let node = shortestPath[pathIndex];
               if (elapsedTime >= stepDuration * (pathIndex + 1)) {
-                  nodeColors[node] = 'transparent';
+                  nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
                   nodeDivs[node].style.background = nodeColors[node];
                   // nodeDivs[node].style.border = 'none';
                   triggerPulseAnimation(node);

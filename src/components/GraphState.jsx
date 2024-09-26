@@ -276,6 +276,7 @@ const Graph = ({ zipcode }) => {
       nodeDiv.style.width = `${size}px`;
       nodeDiv.style.height = `${size}px`;
       nodeDiv.style.backgroundColor = nodeColors[key];
+      nodeDiv.style.backgroundColor = 'transparent';
       nodeDiv.style.border = '2px solid rgb(255, 255, 255)'; // White border
       nodeDiv.style.borderRadius = '50%';
       nodeDiv.style.transition = 'background 0.5s ease';
@@ -447,7 +448,7 @@ const colorNodesWithDelay = (levelNodes, delay) => {
             let node = levelNodes[currentIndex];
             nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
             nodeDivs[node].style.background = nodeColors[node];
-            nodeDivs[node].style.border = 'none'; // Remove the border
+            // nodeDivs[node].style.border = 'none'; // Remove the border
             triggerPulseAnimation(node);
             currentIndex++;
             setTimeout(colorNextNode, delay); // Call the next node coloring after a delay
