@@ -332,14 +332,39 @@ const Graph = ({ zipcode }) => {
     bfsComplete = false;
 
     let targetNode = "23"; // Set your target node here
-    
-    bfsLevels = getBFSLevels(startNode);
+    shortestPath = findShortestPath(startNode);
+    bfsLevels = getBFSLevels(targetNode);
   //  bfsLevels = getBFSLevels(targetNode);
    console.log("wahoo " + startNode)
 
     animationStartTime = performance.now();
     requestAnimationFrame(animate);
   };
+  
+    const findShortestPath = (startNode) => { 
+      let levels = [];
+        let visited = new Set();
+        let queue = [[startNode]];
+
+        while (queue.length > 0) {
+          let level = queue.shift();
+          levels.push(level);
+          let nextLevel = [];
+
+          level.forEach((node) => {
+            if (!visited.has(node)) {
+              visited.add(node);
+              nextLevel.push(...graph.nodes[node].filter((neighbor) => !visited.has(neighbor)));
+            }
+          });
+
+          if (nextLevel.length > 0) {
+            queue.push(nextLevel);
+          }
+        }
+        return levels;
+};
+  
 
   const getBFSLevels = (startNode) => {
     let levels = [];
@@ -377,11 +402,13 @@ const Graph = ({ zipcode }) => {
   };
   
   const updateNodeColors = (elapsedTime) => {
-    console.log("yellow " + elapsedTime)
       if (!pathComplete) {
           let stepDuration = shortestPathDuration / shortestPath.length;
+          
+        
           if (pathIndex < shortestPath.length) {
               let node = shortestPath[pathIndex];
+            console.log("node" + node);
               if (elapsedTime >= stepDuration * (pathIndex + 1)) {
                   nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
                   nodeDivs[node].style.background = nodeColors[node];
@@ -397,6 +424,8 @@ const Graph = ({ zipcode }) => {
 
       if (pathComplete && !bfsComplete) {
           let stepDuration = bfsDuration / bfsLevels.length;
+          
+        
           let levelToUpdate = Math.floor((elapsedTime - shortestPathDuration) / stepDuration);
 
           if (levelToUpdate < bfsLevels.length) {
