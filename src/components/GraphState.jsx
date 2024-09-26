@@ -406,19 +406,24 @@ const Graph = ({ zipcode }) => {
           let stepDuration = shortestPathDuration / shortestPath.length;
           
         
+          // if (pathIndex < shortestPath.length) {
+          //     let node = shortestPath[pathIndex];
+          //   console.log("node" + node);
+          //   
+          //     if (pathIndex >= shortestPath.length) {
+          //         pathComplete = true;
+          //     }
+          // }
+
           if (pathIndex < shortestPath.length) {
-              let node = shortestPath[pathIndex];
-            console.log("node" + node);
-              if (elapsedTime >= stepDuration * (pathIndex + 1)) {
-                  nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
-                  nodeDivs[node].style.background = nodeColors[node];
-                  nodeDivs[node].style.border = 'none';
-                  triggerPulseAnimation(node);
-                  pathIndex++;
-              }
-              if (pathIndex >= shortestPath.length) {
+              let levelNodes = shortestPath[pathIndex];
+              colorNodesWithDelay(levelNodes, 80); // 80ms delay
+          }
+
+          if (pathIndex >= shortestPath.length) {
+              setTimeout(() => {
                   pathComplete = true;
-              }
+              }, 3000);
           }
       }
 
