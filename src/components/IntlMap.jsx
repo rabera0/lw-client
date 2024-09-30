@@ -4,6 +4,7 @@ import Footer from './Footer';
 import Header from './Header';
 import Graph from './Graph'; 
 import GraphState from './GraphState'
+import AFrameScene from './AFrame';
 
 function IntlMap() {
     const navigate = useNavigate();
@@ -22,8 +23,8 @@ function IntlMap() {
       setIsFading(true);
       setTimeout(() => {
         navigate('/International');
-      }, 2500); // Duration of fade-out effect
-    }, 3500); // Wait for 3.5 seconds before starting the fade
+      }, 20500); // Duration of fade-out effect
+    }, 30500); // Wait for 3.5 seconds before starting the fade
 
     return () => {
       clearTimeout(fadeInTimer);
@@ -39,7 +40,7 @@ function IntlMap() {
           <br></br>
           <br></br>
           <br></br>
-          <GraphState zipcode={30303} />
+          <AFrameScene />
           <br></br>  
           <br></br>
           <br></br>
