@@ -23,8 +23,8 @@ function IntlMap() {
       setIsFading(true);
       setTimeout(() => {
         navigate('/International');
-      }, 20500); // Duration of fade-out effect
-    }, 30500); // Wait for 3.5 seconds before starting the fade
+      }, 200); // Duration of fade-out effect
+    }, 3500); // Wait for 3.5 seconds before starting the fade
 
     return () => {
       clearTimeout(fadeInTimer);
@@ -37,9 +37,6 @@ function IntlMap() {
         <Header />
         <div  className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
           <h2> Connecting Atlanta to the World... </h2>
-          <br></br>
-          <br></br>
-          <br></br>
           <AFrameScene />
           <br></br>  
           <br></br>
