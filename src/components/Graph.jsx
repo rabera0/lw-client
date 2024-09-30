@@ -138,8 +138,8 @@ const Graph = ({ zipcode }) => {
   let pathIndex = 0;
   let levelIndex = 0;
   let animationStartTime;
-  const shortestPathDuration = 1500;
-  const bfsDuration = 3000;
+  const shortestPathDuration = 1200;
+  const bfsDuration = 1200;
   const clearDuration = 5000;
   let pathComplete = false;
   let bfsComplete = false;
@@ -266,76 +266,75 @@ const Graph = ({ zipcode }) => {
 };
 
 
-  const getBFSLevels = (targetNode) => {
+const getBFSLevels = (targetNode) => {
     let levels = [];
     let visited = new Set();
     let queue = [[targetNode]];
 
     while (queue.length > 0) {
-      let level = queue.shift();
-      levels.push(level);
-      let nextLevel = [];
+        let level = queue.shift();
+        levels.push(level);
+        let nextLevel = [];
 
-      level.forEach((node) => {
-        if (!visited.has(node)) {
-          visited.add(node);
-          nextLevel.push(...graph.nodes[node].filter((neighbor) => !visited.has(neighbor)));
+        level.forEach((node) => {
+            if (!visited.has(node)) {
+                visited.add(node);
+                nextLevel.push(...graph.nodes[node].filter((neighbor) => !visited.has(neighbor)));
+            }
+        });
+
+        if (nextLevel.length > 0) {
+            queue.push(nextLevel);
         }
-      });
-
-      if (nextLevel.length > 0) {
-        queue.push(nextLevel);
-      }
     }
     return levels;
-  };
+};
 
-  const animate = () => {
+const animate = () => {
     const elapsedTime = performance.now() - animationStartTime;
 
     if (elapsedTime > shortestPathDuration + bfsDuration + clearDuration) {
-      return; // Stop the animation
+        return; // Stop the animation
     }
 
     updateNodeColors(elapsedTime);
     requestAnimationFrame(animate);
-  };
-  
-  const updateNodeColors = (elapsedTime) => {
-      if (!pathComplete) {
-          let stepDuration = shortestPathDuration / shortestPath.length;
-          if (pathIndex < shortestPath.length) {
-              let node = shortestPath[pathIndex];
-              if (elapsedTime >= stepDuration * (pathIndex + 1)) {
-                  nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
-                  nodeDivs[node].style.background = nodeColors[node];
-                  // nodeDivs[node].style.border = 'none';
-                  triggerPulseAnimation(node);
-                  pathIndex++;
-              }
-              if (pathIndex >= shortestPath.length) {
-                  pathComplete = true;
-              }
-          }
-      }
+};
 
-      if (pathComplete && !bfsComplete) {
-          let stepDuration = bfsDuration / bfsLevels.length;
-          let levelToUpdate = Math.floor((elapsedTime - shortestPathDuration) / stepDuration);
+const updateNodeColors = (elapsedTime) => {
+    if (!pathComplete) {
+        let stepDuration = shortestPathDuration / shortestPath.length;
+        if (pathIndex < shortestPath.length) {
+            let node = shortestPath[pathIndex];
+            if (elapsedTime >= stepDuration * (pathIndex + 1)) {
+                nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
+                nodeDivs[node].style.background = nodeColors[node];
+                triggerPulseAnimation(node);
+                pathIndex++;
+            }
+            if (pathIndex >= shortestPath.length) {
+                pathComplete = true;
+            }
+        }
+    }
 
-          if (levelToUpdate < bfsLevels.length) {
-              let levelNodes = bfsLevels[levelToUpdate];
-              colorNodesWithDelay(levelNodes, 50); // 80ms delay
-          }
+    if (pathComplete && !bfsComplete) {
+        let stepDuration = bfsDuration / bfsLevels.length;
+        let levelToUpdate = Math.floor((elapsedTime - shortestPathDuration) / stepDuration);
 
-          if (levelToUpdate >= bfsLevels.length - 1) {
-              bfsComplete = true;
-              setTimeout(() => {
+        if (levelToUpdate < bfsLevels.length) {
+            let levelNodes = bfsLevels[levelToUpdate];
+            colorNodesWithDelay(levelNodes, 100); // 50ms delay
+        }
+
+        if (levelToUpdate >= bfsLevels.length - 1) {
+            bfsComplete = true;
+            setTimeout(() => {
                 resetNodeColors();
-              }, 900);
-          }
-      }
-  };
+            }, 6000);
+        }
+    }
+};
 
 // Function to color nodes with a delay
 const colorNodesWithDelay = (levelNodes, delay) => {
@@ -344,34 +343,42 @@ const colorNodesWithDelay = (levelNodes, delay) => {
     const colorNextNode = () => {
         if (currentIndex < levelNodes.length) {
             let node = levelNodes[currentIndex];
-            // nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
-            //nodeColors[node] = 'transparent'; // Set background to transparent
+            nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
             nodeDivs[node].style.background = nodeColors[node];
-            // nodeDivs[node].style.border = 'none'; // Remove the border
             triggerPulseAnimation(node);
             currentIndex++;
-            setTimeout(colorNextNode, delay); // Call the next node coloring after a delay
+
+            // Use a Promise to ensure the next node colors after the delay
+            return new Promise(resolve => setTimeout(resolve, delay));
         }
     };
 
-    colorNextNode(); // Start the coloring process
+    // Chain promises for smooth execution
+    const colorChain = async () => {
+        while (currentIndex < levelNodes.length) {
+            await colorNextNode();
+        }
+    };
+
+    colorChain(); // Start the coloring process
 };
 
-  const resetNodeColors = () => {
+const resetNodeColors = () => {
     for (let key in nodeDivs) {
-      nodeDivs[key].style.background = 'rgba(255, 255, 255, 0)'; // Reset to transparent
+        nodeDivs[key].style.background = 'rgba(255, 255, 255, 0)'; // Reset to transparent
         nodeDivs[key].style.border = '2px solid rgb(255, 255, 255)'; // Restore the border
     }
-  };
+};
 
-  const triggerPulseAnimation = (node) => {
+const triggerPulseAnimation = (node) => {
     const nodeDiv = nodeDivs[node];
     nodeDiv.classList.add('pulse');
     setTimeout(() => {
-      nodeDiv.classList.remove('pulse');
-    }, 3000); // Duration of the pulse animation in milliseconds
-  };
-
+        nodeDiv.classList.remove('pulse');
+    }, 4000); // Duration of the pulse animation in milliseconds
+};
+  
+  
   return (
     <div style={{ width: '100%', maxWidth: '500px', margin: '0 auto' }}>
       <div id="graphContainer" style={{ position: 'relative', width: '500px', height: '350px' }}>

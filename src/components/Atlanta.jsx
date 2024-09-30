@@ -105,6 +105,7 @@ function Atlanta() {
         )}
         <p>{message}</p> {/* Replace "county message" with the retrieved message */}
         <h4>{city}</h4>
+        <br />
         <p>Welcome to the AT&T Perch.</p>
         <br />
         <p>Watch the mural to see your impact</p>
