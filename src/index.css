@@ -97,7 +97,7 @@ header {
 
 
 .footer {
-  position: absolute; /* Fix it to the bottom */
+  position: static; /* Fix it to the bottom */
   bottom: 0; /* Align it to the bottom */
   left: 0; /* Align it to the left */
   right: 0; /* Stretch it to the right */
