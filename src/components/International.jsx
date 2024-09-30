@@ -33,10 +33,6 @@ function International() {
       <div>
         <Header />
         <div className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
           <p> Glad to have you here in</p>
           <h2>AMERICA</h2> 
           <p>Watch the mural to see your impact</p>

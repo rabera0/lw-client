@@ -34,7 +34,6 @@ function AtlMap() {
     <div>
       <Header />
       <div className={`AtlMap`} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-        <br />
         <h2 className={`subtitle ${isFading ? 'fade-out' : ''}`}>Connecting Neighborhoods...</h2>
         <Graph zipcode={zipcode} />
       </div>   

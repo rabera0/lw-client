@@ -86,7 +86,7 @@ function Atlanta() {
     };
   }, [navigate]);
 
-  return (
+    return (
     <div>
       <Header />
       <div className={`Atlanta`} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
@@ -100,20 +100,25 @@ function Atlanta() {
               zIndex: 1,
             }}
           >
-            <p>{message}</p>
-            <h4>{city}</h4>
-            <p>Welcome to the AT&T Perch.</p>
-            <br />
-            <p>Watch the mural to see your impact</p>
-            <br />
-            <h1>#attatlperch</h1>
+            {/* You can add loading message or spinner here */}
           </div>
         )}
+        <br />
+        <br />
+        <p>{message}</p> {/* Replace "county message" with the retrieved message */}
+        <h4>{city}</h4>
+        <p>Welcome to the AT&T Perch.</p>
+        <br />
+        <p>Watch the mural to see your impact</p>
+        <br />
+        <br />
+        <h1>#attatlperch</h1>
+        <br />
+        <br />
         <Footer />
+        <br />
+        <br />
       </div>
     </div>
   )
 };
-
-export default Atlanta;
-

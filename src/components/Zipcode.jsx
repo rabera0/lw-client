@@ -67,8 +67,6 @@ const Zipcode = () => {
       <div>
         <Header />
         <div  className="Zipcode">
-          <br></br>
-          <br></br>
           <p>What is your zipcode?</p>
           <br></br>
           <br></br>
