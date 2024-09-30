@@ -100,7 +100,7 @@ function Atlanta() {
         >
         </div>
       )}
-      <h1>THE AT&T PERCH LIVING MURAL</h1>
+      <Header />
       <br />
       <br />
       <p>{message}</p> {/* Replace "county message" with the retrieved message */}

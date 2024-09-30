@@ -33,7 +33,7 @@ function IntlMap() {
   
     return (
       <div className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-        <h1>THE AT&T PERCH LIVING MURAL</h1>
+        <Header />
         <h2> Connecting Atlanta to the World... </h2>
         <br></br>
         <br></br>

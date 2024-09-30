@@ -31,7 +31,7 @@ function International() {
   }, [navigate]);
     return (
       <div className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-        <h1>THE AT&T PERCH LIVING MURAL</h1>
+        <Header />
         <br></br>
         <br></br>
         <br></br>

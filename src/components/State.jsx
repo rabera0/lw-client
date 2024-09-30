@@ -98,7 +98,7 @@ function State() {
 
   return (
     <div className="State" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-      <h1>THE AT&T PERCH LIVING MURAL</h1>
+      <Header />
       <p>From     To</p>
       <h4>ATL {">>"} {state}</h4>
       <br />

@@ -15,7 +15,7 @@ function AtlMap() {
     // Fade in effect
     const fadeInTimer = setTimeout(() => {
       setOpacity(1);
-    }, 100); // Delay before starting fade in
+    }, 200); // Delay before starting fade in
 
     const timer = setTimeout(() => {
       setIsFading(true); // Start fading out
@@ -32,6 +32,7 @@ function AtlMap() {
 
   return (
     <div className={`AtlMap`} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+      <Header />
       <h1 className={`title`}>THE AT&T PERCH LIVING MURAL</h1>
       <br />
       <h2 className={`subtitle ${isFading ? 'fade-out' : ''}`}>Connecting Neighborhoods...</h2>

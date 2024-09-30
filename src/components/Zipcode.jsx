@@ -65,7 +65,7 @@ const Zipcode = () => {
   
     return (
       <div className="Zipcode">
-        <h1>THE AT&T PERCH LIVING MURAL</h1>
+        <Header />
         <br></br>
         <br></br>
         <p>What is your zipcode?</p>

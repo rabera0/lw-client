@@ -26,7 +26,7 @@ function FinalPage() {
 
     return (
         <div className="FinalPage" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-            <h1>THE AT&T PERCH LIVING MURAL</h1>
+            <Header />
             <br />
             <br />
             <div className="FinalText">

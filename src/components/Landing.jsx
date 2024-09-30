@@ -17,10 +17,9 @@ function Landing() {
   }, []);
 
   return (
-    <div className="Landing" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-      <h1>THE AT&T PERCH LIVING MURAL</h1>
-      <br />
-      <br />
+    <div>
+      <Header />
+      <div className="Landing" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
       <p>
         At AT&T, our purpose is to connect people to greater possibility. In service of this mindset, 
         this artwork represents a cultural touchpoint that bridges Mercedes Benz Stadium and 
@@ -41,7 +40,9 @@ function Landing() {
       <br />
       <Link to='/proceed'>
         <button>Proceed</button>
-      </Link>
+      </Link>  
+      </div>
+
       <Footer />
     </div>
     

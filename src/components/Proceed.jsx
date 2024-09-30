@@ -6,7 +6,7 @@ import Header from './Header';
 function Proceed() {
     return (
       <div className="Proceed">
-        <h1>THE AT&T PERCH LIVING MURAL</h1>
+        <Header />
         <br></br>
         <br></br>
         <p>What is your zipcode?</p>
