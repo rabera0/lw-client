@@ -6,6 +6,7 @@ import logo from '../att-logo.png';
 import Footer from './Footer';
 import Header from './Header';
 import Graph from './Graph'; 
+import GraphState from './GraphState'
 
 function IntlMap() {
     const navigate = useNavigate();
@@ -40,7 +41,7 @@ function IntlMap() {
         <br></br>
         <br></br>
         <br></br>
-        <Graph zipcode={30303} />
+        <GraphState zipcode={30303} />
         <br></br>  
         <br></br>
         <br></br>

@@ -418,25 +418,6 @@ const Graph = ({ zipcode }) => {
               }, 3000);
           }
       }
-//       if (pathComplete && !bfsComplete) {
-//           let stepDuration = bfsDuration / bfsLevels.length;
-        
-//           let levelToUpdate = Math.floor((elapsedTime - shortestPathDuration) / stepDuration);
-
-//           if (levelToUpdate < bfsLevels.length) {
-//               let levelNodes = bfsLevels[levelToUpdate];
-//               colorNodesWithDelay(levelNodes, 80); // 80ms delay
-//           }
-
-//           if (levelToUpdate >= bfsLevels.length - 1) {
-//               bfsComplete = true;
-//             console.log(bfsComplete)
-//               setTimeout(() => {
-//                 console.log("BFS complete")
-//                   resetNodeColors();
-//               }, 3000);
-//           }
-//       }
   };
 
 // Function to color nodes with a delay

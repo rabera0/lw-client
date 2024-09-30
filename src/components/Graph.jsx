@@ -139,7 +139,7 @@ const Graph = ({ zipcode }) => {
   let levelIndex = 0;
   let animationStartTime;
   const shortestPathDuration = 1500;
-  const bfsDuration = 4000;
+  const bfsDuration = 3000;
   const clearDuration = 5000;
   let pathComplete = false;
   let bfsComplete = false;
@@ -227,7 +227,6 @@ const Graph = ({ zipcode }) => {
   
     for (let node in nodeZipData) {
       if (nodeZipData[node].includes(numericZipcode)) {
-        console.log("Associated Node:", node);
         return node; // Return the node key associated with the zipcode
       }
     }
@@ -255,8 +254,6 @@ const Graph = ({ zipcode }) => {
 
   const findShortestPath = (startNode, targetNode) => { 
     let visited = new Set();
-    console.log("FindShortestPath startNode:", startNode);
-    console.log("FindShortestPath targetNode:", targetNode);
     
     let queue = [[startNode]];
     while (queue.length > 0) {
