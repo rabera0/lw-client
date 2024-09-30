@@ -139,7 +139,7 @@ const Graph = ({ zipcode }) => {
   let levelIndex = 0;
   let animationStartTime;
   const shortestPathDuration = 1200;
-  const bfsDuration = 1200;
+  const bfsDuration = 4000;
   const clearDuration = 5000;
   let pathComplete = false;
   let bfsComplete = false;
