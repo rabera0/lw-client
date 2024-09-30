@@ -87,37 +87,33 @@ function Atlanta() {
   }, [navigate]);
 
   return (
-    <div className={`Atlanta`} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-      {!isLoaded && (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 1,
-          }}
-        >
-        </div>
-      )}
+    <div>
       <Header />
-      <br />
-      <br />
-      <p>{message}</p> {/* Replace "county message" with the retrieved message */}
-      <h4>{city}</h4>
-      <p>Welcome to the AT&T Perch.</p>
-      <br />
-      <p>Watch the mural to see your impact</p>
-      <br />
-      <br />
-      <h1>#attatlperch</h1>
-      <br />
-      <br />
-      <Footer />
-      <br />
-      <br />
+      <div className={`Atlanta`} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+        {!isLoaded && (
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 1,
+            }}
+          >
+            <p>{message}</p>
+            <h4>{city}</h4>
+            <p>Welcome to the AT&T Perch.</p>
+            <br />
+            <p>Watch the mural to see your impact</p>
+            <br />
+            <h1>#attatlperch</h1>
+          </div>
+        )}
+        <Footer />
+      </div>
     </div>
-  );
-}
+  )
+};
 
 export default Atlanta;
+

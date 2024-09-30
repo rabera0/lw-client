@@ -42,14 +42,16 @@ function StateMap() {
   }, [navigate, zipcode]);
 
   return (
-    <div className="StateMap" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+    <div>
       <Header />
-      <p>From     To</p>
-      <h4>ATL {">>"} {state}</h4>
-      <br />
-      <GraphState zipcode={zipcode} />
-      <br />
-      <br />
+      <div  className="StateMap" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+        <p>From     To</p>
+        <h4>ATL {">>"} {state}</h4>
+        <br />
+        <GraphState zipcode={zipcode} />
+        <br />
+        <br />
+      </div>
       <Footer />
       <br />
       <br />

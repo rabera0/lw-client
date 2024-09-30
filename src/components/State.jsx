@@ -97,15 +97,17 @@ function State() {
   }, [navigate]);
 
   return (
-    <div className="State" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+    <div>
       <Header />
-      <p>From     To</p>
-      <h4>ATL {">>"} {state}</h4>
-      <br />
-      {/* Display the state message here */}
-      <p>{message}</p>
-      <br />
-      <br />
+      <div className="State" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+        <p>From     To</p>
+        <h4>ATL {">>"} {state}</h4>
+        <br />
+        {/* Display the state message here */}
+        <p>{message}</p>
+        <br />
+        <br /> 
+      </div>
       <Footer />
       <br />
       <br />

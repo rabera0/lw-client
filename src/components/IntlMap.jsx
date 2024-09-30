@@ -32,16 +32,18 @@ function IntlMap() {
   }, [navigate]);
   
     return (
-      <div className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+      <div>
         <Header />
-        <h2> Connecting Atlanta to the World... </h2>
-        <br></br>
-        <br></br>
-        <br></br>
-        <GraphState zipcode={30303} />
-        <br></br>  
-        <br></br>
-        <br></br>
+        <div  className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+          <h2> Connecting Atlanta to the World... </h2>
+          <br></br>
+          <br></br>
+          <br></br>
+          <GraphState zipcode={30303} />
+          <br></br>  
+          <br></br>
+          <br></br>
+        </div>
         <Footer />
         <br></br>
         <br></br>  

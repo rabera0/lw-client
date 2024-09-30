@@ -64,38 +64,40 @@ const Zipcode = () => {
   };
   
     return (
-      <div className="Zipcode">
+      <div>
         <Header />
-        <br></br>
-        <br></br>
-        <p>What is your zipcode?</p>
-        <br></br>
-        <br></br>
-        <form onSubmit={handleSubmit}>
-          <input 
-            placeholder="enter your input"
-            className="zip"
-            name="zip"
-            id="zip"
-            type="text" 
-            inputMode="numeric" 
-            pattern="[0-9]*"
-            maxLength="5"
-            value={zipcode}
-            onChange={(event) => {
-              const { value } = event.target;
-              setZipcode(value.replace(/[^\d{5}]$/, "").substr(0, 5));
-            }}
-          />
-           <br></br>
+        <div  className="Zipcode">
           <br></br>
-          <button type="submit">Submit</button>
           <br></br>
-          <div id="message-container"></div>
-        </form>
-        <br></br>
-        <br></br>
-        <br></br>
+          <p>What is your zipcode?</p>
+          <br></br>
+          <br></br>
+          <form onSubmit={handleSubmit}>
+            <input 
+              placeholder="enter your input"
+              className="zip"
+              name="zip"
+              id="zip"
+              type="text" 
+              inputMode="numeric" 
+              pattern="[0-9]*"
+              maxLength="5"
+              value={zipcode}
+              onChange={(event) => {
+                const { value } = event.target;
+                setZipcode(value.replace(/[^\d{5}]$/, "").substr(0, 5));
+              }}
+            />
+             <br></br>
+            <br></br>
+            <button type="submit">Submit</button>
+            <br></br>
+            <div id="message-container"></div>
+          </form>
+          <br></br>
+          <br></br>
+          <br></br>
+        </div>
         <Footer />
         <br></br>
         <br></br>

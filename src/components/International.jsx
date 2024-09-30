@@ -30,18 +30,20 @@ function International() {
     };
   }, [navigate]);
     return (
-      <div className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+      <div>
         <Header />
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <p> Glad to have you here in</p>
-        <h2>AMERICA</h2> 
-        <p>Watch the mural to see your impact</p>
-        <br />
-        <h1>#attatlperch</h1>
-        <br></br>
+        <div className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <p> Glad to have you here in</p>
+          <h2>AMERICA</h2> 
+          <p>Watch the mural to see your impact</p>
+          <br />
+          <h1>#attatlperch</h1>
+          <br></br> 
+        </div> 
         <Footer />
         <br></br>
         <br></br>  

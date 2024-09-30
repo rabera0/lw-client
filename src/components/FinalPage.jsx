@@ -25,21 +25,21 @@ function FinalPage() {
     }, [navigate]);
 
     return (
-        <div className="FinalPage" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+        <div>
             <Header />
-            <br />
-            <br />
-            <div className="FinalText">
-                <h4> Connecting </h4>
-                <h3> Changes</h3>
-                <h4> Everything </h4>
-            </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+            <div  className="FinalPage" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+              <div className="FinalText">
+                  <h4> Connecting </h4>
+                  <h3> Changes</h3>
+                  <h4> Everything </h4>
+              </div>
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+          </div>
             <Footer />
             <br />
             <br />

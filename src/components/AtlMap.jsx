@@ -31,12 +31,13 @@ function AtlMap() {
   }, [navigate, zipcode]);
 
   return (
-    <div className={`AtlMap`} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+    <div>
       <Header />
-      <h1 className={`title`}>THE AT&T PERCH LIVING MURAL</h1>
-      <br />
-      <h2 className={`subtitle ${isFading ? 'fade-out' : ''}`}>Connecting Neighborhoods...</h2>
-      <Graph zipcode={zipcode} />
+      <div className={`AtlMap`} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+        <br />
+        <h2 className={`subtitle ${isFading ? 'fade-out' : ''}`}>Connecting Neighborhoods...</h2>
+        <Graph zipcode={zipcode} />
+      </div>   
       <Footer />
       <br />
       <br />

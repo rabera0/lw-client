@@ -20,29 +20,28 @@ function Landing() {
     <div>
       <Header />
       <div className="Landing" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-      <p>
-        At AT&T, our purpose is to connect people to greater possibility. In service of this mindset, 
-        this artwork represents a cultural touchpoint that bridges Mercedes Benz Stadium and 
-        the Metropolitan Atlanta.
-      </p>
-      <br />
-      <br />
-      <p>
-        The mural is an interactive map showing different neighborhoods of Metro Atlanta.
-      </p>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <p>*No data is collected from this installation*</p>
-      <br />
-      <Link to='/proceed'>
-        <button>Proceed</button>
-      </Link>  
+        <p>
+          At AT&T, our purpose is to connect people to greater possibility. In service of this mindset, 
+          this artwork represents a cultural touchpoint that bridges Mercedes Benz Stadium and 
+          the Metropolitan Atlanta.
+        </p>
+        <br />
+        <br />
+        <p>
+          The mural is an interactive map showing different neighborhoods of Metro Atlanta.
+        </p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <p>*No data is collected from this installation*</p>
+        <br />
+        <Link to='/proceed'>
+          <button>Proceed</button>
+        </Link>  
       </div>
-
       <Footer />
     </div>
     
