@@ -1,11 +1,8 @@
 import React from 'react';
-import logo from '../att-logo.png';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
  import useWebSockets from '../useWebSocket';
 import Footer from './Footer';
-//import { Link } from 'react-router-dom';
-// import '../App.css';
 
 
 const Admin = () => {

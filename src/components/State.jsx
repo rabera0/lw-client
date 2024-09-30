@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import logo from '../att-logo.png';
 import uszips from '../data/USCities.json';
 import Footer from './Footer';
 import Header from './Header';

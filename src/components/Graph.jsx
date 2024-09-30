@@ -202,22 +202,6 @@ const Graph = ({ zipcode }) => {
     canvas.width = 500; // Set canvas width
     canvas.height = 500; // Set canvas height
     const ctx = canvas.getContext('2d');
-  
-    // Click event for nodes
-    // canvas.addEventListener('mousedown', (event) => {
-    //   const rect = canvas.getBoundingClientRect();
-    //   const offsetX = event.clientX - rect.left;
-    //   const offsetY = event.clientY - rect.top;
-      
-    //   for (let key in vertexList) {
-    //     const pos = vertexList[key];
-    //     const d = Math.sqrt(Math.pow(offsetX - pos.x, 2) + Math.pow(offsetY - pos.y, 2));
-    //     if (d < nodeSize[key] / 2) {
-    //       handleNodeClick(key);
-    //       break;
-    //     }
-    //   }
-    // });
   };
 
   const findNodeByZipcode = (zipcode) => {

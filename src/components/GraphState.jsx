@@ -290,37 +290,7 @@ const Graph = ({ zipcode }) => {
     canvas.width = 500; // Set canvas width
     canvas.height = 500; // Set canvas height
     const ctx = canvas.getContext('2d');
-  
-    // Click event for nodes
-    // canvas.addEventListener('mousedown', (event) => {
-    //   const rect = canvas.getBoundingClientRect();
-    //   const offsetX = event.clientX - rect.left;
-    //   const offsetY = event.clientY - rect.top;
-      
-    //   for (let key in vertexList) {
-    //     const pos = vertexList[key];
-    //     const d = Math.sqrt(Math.pow(offsetX - pos.x, 2) + Math.pow(offsetY - pos.y, 2));
-    //     if (d < nodeSize[key] / 2) {
-    //       handleNodeClick(key);
-    //       break;
-    //     }
-    //   }
-    // });
   };
-
-//   const findNodeByZipcode = (zipcode) => {
-//     console.log("Zipcode:", zipcode);
-//     // Convert zipcode to number if it's a string
-//     const numericZipcode = typeof zipcode === 'string' ? Number(zipcode) : zipcode;
-  
-//     for (let node in nodeZipData) {
-//       if (nodeZipData[node].includes(numericZipcode)) {
-//         console.log("Associated Node:", node);
-//         return node; // Return the node key associated with the zipcode
-//       }
-//     }
-//     return null; // Return null if no node is found
-//   };
  
 
   const handleNodeClick = (startNode) => {
@@ -364,30 +334,6 @@ const Graph = ({ zipcode }) => {
         return levels;
 };
   
-
-//   const getBFSLevels = (startNode) => {
-//     let levels = [];
-//     let visited = new Set();
-//     let queue = [[startNode]];
-
-//     while (queue.length > 0) {
-//       let level = queue.shift();
-//       levels.push(level);
-//       let nextLevel = [];
-
-//       level.forEach((node) => {
-//         if (!visited.has(node)) {
-//           visited.add(node);
-//           nextLevel.push(...graph.nodes[node].filter((neighbor) => !visited.has(neighbor)));
-//         }
-//       });
-
-//       if (nextLevel.length > 0) {
-//         queue.push(nextLevel);
-//       }
-//     }
-//     return levels;
-//   };
 
   const animate = () => {
     const elapsedTime = performance.now() - animationStartTime;

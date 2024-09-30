@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import uszips from '../data/USCities.json';
-import logo from '../att-logo.png';
 import '../index.css';
 import Graph from './Graph'; // Import the Graph component
 import GraphState from './GraphState'; // Import the Graph component

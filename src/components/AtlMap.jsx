@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import logo from '../att-logo.png';
 import Graph from './Graph'; // Import the Graph component
 import Footer from './Footer';
 import Header from './Header';

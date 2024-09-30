@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-//import { Link } from 'react-router-dom';
-// import '../App.css';
-import logo from '../att-logo.png';
 import Footer from './Footer';
 import Header from './Header';
 

@@ -2,12 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import atlzips from '../data/atlzips.json';
 import { useNavigate } from 'react-router-dom';
-import logo from '../att-logo.png';
 import useWebSockets from '../useWebSocket';
 import uszips from '../data/USCities.json';
 import Footer from './Footer';
 import Header from './Header';
-// import '../App.css';
 
 const Zipcode = () => {
   const [zipcode, setZipcode] = useState('');
