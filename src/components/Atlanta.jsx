@@ -103,8 +103,6 @@ function Atlanta() {
             {/* You can add loading message or spinner here */}
           </div>
         )}
-        <br />
-        <br />
         <p>{message}</p> {/* Replace "county message" with the retrieved message */}
         <h4>{city}</h4>
         <p>Welcome to the AT&T Perch.</p>
@@ -122,3 +120,5 @@ function Atlanta() {
     </div>
   )
 };
+
+export default Atlanta;

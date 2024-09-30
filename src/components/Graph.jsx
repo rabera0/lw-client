@@ -244,8 +244,8 @@ const Graph = ({ zipcode }) => {
         let path = queue.shift();
         let node = path[path.length - 1];
 
-        console.log("Current path:", path);
-        console.log(`Comparing node type: ${node} (type: ${typeof node}) with targetNode: ${targetNode} (type: ${typeof targetNode})`);
+        // console.log("Current path:", path);
+        // console.log(`Comparing node type: ${node} (type: ${typeof node}) with targetNode: ${targetNode} (type: ${typeof targetNode})`);
 
         if (node === targetNode) {
             console.log("Found path:", path);
