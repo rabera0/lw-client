@@ -40,11 +40,7 @@ function IntlMap() {
           <br></br>
           <br></br>
           <br></br>
-          <iframe height="300" style="width: 100%;" scrolling="no" title="Rotating Earth" src="https://codepen.io/HighFlyer/embed/LWqevW?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/HighFlyer/pen/LWqevW">
-  Rotating Earth</a> by Thea (<a href="https://codepen.io/HighFlyer">@HighFlyer</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+          <AFrameScene />
           <br></br>  
           <br></br>
           <br></br>
