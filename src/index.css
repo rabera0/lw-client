@@ -96,13 +96,13 @@ header {
 
 
 .footer {
-  position: fixed; /* Fix it to the bottom */
+  position: absolute; /* Fix it to the bottom */
   bottom: 0; /* Align it to the bottom */
   left: 0; /* Align it to the left */
   right: 0; /* Stretch it to the right */
   text-align: center; /* Center the text */
   padding: 50px; /* Padding for spacing */
-  z-index: 1000; /* Ensure it's above other content */
+  padding: 10px 0;
 }
 
 .logo {
