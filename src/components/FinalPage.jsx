@@ -16,7 +16,7 @@ function FinalPage() {
 
         const timer = setTimeout(() => {
             navigate('/'); // Navigate to /Landing after the timeout
-        }, 5000); // Adjust the timeout duration (5000 ms = 5 seconds)
+        }, 5000); // Adjust the timeout duration 
 
         return () => {
             clearTimeout(fadeInTimer);
@@ -26,18 +26,17 @@ function FinalPage() {
 
     return (
         <div>
-            <Header />
-            <div  className="FinalPage" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+          <Header />
+           <br />
+           <br />
+           <br />
+           <br />
+           <div  className="FinalPage" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
               <div className="FinalText">
                   <h4> Connecting </h4>
                   <h3> Changes</h3>
                   <h4> Everything </h4>
               </div>
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
               <br />
           </div>
             <Footer />

@@ -13,7 +13,7 @@ const AFrameScene = () => {
         src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg"
         radius="1"
         segments-height="35"
-        position="0 0 1"
+        position="0 0 0.7"
         material="transparent: true; opacity: 0.8"
         animation="property: rotation; to: 0 360 0; dur: 5000; easing: linear; loop: true"
       ></a-sphere>

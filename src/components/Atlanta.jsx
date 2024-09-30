@@ -110,7 +110,7 @@ function Atlanta() {
         <p>Watch the mural to see your impact</p>
         <br />
         <br />
-        <h1>#attatlperch</h1>
+        <h6>#attatlperch</h6>
         <br />
         <br />
         <Footer />

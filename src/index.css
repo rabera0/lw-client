@@ -140,6 +140,13 @@ h1 {
   padding: 10% 10% 0;/* This sets top/bottom padding to 0 and left/right to 10% */
 }
 
+h6 {
+  margin-right: 100px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
 h2 {
   font-size: 30px;
   font-weight: bold;
@@ -153,15 +160,22 @@ h3 {
   font-size: 55px;
   font-weight: bold;
   text-align: center;
-  margin: 0px;
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 3px; /* Remove bottom margin */
+  padding-top: 0; /* Remove top padding */
+  padding-bottom: 3px; /* Remove bottom padding */
 }
-
 
 h4 {
   font-size: 30px;
   font-weight: bold;
   text-align: center;
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 0; /* Remove bottom margin */
+  padding-top: 0; /* Remove top padding */
+  padding-bottom: 0; /* Remove bottom padding */
 }
+
 
 h5 {
   font-size: 16px;

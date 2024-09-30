@@ -37,7 +37,7 @@ function International() {
           <h2>AMERICA</h2> 
           <p>Watch the mural to see your impact</p>
           <br />
-          <h1>#attatlperch</h1>
+          <h6>#attatlperch</h6>
           <br></br> 
         </div> 
         <Footer />
