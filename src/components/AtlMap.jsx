@@ -35,6 +35,9 @@ function AtlMap() {
       <Header />
       <div className={`AtlMap`} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
         <h2>Connecting Neighborhoods...</h2>
+         <br />
+         <br />
+         <br />
         <Graph zipcode={zipcode} />
       </div>   
       <Footer />

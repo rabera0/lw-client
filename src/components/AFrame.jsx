@@ -15,7 +15,7 @@ const AFrameScene = () => {
         segments-height="35"
         position="0 0 0.7"
         material="transparent: true; opacity: 0.8"
-        animation="property: rotation; to: 0 360 0; dur: 5000; easing: linear; loop: true"
+        animation="property: rotation; to: 40 400 40; dur: 10000; easing: linear; loop: true"
       ></a-sphere>
     </a-scene>
   );

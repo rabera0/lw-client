@@ -45,8 +45,11 @@ function StateMap() {
     <div>
       <Header />
       <div  className="StateMap" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-        <p>From     To</p>
+        <p>From                     To</p>
+         <br />
         <h4>ATL {">>"} {state}</h4>
+        <br />
+        <br />
         <br />
         <GraphState zipcode={zipcode} />
         <br />

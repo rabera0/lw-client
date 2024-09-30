@@ -266,10 +266,10 @@ const Graph = ({ zipcode }) => {
 };
 
 
-  const getBFSLevels = (startNode) => {
+  const getBFSLevels = (targetNode) => {
     let levels = [];
     let visited = new Set();
-    let queue = [[startNode]];
+    let queue = [[targetNode]];
 
     while (queue.length > 0) {
       let level = queue.shift();
@@ -325,14 +325,14 @@ const Graph = ({ zipcode }) => {
 
           if (levelToUpdate < bfsLevels.length) {
               let levelNodes = bfsLevels[levelToUpdate];
-              colorNodesWithDelay(levelNodes, 800); // 80ms delay
+              colorNodesWithDelay(levelNodes, 50); // 80ms delay
           }
 
           if (levelToUpdate >= bfsLevels.length - 1) {
               bfsComplete = true;
               setTimeout(() => {
                 resetNodeColors();
-              }, 9000);
+              }, 900);
           }
       }
   };
@@ -345,7 +345,7 @@ const colorNodesWithDelay = (levelNodes, delay) => {
         if (currentIndex < levelNodes.length) {
             let node = levelNodes[currentIndex];
             // nodeColors[node] = 'radial-gradient(white var(--p), #009fdb)';
-            nodeColors[node] = 'transparent'; // Set background to transparent
+            //nodeColors[node] = 'transparent'; // Set background to transparent
             nodeDivs[node].style.background = nodeColors[node];
             // nodeDivs[node].style.border = 'none'; // Remove the border
             triggerPulseAnimation(node);
