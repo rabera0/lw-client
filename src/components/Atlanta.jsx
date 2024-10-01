@@ -103,12 +103,11 @@ function Atlanta() {
             {/* You can add loading message or spinner here */}
           </div>
         )}
-        <p>{message}</p> {/* Replace "county message" with the retrieved message */}
-        <h4>{city}</h4>
+        <h5>{city}</h5>
+         <p>{message}</p> {/* Replace "county message" with the retrieved message */}
         <br />
-        <p>Welcome to the AT&T Perch.</p>
         <br />
-        <p>Watch the mural to see your impact</p>
+        <h6>Watch the mural to see your impact</h6>
         <br />
         <br />
         <h6>#attatlperch</h6>

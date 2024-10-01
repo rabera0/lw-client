@@ -47,7 +47,7 @@ function StateMap() {
       <div  className="StateMap" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
         <p>From                     To</p>
          <br />
-        <h4>ATL {">>"} {state}</h4>
+        <h7>ATL {">>"} {state}</h7>
         <br />
         <br />
         <br />

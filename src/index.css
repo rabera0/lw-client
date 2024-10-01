@@ -93,6 +93,7 @@ header {
 
 .FinalText{
     justify-content: center;
+    scale: 1.4;
 }
 
 
@@ -170,6 +171,17 @@ h4 {
   padding-top: 0; /* Remove top padding */
   padding-bottom: 0; /* Remove bottom padding */
 }
+
+h7 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 0; /* Remove top margin */
+  margin-bottom: 0; /* Remove bottom margin */
+  padding-top: 0; /* Remove top padding */
+  padding-bottom: 0; /* Remove bottom padding */
+}
+
 
 
 h5 {

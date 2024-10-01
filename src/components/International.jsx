@@ -34,8 +34,9 @@ function International() {
         <Header />
         <div className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
          <br />
-          <p> Glad to have you here in</p>
-          <h2>AMERICA</h2> 
+          <p>Hello, Global Travelers! From across the seas and lands, welcome to Georgia’s heart. We’re thrilled to share this moment with you.</p>
+          <br />
+          <br />
           <p>Watch the mural to see your impact</p>
           <br />
           <h6>#attatlperch</h6>

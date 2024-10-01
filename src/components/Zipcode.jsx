@@ -33,10 +33,10 @@ const Zipcode = () => {
       // Clear previous messages
       messageContainer.innerHTML = '';
       // Create a new <h5> element
-      const h5 = document.createElement('h5');
-      h5.textContent = message;
+      const p = document.createElement('p');
+      p.textContent = message;
       // Append the <p> element to the container
-      messageContainer.appendChild(h5);
+      messageContainer.appendChild(p);
     }
   };
 
