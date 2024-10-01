@@ -379,9 +379,21 @@ const triggerPulseAnimation = (node) => {
 };
   
   
-  return (
-    <div style={{ width: '100%', maxWidth: '500px', margin: '0 auto' }}>
-      <div id="graphContainer" style={{ position: 'relative', width: '500px', height: '350px' }}>
+return (
+  <div 
+    style={{ 
+      width: '100%', 
+      maxWidth: '500px', 
+      margin: '0 auto', 
+      backgroundImage: `url('../src/atlOutline.png?v=1727798321175')`, // Set background image
+      backgroundSize: 'contain', // Ensure the image is fully contained
+      backgroundRepeat: 'no-repeat', // Prevent the image from repeating
+      backgroundPosition: 'center', // Center the image
+      height: '350px', // Set height to match inner container
+      position: 'relative', // To position children absolutely within
+    }}
+  >
+    <div id="graphContainer" style={{ position: 'relative', width: '500px', height: '350px' }}>
       <canvas 
         id="graphCanvas" 
         style={{ 
@@ -389,17 +401,14 @@ const triggerPulseAnimation = (node) => {
           left: 0, 
           top: 0, 
           width: '500px', // Set explicit width
-          height: '500px', // Set explicit height
-          zIndex: 2,
-          backgroundImage: `url('../src/atlOutline.png?v=1727798321175')`, // Set background image
-          backgroundSize: 'cover', // Optional: cover the entire canvas
-          backgroundPosition: 'center', // Optional: center the image
+          height: '350px', // Match the height of the container
+          zIndex: 2
         }} 
       ></canvas>
-      </div>
-      {/* Other elements can go here */}
     </div>
-  );
+    {/* Other elements can go here */}
+  </div>
+);
 };
 
 export default Graph;

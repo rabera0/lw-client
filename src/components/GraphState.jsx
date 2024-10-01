@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import '../index.css';
 import uszips from '../data/USCities.json';
 
-const Graph = ({ zipcode }) => {
+const GraphState = ({ zipcode }) => {
   const graph = {
     nodes: {
       "0": [1, 2, 3, 4, 5, 34],
@@ -401,7 +401,19 @@ const colorNodesWithDelay = (levelNodes, delay) => {
   };
 
   return (
-    <div style={{ width: '100%', maxWidth: '500px', margin: '0 auto' }}>
+    <div 
+      style={{ 
+        width: '100%', 
+        maxWidth: '500px', 
+        margin: '0 auto', 
+        backgroundImage: `url('../src/usOutline.png')`, // Set background image
+        backgroundSize: 'contain', // Ensure the image is fully contained
+        backgroundRepeat: 'no-repeat', // Prevent the image from repeating
+        backgroundPosition: 'center', // Center the image
+        height: '350px', // Set height to match inner container
+        position: 'relative', // To position children absolutely within
+      }}
+    >
       <div id="graphContainer" style={{ position: 'relative', width: '500px', height: '350px' }}>
         <canvas 
           id="graphCanvas" 
@@ -410,14 +422,13 @@ const colorNodesWithDelay = (levelNodes, delay) => {
             left: 0, 
             top: 0, 
             width: '500px', // Set explicit width
-            height: '500px', // Set explicit height
+            height: '350px', // Match the height of the container
             zIndex: 2
           }} 
         ></canvas>
       </div>
-      {/* Other elements can go here */}
     </div>
-  );
+  );  
 };
 
-export default Graph;
+export default GraphState;
