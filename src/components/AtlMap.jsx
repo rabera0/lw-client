@@ -22,7 +22,7 @@ function AtlMap() {
       setTimeout(() => {
         navigate('/atlanta', { state: { zipcode } }); // Pass zipcode to /atlanta
       }, 200); // Duration of fade-out effect
-    }, 7500); // Wait for 5.5 seconds before starting the fade
+    }, 7500000); // Wait for 5.5 seconds before starting the fade
 
     return () => {
       clearTimeout(fadeInTimer);

@@ -391,7 +391,7 @@ const triggerPulseAnimation = (node) => {
           width: '500px', // Set explicit width
           height: '500px', // Set explicit height
           zIndex: 2,
-          backgroundImage: `url('../atlOutline.png?v=1727798321175')`, // Set background image
+          backgroundImage: `url('../src/atlOutline.png?v=1727798321175')`, // Set background image
           backgroundSize: 'cover', // Optional: cover the entire canvas
           backgroundPosition: 'center', // Optional: center the image
         }} 
