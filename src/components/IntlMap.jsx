@@ -24,7 +24,7 @@ function IntlMap() {
       setTimeout(() => {
         navigate('/International');
       }, 1000); // Duration of fade-out effect
-    }, 5000); // Wait for 3.5 seconds before starting the fade
+    }, 6000); // Wait for 3.5 seconds before starting the fade
 
     return () => {
       clearTimeout(fadeInTimer);
