@@ -382,17 +382,20 @@ const triggerPulseAnimation = (node) => {
   return (
     <div style={{ width: '100%', maxWidth: '500px', margin: '0 auto' }}>
       <div id="graphContainer" style={{ position: 'relative', width: '500px', height: '350px' }}>
-        <canvas 
-          id="graphCanvas" 
-          style={{ 
-            position: 'absolute', 
-            left: 0, 
-            top: 0, 
-            width: '500px', // Set explicit width
-            height: '500px', // Set explicit height
-            zIndex: 2
-          }} 
-        ></canvas>
+      <canvas 
+        id="graphCanvas" 
+        style={{ 
+          position: 'absolute', 
+          left: 0, 
+          top: 0, 
+          width: '500px', // Set explicit width
+          height: '500px', // Set explicit height
+          zIndex: 2,
+          backgroundImage: `url('../atlOutline.png?v=1727798321175')`, // Set background image
+          backgroundSize: 'cover', // Optional: cover the entire canvas
+          backgroundPosition: 'center', // Optional: center the image
+        }} 
+      ></canvas>
       </div>
       {/* Other elements can go here */}
     </div>

@@ -98,6 +98,8 @@ const Zipcode = () => {
           <br />
           <br />
           <br />
+          <br />
+          <br />
           <br></br>
         </div>
         <Footer />

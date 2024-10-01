@@ -52,8 +52,6 @@ function StateMap() {
         <br />
         <br />
         <GraphState zipcode={zipcode} />
-        <br />
-        <br />
       </div>
       <Footer />
     </div>

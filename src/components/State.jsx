@@ -108,6 +108,10 @@ function State() {
         <p>{message}</p>
         <br />
         <br /> 
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
       <Footer />
     </div>

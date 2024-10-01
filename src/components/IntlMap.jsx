@@ -38,9 +38,6 @@ function IntlMap() {
         <div  className="International" style={{ opacity, transition: 'opacity 3s ease-in-out' }}>
           <h2> Connecting Atlanta to the World... </h2>
           <AFrameScene />
-          <br></br>  
-          <br></br>
-          <br></br>
         </div>
         <Footer />
       </div>

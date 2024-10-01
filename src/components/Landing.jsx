@@ -32,8 +32,6 @@ function Landing() {
         </p>
         <br />
         <br />
-        <br />
-        <br />
         <p>*No data is collected from this installation*</p>
         <br />
         <Link to='/proceed'>
