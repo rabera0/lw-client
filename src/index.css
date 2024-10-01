@@ -228,6 +228,7 @@ button:hover {
   transform: scale(0.6);
   transform-origin: top left;
   /* background-color: rgba(224, 228, 231, 0.473); */
+  background-image: './'
 }
 
 /* Adjust the graph canvas */
