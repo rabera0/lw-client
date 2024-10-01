@@ -94,11 +94,13 @@ const Zipcode = () => {
           </form>
           <br></br>
           <br></br>
+          <br />
+          <br />
+          <br />
+          <br />
           <br></br>
         </div>
         <Footer />
-        <br></br>
-        <br></br>
       </div>
     );
   }

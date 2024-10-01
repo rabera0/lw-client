@@ -41,9 +41,7 @@ function International() {
           <h6>#attatlperch</h6>
           <br></br> 
         </div> 
-        <Footer />
-        <br></br>
-        <br></br>  
+        <Footer /> 
       </div>
     );
   }

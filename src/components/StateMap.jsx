@@ -56,8 +56,6 @@ function StateMap() {
         <br />
       </div>
       <Footer />
-      <br />
-      <br />
     </div>
   );
 }

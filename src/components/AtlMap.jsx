@@ -41,8 +41,6 @@ function AtlMap() {
         <Graph zipcode={zipcode} />
       </div>   
       <Footer />
-      <br />
-      <br />
     </div>
   );
 }

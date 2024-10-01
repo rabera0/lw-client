@@ -110,8 +110,6 @@ function State() {
         <br /> 
       </div>
       <Footer />
-      <br />
-      <br />
     </div>
   );
 }

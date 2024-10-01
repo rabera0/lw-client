@@ -115,8 +115,6 @@ function Atlanta() {
         <br />
         <br />
         <Footer />
-        <br />
-        <br />
       </div>
     </div>
   )

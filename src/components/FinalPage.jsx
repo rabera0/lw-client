@@ -38,10 +38,14 @@ function FinalPage() {
                   <h4> Everything </h4>
               </div>
               <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
           </div>
             <Footer />
-            <br />
-            <br />
         </div>
     );
 }

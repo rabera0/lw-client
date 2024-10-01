@@ -97,19 +97,14 @@ header {
 
 
 .footer {
-  position: static; /* Fix it to the bottom */
-  bottom: 0; /* Align it to the bottom */
-  left: 0; /* Align it to the left */
-  right: 0; /* Stretch it to the right */
-  text-align: center; /* Center the text */
-  padding: 50px; /* Padding for spacing */
-  padding: 10px 0;
+    position: relative; /* Change to relative for proper stacking */
+    text-align: center; /* Center the text */
+    padding: 10px 0; /* Padding for spacing */
 }
 
 .logo {
-  height: 20vmin;
-  align-items: center;
-  pointer-events: none;
+    height: 20vmin; /* Responsive height */
+    pointer-events: none; /* Prevent interactions */
 }
 
 

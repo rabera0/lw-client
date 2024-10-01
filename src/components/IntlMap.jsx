@@ -43,8 +43,6 @@ function IntlMap() {
           <br></br>
         </div>
         <Footer />
-        <br></br>
-        <br></br>  
       </div>
     );
   }
