@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import '../index.css';
+const img = "https://cdn.glitch.global/f45e1b7b-5bbc-4ef0-82cf-33f60ccdb1c4/atlOutline.png?v=1727804041668"
 
 const Graph = ({ zipcode }) => {
   const graph = {

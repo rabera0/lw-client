@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import '../index.css';
 import uszips from '../data/USCities.json';
+const img = "https://cdn.glitch.global/f45e1b7b-5bbc-4ef0-82cf-33f60ccdb1c4/usOutline.png?v=1727804021010"
 
 const GraphState = ({ zipcode }) => {
   const graph = {
