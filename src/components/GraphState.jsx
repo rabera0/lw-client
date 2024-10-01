@@ -407,7 +407,7 @@ const colorNodesWithDelay = (levelNodes, delay) => {
         width: '100%', 
         maxWidth: '500px', 
         margin: '0 auto', 
-        backgroundImage: `url('../src/usOutline.png')`, // Set background image
+        backgroundImage: `url(${img})`, // Set background image
         backgroundSize: 'contain', // Ensure the image is fully contained
         backgroundRepeat: 'no-repeat', // Prevent the image from repeating
         backgroundPosition: 'center', // Center the image
