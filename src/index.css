@@ -30,7 +30,7 @@ header {
 }
 
 .Landing {
-  padding: 0 10%;
+  padding: 5% 10%;
 }
 
 .Admin {
@@ -94,6 +94,7 @@ header {
 .FinalText{
     justify-content: center;
     scale: 1.4;
+    margin-right: -20px;
 }
 
 
