@@ -4,7 +4,7 @@ import Graph from './Graph'; // Import the Graph component
 import Footer from './Footer';
 import Header from './Header';
 
-const img = "https://cdn.glitch.global/f45e1b7b-5bbc-4ef0-82cf-33f60ccdb1c4/atlOutline.png?v=1727804041668";
+const img = "https://cdn.glitch.global/f45e1b7b-5bbc-4ef0-82cf-33f60ccdb1c4/map3.png?v=1727867647887";
 
 function AtlMap() {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ function AtlMap() {
     // Navigation timer
     const navigationTimer = setTimeout(() => {
       navigate('/atlanta', { state: { zipcode } });
-    }, 9500); // Total time: 3.2 seconds (image display and fade) + 7.5 seconds (graph display)
+    }, 95000000); // Total time: 3.2 seconds (image display and fade) + 7.5 seconds (graph display)
 
     return () => {
       clearTimeout(fadeInTimer);

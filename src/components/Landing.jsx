@@ -26,18 +26,21 @@ function Landing() {
           together and connect with each other.the updates you made to what you showed us yesterday meet their requirements.
         </p>
         <br />
-        <br />
         <p>
           The mural is an interactive map showing different neighborhoods of Metro Atlanta.
         </p>
-        <br />
         <br />
         <p>*No data is collected from this installation*</p>
         <br />
         <Link to='/proceed'>
           <button>Proceed</button>
-        </Link>  
+        </Link> 
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
+      <br />
       <Footer />
     </div>
     
