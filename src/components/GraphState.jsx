@@ -406,13 +406,7 @@ const colorNodesWithDelay = (levelNodes, delay) => {
       style={{ 
         width: '100%', 
         maxWidth: '500px', 
-        margin: '0 auto', 
-        backgroundImage: `url(${img})`, // Set background image
-        backgroundSize: 'contain', // Ensure the image is fully contained
-        backgroundRepeat: 'no-repeat', // Prevent the image from repeating
-        backgroundPosition: 'center', // Center the image
-        height: '350px', // Set height to match inner container
-        position: 'relative', // To position children absolutely within
+        margin: '0 auto'
       }}
     >
       <div id="graphContainer" style={{ position: 'relative', width: '500px', height: '350px' }}>

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import '../index.css';
-const img = "https://cdn.glitch.global/f45e1b7b-5bbc-4ef0-82cf-33f60ccdb1c4/atlOutline.png?v=1727804041668"
 
 const Graph = ({ zipcode }) => {
   const graph = {
@@ -385,13 +384,7 @@ return (
     style={{ 
       width: '100%', 
       maxWidth: '500px', 
-      margin: '0 auto', 
-      backgroundImage: `url(${img})`, // Set background image
-      backgroundSize: 'contain', // Ensure the image is fully contained
-      backgroundRepeat: 'no-repeat', // Prevent the image from repeating
-      backgroundPosition: 'center', // Center the image
-      height: '350px', // Set height to match inner container
-      position: 'relative', // To position children absolutely within
+      margin: '0 auto'
     }}
   >
     <div id="graphContainer" style={{ position: 'relative', width: '500px', height: '350px' }}>
