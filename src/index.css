@@ -37,7 +37,7 @@ header {
   padding: 10%;
 }
 .AtlMap{
-  padding: 10%;
+  padding: 0 10%;
 }
 .International {
   padding: 10%;
@@ -50,7 +50,7 @@ header {
 }
 
 .StateMap {
-  padding: 10%;
+  padding: 0 10%;
 }
 
 .State {
