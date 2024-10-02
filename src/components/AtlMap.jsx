@@ -30,7 +30,7 @@ function AtlMap() {
     // Navigation timer
     const navigationTimer = setTimeout(() => {
       navigate('/atlanta', { state: { zipcode } });
-    }, 900500); // Total time: 3.2 seconds (image display and fade) + 7.5 seconds (graph display)
+    }, 9500); // Total time: 3.2 seconds (image display and fade) + 7.5 seconds (graph display)
 
     return () => {
       clearTimeout(fadeInTimer);
@@ -42,7 +42,7 @@ function AtlMap() {
   return (
     <div>
       <Header />
-      <div style={{ textAlign: 'center', marginTop: '20px', padding:10% }}>
+      <div style={{ textAlign: 'center', marginTop: '20px', padding: '10%' }}>
         <h2>Connecting Neighborhoods...</h2>
         <br />
         <br />
