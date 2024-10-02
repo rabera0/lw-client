@@ -110,7 +110,6 @@ function Atlanta() {
          <p>{message}</p> {/* Replace "county message" with the retrieved message */}
         <h6>Watch the mural to see your impact</h6>
         <h6>#attatlperch</h6>
-        <br />
         <Footer />
       </div>
     </div>
