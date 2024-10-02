@@ -23,11 +23,8 @@ function Landing() {
         <p>
           At AT&T, we know connecting changes everything. In service of this mindset, this artwork represents a cultural touchpoint that bridges 
           Mercedes-Benz stadium and Metropolitan Atlanta. The mural features an interactive map showing how fans from nearby neighborhoods all come 
-          together and connect with each other.the updates you made to what you showed us yesterday meet their requirements.
-        </p>
-        <br />
-        <p>
-          The mural is an interactive map showing different neighborhoods of Metro Atlanta.
+          together and connect with each other.
+        
         </p>
         <br />
         <p>*No data is collected from this installation*</p>
