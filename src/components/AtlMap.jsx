@@ -20,18 +20,18 @@ function AtlMap() {
       setOpacity(1);
     }, 200); // Delay before starting fade in
 
-    // Start fading out the image after 2 seconds
+    // Show the graph after the image has fully faded out
     const fadeOutTimer = setTimeout(() => {
       setIsFading(true); // Start fading out the image
       setTimeout(() => {
         setShowGraph(true); // Show the Graph after the image has fully faded out
       }, 1000); // Wait for the fade-out duration (1 second)
-    }, 2000); // Wait for 2 seconds before starting to fade
+    }, 2200); // Wait for 2 seconds of display plus 0.2 seconds of fade-in
 
-    // Optional navigation after showing the graph for a while (if needed)
+    // Show the graph for a total of 7.5 seconds
     const navigationTimer = setTimeout(() => {
       navigate('/atlanta', { state: { zipcode } });
-    }, 6000); // Adjust as needed; this assumes the graph is shown for 3 seconds
+    }, 9500); // Total time: 3.2 seconds (image display and fade) + 7.5 seconds (graph display)
 
     return () => {
       clearTimeout(fadeInTimer);
@@ -43,27 +43,30 @@ function AtlMap() {
   return (
     <div>
       <Header />
-      <div className={`AtlMap`} style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+      <div className={`AtlMap`} style={{ textAlign: 'center', marginTop: '20px' }}>
         <h2>Connecting Neighborhoods...</h2>
-        <br />
-        <br />
-        <br />
-        <div
-          style={{
-            width: '100%',
-            maxWidth: '500px',
-            margin: '0 auto',
-            backgroundImage: `url(${img})`, // Set background image
-            backgroundSize: 'contain', // Ensure the image is fully contained
-            backgroundRepeat: 'no-repeat', // Prevent the image from repeating
-            backgroundPosition: 'center', // Center the image
-            height: '350px', // Set height to match inner container
-            position: 'relative', // To position children absolutely within
-            opacity: isFading ? 0 : 1, // Control opacity based on fading state
-            transition: 'opacity 1s ease-in-out',
-          }}
-        ></div>
-        {showGraph && <Graph zipcode={zipcode} />} {/* Render Graph only after fade-out */}
+        <div style={{ position: 'relative', height: '350px', overflow: 'hidden', margin: '0 auto', maxWidth: '500px' }}>
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '350px',
+              backgroundImage: `url(${img})`, // Set background image
+              backgroundSize: 'contain', // Ensure the image is fully contained
+              backgroundRepeat: 'no-repeat', // Prevent the image from repeating
+              backgroundPosition: 'center', // Center the image
+              opacity: isFading ? 0 : 1, // Control opacity based on fading state
+              transition: 'opacity 1s ease-in-out',
+            }}
+          ></div>
+          {showGraph && (
+            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '350px' }}>
+              <Graph zipcode={zipcode} /> {/* Render Graph only after fade-out */}
+            </div>
+          )}
+        </div>
       </div>
       <Footer />
     </div>
