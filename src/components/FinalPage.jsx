@@ -16,7 +16,7 @@ function FinalPage() {
 
         const timer = setTimeout(() => {
             navigate('/'); // Navigate to /Landing after the timeout
-        }, 5000000); // Adjust the timeout duration 
+        }, 5000); // Adjust the timeout duration 
 
         return () => {
             clearTimeout(fadeInTimer);
