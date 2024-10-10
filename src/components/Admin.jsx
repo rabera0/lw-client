@@ -1,34 +1,40 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
- import useWebSockets from '../useWebSocket';
-import Footer from './Footer';
-
+import Footer from './Footer'; // Assuming you have a Footer component
 
 const Admin = () => {
   const defaultMode = 'Mode 1';
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAuthenticated') === 'true');
   const [selectedMode, setSelectedMode] = useState(localStorage.getItem('selectedMode') || defaultMode);
   const navigate = useNavigate();
-  const { handleClickSendMode } = useWebSockets('wss://lw-server-ce19694e9edf.herokuapp.com/'); // Update with your WebSocket URL
 
   useEffect(() => {
+    const ws = new WebSocket('wss://lw-server-ce19694e9edf.herokuapp.com/'); // Update with your WebSocket URL
+
     const handleNewMessage = (event) => {
       const data = JSON.parse(event.data);
+      console.log('Received message:', data); // Log received messages
       if (data.type === 'UPDATE_MODE') {
         setSelectedMode(data.mode);
         localStorage.setItem('selectedMode', data.mode);
       }
     };
 
-    const ws = new WebSocket('wss://lw-server-ce19694e9edf.herokuapp.com/'); // Update with your WebSocket URL
     ws.onmessage = handleNewMessage;
+
+    // Optional: Handle errors and connection close
+    ws.onerror = (error) => {
+      console.error('WebSocket error:', error);
+    };
+    ws.onclose = () => {
+      console.log('WebSocket connection closed');
+    };
 
     return () => {
       ws.close();
     };
   }, []);
-  
+
   const handleLogin = () => {
     if (localStorage.getItem('isAuthenticated') === 'true') {
       setIsAuthenticated(true);
@@ -41,6 +47,13 @@ const Admin = () => {
     navigate('/admin');
   };
 
+  const sendMode = (mode) => {
+    const ws = new WebSocket('wss://lw-server-ce19694e9edf.herokuapp.com/'); // Make sure to handle this properly
+    ws.onopen = () => {
+      ws.send(JSON.stringify({ selectedMode: mode }));
+    };
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="Admin">
@@ -48,7 +61,6 @@ const Admin = () => {
         <p>Login</p>
         <form onSubmit={(e) => {
           e.preventDefault();
-          // Simulate login check
           const username = e.target.username.value;
           const password = e.target.password.value;
           if (username === 'admin' && password === 'admin') {
@@ -62,11 +74,9 @@ const Admin = () => {
           <div>
             <input name="username" placeholder="Username" type="text" required />
           </div>
-          <br></br>
           <div>
             <input name="password" placeholder="Password" type="password" required />
           </div>
-          <br></br>
           <button type="submit">Login</button>
         </form>
       </div>
@@ -77,9 +87,9 @@ const Admin = () => {
     <div className="Admin">
       <h1>Admin Dashboard</h1>
       <div>
-        <button onClick={() => setSelectedMode('Mode 1')}>Mode 1</button>
-        <button onClick={() => setSelectedMode('Mode 2')}>Mode 2</button>
-        <button onClick={() => setSelectedMode('Mode 3')}>Mode 3</button>
+        <button onClick={() => { setSelectedMode('Mode 1'); sendMode('Mode 1'); }}>Mode 1</button>
+        <button onClick={() => { setSelectedMode('Mode 2'); sendMode('Mode 2'); }}>Mode 2</button>
+        <button onClick={() => { setSelectedMode('Mode 3'); sendMode('Mode 3'); }}>Mode 3</button>
       </div>
       <p>Selected Mode: {selectedMode}</p>
       <button onClick={handleLogout}>Logout</button>
