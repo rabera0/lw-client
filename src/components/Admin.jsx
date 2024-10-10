@@ -10,7 +10,7 @@ const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAuthenticated') === 'true');
   const [selectedMode, setSelectedMode] = useState(localStorage.getItem('selectedMode') || defaultMode);
   const navigate = useNavigate();
-  const { handleClickSendMode } = useWebSockets('wss://lofty-tar-author.glitch.me/'); // Update with your WebSocket URL
+  const { handleClickSendMode } = useWebSockets('wss://lw-server-ce19694e9edf.herokuapp.com/'); // Update with your WebSocket URL
 
   useEffect(() => {
     const handleNewMessage = (event) => {
@@ -21,7 +21,7 @@ const Admin = () => {
       }
     };
 
-    const ws = new WebSocket('wss://lofty-tar-author.glitch.me/'); // Update with your WebSocket URL
+    const ws = new WebSocket('wss://lw-server-ce19694e9edf.herokuapp.com/'); // Update with your WebSocket URL
     ws.onmessage = handleNewMessage;
 
     return () => {

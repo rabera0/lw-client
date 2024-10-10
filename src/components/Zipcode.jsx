@@ -12,7 +12,7 @@ const Zipcode = () => {
   const [zipcode, setZipcode] = useState('');
   const [isAtlanta, setIsAtlanta] = useState(false);
   const navigate = useNavigate();
-  const { handleClickSendMessage } = useWebSockets('wss://lofty-tar-author.glitch.me/');
+  const { handleClickSendMessage } = useWebSockets('wss://lw-server-ce19694e9edf.herokuapp.com/');
   
   const DEBOUNCE_DELAY = 300; // Adjust the delay as needed
   let debounceTimer;
