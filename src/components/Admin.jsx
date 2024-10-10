@@ -6,7 +6,7 @@ import Footer from './Footer';
 
 
 const Admin = () => {
-  const defaultMode = 'Mode 3';
+  const defaultMode = 'Mode 1';
   const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAuthenticated') === 'true');
   const [selectedMode, setSelectedMode] = useState(localStorage.getItem('selectedMode') || defaultMode);
   const navigate = useNavigate();
