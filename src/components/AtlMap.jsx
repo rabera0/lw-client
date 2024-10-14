@@ -25,12 +25,12 @@ function AtlMap() {
       setTimeout(() => {
         setShowGraph(true); // Show the Graph after the image has fully faded out
       }, 1000); // Wait for the fade-out duration (1 second)
-    }, 2200); // Wait for 2 seconds of display plus 0.2 seconds of fade-in
+    }, 2200000); // Wait for 2 seconds of display plus 0.2 seconds of fade-in
 
     // Navigation timer
     const navigationTimer = setTimeout(() => {
       navigate('/atlanta', { state: { zipcode } });
-    }, 9500); // Total time: 3.2 seconds (image display and fade) + 7.5 seconds (graph display)
+    }, 9500000); // Total time: 3.2 seconds (image display and fade) + 7.5 seconds (graph display)
 
     return () => {
       clearTimeout(fadeInTimer);
