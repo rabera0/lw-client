@@ -1,41 +1,54 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import Header from './Header';
+import useWebSockets from '../useWebSocket';
 
 function Proceed() {
-    return (
-      <div>
-        <Header />
-          <div  className="Proceed">
-          <p>What is your zipcode?</p>
-          <br></br>
-          <br></br>
-            <Link to='/zipcode'>
-            <button>Atlanta Visitor</button>
-          </Link> 
-          <br></br>
-          <br></br>
-            <Link to='/zipcode'>
-            <button>US Visitor</button>
-          </Link>
-          <br></br>
-          <br></br>
+    const navigate = useNavigate();
+    const { handleClickSendMessage } = useWebSockets('wss://lw-server-ce19694e9edf.herokuapp.com/'); 
 
-          <Link to='/intlmap'>
-            <button>International Visitor</button>
-          </Link>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br />
-          <br />
+    const handleInternationalClick = () => {
+        // Send the predefined zipcode '00000' via WebSocket
+        handleClickSendMessage('00000');
+        
+        // Navigate to the international map (you can adjust the route as necessary)
+        navigate('/intlmap');
+    };
+
+    return (
+        <div>
+            <Header />
+            <div className="Proceed">
+                <p>What is your zipcode?</p>
+                <br />
+                <br />
+                <Link to='/zipcode'>
+                    <button>Atlanta Visitor</button>
+                </Link> 
+                <br />
+                <br />
+                <Link to='/zipcode'>
+                    <button>US Visitor</button>
+                </Link>
+                <br />
+                <br />
+                <button onClick={handleInternationalClick}>
+                    International Visitor
+                </button>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+            <Footer />
         </div>
-        <Footer />
-      </div>
     );
-  }
-  
-  export default Proceed;
+}
+
+export default Proceed;
