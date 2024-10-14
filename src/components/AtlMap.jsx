@@ -4,7 +4,7 @@ import Graph from './Graph'; // Import the Graph component
 import Footer from './Footer';
 import Header from './Header';
 
-const imagePath = '../atlcitymap.png';
+const imagePath = '../assets/atlcitymap.png';
 
 function AtlMap() {
   const navigate = useNavigate();
