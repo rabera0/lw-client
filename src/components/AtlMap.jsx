@@ -3,8 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Graph from './Graph'; // Import the Graph component
 import Footer from './Footer';
 import Header from './Header';
-
-const img = "https://cdn.glitch.global/f45e1b7b-5bbc-4ef0-82cf-33f60ccdb1c4/map3.png?v=1727867647887";
+import img from '../atlcitymap.png'
 
 function AtlMap() {
   const navigate = useNavigate();
