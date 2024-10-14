@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Graph from './Graph'; // Import the Graph component
 import Footer from './Footer';
 import Header from './Header';
-import img from '../atlcitymap.png'
+
+const imagePath = '../atlcitymap.png';
 
 function AtlMap() {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ function AtlMap() {
     <div>
       <Header />
       <div style={{ textAlign: 'center', padding: '0 10%' }}>
-        <h2>ARGGGGGGGGGGGGGG Connecting Neighborhoods...</h2>
+        <h2>Connecting Neighborhoods...</h2>
         <br />
         <br />
         <br />
@@ -55,7 +56,7 @@ function AtlMap() {
               left: 0,
               width: '100%',
               height: '350px',
-              backgroundImage: `url(../atlcitymap.png)`, // Set background image
+              backgroundImage: `url(${imagePath})`, // Set background image
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
