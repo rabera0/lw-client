@@ -42,7 +42,7 @@ function AtlMap() {
     <div>
       <Header />
       <div style={{ textAlign: 'center', padding: '0 10%' }}>
-        <h2>Connecting Neighborhoods...</h2>
+        <h2>ARGGGGGGGGGGGGGG Connecting Neighborhoods...</h2>
         <br />
         <br />
         <br />
@@ -55,7 +55,7 @@ function AtlMap() {
               left: 0,
               width: '100%',
               height: '350px',
-              backgroundImage: `url(${img})`, // Set background image
+              backgroundImage: `url(../atlcitymap.png)`, // Set background image
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
