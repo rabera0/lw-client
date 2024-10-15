@@ -53,10 +53,7 @@ function StateMap() {
       <Header />
       <div style={{ textAlign: 'center', marginTop: '20px', padding: '0 10%' }}>
         <p>From To</p>
-        <br />
         <h5>ATL {">>"} {state}</h5>
-        <br />
-        <br />
         <br />
         {/* Image Container */}
         <div style={{ position: 'relative', height: '350px', width: '100%', maxWidth: '500px', margin: '0 auto' }}>

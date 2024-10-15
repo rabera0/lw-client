@@ -44,8 +44,6 @@ function AtlMap() {
       <div style={{ textAlign: 'center', padding: '0 10%' }}>
         <h2>Connecting Neighborhoods...</h2>
         <br />
-        <br />
-        <br />
         {/* Image Container */}
         <div style={{ position: 'relative', height: '350px', width: '100%', maxWidth: '500px', margin: '0 auto' }}>
           <div
