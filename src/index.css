@@ -2,15 +2,15 @@
 
 @font-face {
   font-family: 'Aleck';
-  src: url('../src/assets/ATTAleckSans_Rg.ttf') format('truetype');
-  font-weight: normal;
+  src: url('../src/assets/ATTAleckSans_Rg.ttf') format('truetype'); /* Regular */
+  font-weight: normal; /* or 400 */
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Aleck';
-  src: url('../src/assets/ATTAleckSans_Bd.ttf') format('truetype');
-  font-weight: bold;
+  src: url('../src/assets/ATTAleckSans_Bd.ttf') format('truetype'); /* Bold */
+  font-weight: bold; /* or 700 */
   font-style: normal;
 }
 
@@ -26,10 +26,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 body,
 html {
   color: #fff;
-  font-family: Arial, sans-serif;
+  font-family: Aleck;
   background-color: #2195CB;
   text-align: center;
 }
