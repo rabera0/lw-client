@@ -100,7 +100,7 @@ function State() {
     <div>
       <Header />
       <div className="State" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-        <p>From     To</p>
+      <p style={{ whiteSpace: 'pre' }}>From              To</p>
         <h5>ATL → {state}</h5>
         <br />
         {/* Display the state message here */}

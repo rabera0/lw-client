@@ -208,8 +208,8 @@ h2 {
 h3 {
   animation: fadeInOscillate 3s infinite; /* Set animation duration and repetition */
   font-size: 30px;
-  font-weight: bold;
-  text-align: center;
+  font-weight: normal;
+  text-align: left;
   margin-top: 0; /* Remove top margin */
   margin-bottom: 0; /* Remove bottom margin */
   padding-top: 0; /* Remove top padding */
