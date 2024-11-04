@@ -35,12 +35,9 @@ html {
   text-align: center;
 }
 
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
-  text-align: left;
-  z-index: 1;
+.perch {
+  height: 40px; /* Adjust the height as needed */
+  margin-right: 10px; /* Space between the logo and text */
 }
 
 .Landing {
@@ -104,7 +101,6 @@ header {
   padding: 10%;
 
 }
-
 
 .footer {
     position: fixed; /* Use fixed to keep it at the bottom */
@@ -170,12 +166,25 @@ input {
   text-align: center;
 }
 
+.Header {
+  display: flex;
+  align-items: center; /* Vertically center the logo and text */
+  padding: 10%; /* Adjust as needed */
+}
+
+.perch {
+  width: 70px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Space between logo and text */
+}
+
 h1 {
-  margin-right: 100px;
+  /* margin-right: 100px; */
+  margin: 0;
   font-size: 20px;
   font-weight: bold;
   text-align: left;
-  padding: 10% 10% 0;/* This sets top/bottom padding to 0 and left/right to 10% */
+  /* padding: 10% 10% 0; */
 }
 
 h6 {
