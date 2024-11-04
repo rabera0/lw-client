@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import uszips from '../data/USCities.json';
 import '../index.css';
 import GraphState from './GraphState'; // Import the Graph component
+import TextComponent from "./Lookup";
 import Footer from './Footer';
 import Header from './Header';
 
@@ -18,33 +19,62 @@ function StateMap() {
   const navigate = useNavigate();
   const location = useLocation();
   const zipcode = location.state?.zipcode;
-  const [isFading, setIsFading] = useState(false);
-  const [showGraph, setShowGraph] = useState(false); // State to control Graph visibility
+  const [currentComponent, setCurrentComponent] = useState('text'); // Track current component
   const [opacity, setOpacity] = useState(0); // State for fade-in
 
   const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
 
   useEffect(() => {
-    const fadeInTimer = setTimeout(() => {
-      setOpacity(1); // Set opacity to 1 after a delay to trigger fade-in
-    }, 200); // Delay before starting fade in
+    const fadeInDuration = 200; // Initial fade-in delay
+    const textDisplayDuration = 5000; // Text display duration
+    const imageDisplayDuration = 3500; // Image display duration
+    const graphDisplayDuration = 8500; // Graph display duration
+    const fadeOutDuration = 1000; // Fade-out duration
 
-    const showGraphTimer = setTimeout(() => {
-      setIsFading(true); // Start fading out the image
-      setTimeout(() => {
-        setShowGraph(true); // Show the Graph after the image has fully faded out
-      }, 1000); // Wait for the fade-out duration (1 second)
-    }, 2200); // Total time for image display before fading out
+    const timers = [];
+
+    // Fade in for TextComponent
+    const fadeInTimer = setTimeout(() => {
+      setOpacity(1); // Fade in
+    }, fadeInDuration);
+    timers.push(fadeInTimer);
+
+    // Display TextComponent
+    const textDisplayTimer = setTimeout(() => {
+      setOpacity(0); // Start fading out text
+      const hideTextTimer = setTimeout(() => {
+        setCurrentComponent('image'); // Switch to image
+        setOpacity(1); // Fade in image
+      }, fadeOutDuration);
+      timers.push(hideTextTimer);
+    }, textDisplayDuration + fadeInDuration);
+    
+    // Display Image
+    const imageDisplayTimer = setTimeout(() => {
+      setOpacity(0); // Start fading out image
+      const hideImageTimer = setTimeout(() => {
+        setCurrentComponent('graph'); // Switch to graph
+        setOpacity(1); // Fade in graph
+      }, fadeOutDuration);
+      timers.push(hideImageTimer);
+    }, textDisplayDuration + imageDisplayDuration + fadeOutDuration + fadeInDuration);
+    
+    // Display Graph
+    const graphDisplayTimer = setTimeout(() => {
+      setOpacity(0); // Start fading out graph
+      const hideGraphTimer = setTimeout(() => {
+        setCurrentComponent('end'); // End state
+      }, fadeOutDuration);
+      timers.push(hideGraphTimer);
+    }, textDisplayDuration + imageDisplayDuration + graphDisplayDuration + fadeOutDuration + 2 * fadeInDuration);
 
     // Navigation timer
     const navigationTimer = setTimeout(() => {
-      navigate('/state', { state: { zipcode } }); // Navigate to the state route
-    }, 9500); // Total time: 5.5 seconds (graph display) + 3 seconds (image display and fade)
+      navigate('/state', { state: { zipcode } });
+    }, textDisplayDuration + imageDisplayDuration + graphDisplayDuration + 3 * fadeOutDuration + 3 * fadeInDuration);
 
     return () => {
-      clearTimeout(fadeInTimer);
-      clearTimeout(showGraphTimer);
-      clearTimeout(navigationTimer); // Cleanup the timers
+      timers.forEach(clearTimeout); // Cleanup all timers
     };
   }, [navigate, zipcode]);
 
@@ -55,30 +85,43 @@ function StateMap() {
         <p>From To</p>
         <h5>ATL → {state}</h5>
         <br />
+        
+        {/* Display the Text Component */}
+        {currentComponent === 'text' && (
+          <div style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+            <TextComponent />
+          </div>
+        )}
+        
         {/* Image Container */}
-        <div style={{ position: 'relative', height: '350px', width: '100%', maxWidth: '500px', margin: '0 auto' }}>
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '350px',
-              backgroundImage: `url(${img})`, // Set background image
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-              opacity: isFading ? 0 : opacity,
-              transition: 'opacity 1s ease-in-out',
-            }}
-          ></div>
-          {/* Graph Container */}
-          {showGraph && (
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '350px' }}>
+        {currentComponent === 'image' && (
+          <div style={{ position: 'relative', height: '350px', width: '100%', maxWidth: '500px', margin: '-10px auto' }}>
+            <div
+              style={{
+                position: 'absolute',
+                top: -10,
+                left: 0,
+                width: '100%',
+                height: '350px',
+                backgroundImage: `url(${img})`, // Set background image
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                opacity,
+                transition: 'opacity 1s ease-in-out',
+              }}
+            ></div>
+          </div>
+        )}
+
+        {/* Graph Container */}
+        {currentComponent === 'graph' && (
+          <div style={{ position: 'relative', top: 0, left: 0, width: '100%', height: '350px', padding: '0px 5%' }}>
+            <div style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
               <GraphState zipcode={zipcode} />
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
       <Footer />
     </div>

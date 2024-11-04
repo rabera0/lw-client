@@ -130,6 +130,26 @@ header {
   pointer-events: none; /* Prevent interactions */
 }
 
+.look {
+  display: flex;               /* Use flexbox for centering */
+  justify-content: center;     /* Center horizontally */
+  align-items: center;         /* Center vertically */
+  text-align: center;          /* Center text */
+  padding-top: 15%;
+}
+
+@keyframes fadeInOscillate {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
 
 .iframe {
 /*   width: 100%;
@@ -174,14 +194,14 @@ h2 {
 }
 
 h3 {
-  font-family: 'Dancing Script', cursive; /* Use the imported font */
-  font-size: 55px;
+  animation: fadeInOscillate 3s infinite; /* Set animation duration and repetition */
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
   margin-top: 0; /* Remove top margin */
-  margin-bottom: 3px; /* Remove bottom margin */
+  margin-bottom: 0; /* Remove bottom margin */
   padding-top: 0; /* Remove top padding */
-  padding-bottom: 3px; /* Remove bottom padding */
+  padding-bottom: 0; /* Remove bottom padding */
 }
 
 h4 {
@@ -246,7 +266,6 @@ button:hover {
   position: relative;
   width: 100vw; /* Allow it to fill the parent */
   height: auto; /* Maintain aspect ratio */
-  margin: 0 auto;
   transform: scale(0.5);
   transform-origin: top left;
   /* background-color: rgba(224, 228, 231, 0.473); */

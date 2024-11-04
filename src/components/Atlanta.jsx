@@ -104,7 +104,6 @@ function Atlanta() {
           </div>
         )}
         <br />
-        <br />
         <h5>{city}</h5>
         <br />
          <p>{message}</p> {/* Replace "county message" with the retrieved message */}

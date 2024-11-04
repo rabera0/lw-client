@@ -88,7 +88,7 @@ function State() {
       setTimeout(() => {
         navigate('/finalpage');
       }, 1000); // Duration of fade-out effect
-    }, 6500); // Wait for 6.5 seconds before starting the fade
+    }, 7500); // Wait for 6.5 seconds before starting the fade
 
     return () => {
       clearTimeout(fadeInTimer);

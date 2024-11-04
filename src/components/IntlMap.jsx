@@ -2,49 +2,68 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import Header from './Header';
-import earth from '../assets/earth.gif';
-import Graph from './Graph'; 
-import GraphState from './GraphState'
-import AFrameScene from './AFrame';
+import TextComponent from "./Lookup"; // Your text component
+import earth from '../assets/earth.gif'; // The earth image
 
 function IntlMap() {
   const navigate = useNavigate();
   const location = useLocation();
   const zipcode = location.state?.zipcode; // Get the zipcode from the state
-  const [isFading, setIsFading] = useState(false);
+  const [currentComponent, setCurrentComponent] = useState('text'); // Track which component is currently displayed
   const [opacity, setOpacity] = useState(0); // State for fade-in
 
-  
   useEffect(() => {
-    const fadeInTimer = setTimeout(() => {
-      setOpacity(1); // Set opacity to 1 after a delay to trigger fade-in
-    }, 200); // Delay before starting fade in
+    const fadeInDuration = 200; // Initial fade-in delay
+    const textDisplayDuration = 5000; // Text component display duration
+    const earthDisplayDuration = 5000; // Earth component display duration
+    const fadeOutDuration = 1000; // Fade-out duration
 
-    const timer = setTimeout(() => {
-      setIsFading(true);
-      setTimeout(() => {
-        navigate('/International');
-      }, 1000); // Duration of fade-out effect
-    }, 6000); // Wait for 3.5 seconds before starting the fade
+    const timers = [];
+
+    // Fade in effect for TextComponent
+    const fadeInTimer = setTimeout(() => {
+      setOpacity(1); // Fade in
+    }, fadeInDuration);
+    timers.push(fadeInTimer);
+
+    // Timer for displaying the TextComponent
+    const textDisplayTimer = setTimeout(() => {
+      setOpacity(0); // Start fading out text
+      const hideTextTimer = setTimeout(() => {
+        setCurrentComponent('earth'); // Switch to earth component
+        setOpacity(1); // Fade in earth component
+      }, fadeOutDuration);
+      timers.push(hideTextTimer);
+    }, textDisplayDuration + fadeInDuration);
+
+    // Timer for displaying the Earth component
+    const earthDisplayTimer = setTimeout(() => {
+      setOpacity(0); // Start fading out earth component
+      const hideEarthTimer = setTimeout(() => {
+        navigate('/International'); // Navigate after earth display
+      }, fadeOutDuration);
+      timers.push(hideEarthTimer);
+    }, textDisplayDuration + earthDisplayDuration + 2 * fadeInDuration);
 
     return () => {
-      clearTimeout(fadeInTimer);
-      clearTimeout(timer);
+      timers.forEach(clearTimeout); // Cleanup all timers
     };
   }, [navigate]);
-  
-    return (
-      <div>
-        <Header />
-        <div  className="International" style={{ opacity, transition: 'opacity 3s ease-in-out' }}>
-          <h2> Connecting Atlanta to the World... </h2>
-          {/* <AFrameScene /> */}
+
+  return (
+    <div>
+      <Header />
+      <div className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+        {currentComponent === 'text' && (
+          <TextComponent />
+        )}
+        {currentComponent === 'earth' && (
           <img src={earth} className="earth" alt="loading..." />
-          <></>
-        </div>
-        <Footer />
+        )}
       </div>
-    );
-  }
-  
-  export default IntlMap;
+      <Footer />
+    </div>
+  );
+}
+
+export default IntlMap;

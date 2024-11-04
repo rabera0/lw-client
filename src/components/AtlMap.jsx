@@ -3,38 +3,67 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Graph from './Graph'; // Import the Graph component
 import Footer from './Footer';
 import Header from './Header';
+import TextComponent from "./Lookup";
 import atlCityMap from '../atlcitymap.png';
 
 function AtlMap() {
   const navigate = useNavigate();
   const location = useLocation();
   const zipcode = location.state?.zipcode; // Get the zipcode from the state
-  const [isFading, setIsFading] = useState(false);
-  const [showGraph, setShowGraph] = useState(false); // State to control Graph visibility
+  const [currentComponent, setCurrentComponent] = useState('text'); // Track which component is currently displayed
   const [opacity, setOpacity] = useState(0); // State for fade-in
 
   useEffect(() => {
-    // Fade in effect
-    const fadeInTimer = setTimeout(() => {
-      setOpacity(1);
-    }, 200); // Delay before starting fade in
+    const fadeInDuration = 200; // Initial fade-in delay
+    const textDisplayDuration = 5000; // Text component display duration
+    const imageDisplayDuration = 3500; // Image component display duration
+    const graphDisplayDuration = 8500; // Graph component display duration
+    const fadeOutDuration = 1000; // Fade-out duration
 
-    const showGraphTimer = setTimeout(() => {
-      setIsFading(true); // Start fading out the image
-      setTimeout(() => {
-        setShowGraph(true); // Show the Graph after the image has fully faded out
-      }, 1000); // Wait for the fade-out duration (1 second)
-    }, 2200); // Wait for 2 seconds of display plus 0.2 seconds of fade-in
+    const timers = [];
+
+    // Fade in effect for TextComponent
+    const fadeInTimer = setTimeout(() => {
+      setOpacity(1); // Fade in
+    }, fadeInDuration);
+    timers.push(fadeInTimer);
+
+    // Timer for displaying the TextComponent
+    const textDisplayTimer = setTimeout(() => {
+      setOpacity(0); // Start fading out text
+      const hideTextTimer = setTimeout(() => {
+        setCurrentComponent('image'); // Switch to image
+        setOpacity(1); // Fade in image
+      }, fadeOutDuration);
+      timers.push(hideTextTimer);
+    }, textDisplayDuration + fadeInDuration);
+    
+    // Timer for displaying the Image
+    const imageDisplayTimer = setTimeout(() => {
+      setOpacity(0); // Start fading out image
+      const hideImageTimer = setTimeout(() => {
+        setCurrentComponent('graph'); // Switch to graph
+        setOpacity(1); // Fade in graph
+      }, fadeOutDuration);
+      timers.push(hideImageTimer);
+    }, textDisplayDuration + imageDisplayDuration + 2 * fadeInDuration);
+    
+    // Timer for displaying the Graph
+    const graphDisplayTimer = setTimeout(() => {
+      setOpacity(0); // Start fading out graph
+      const hideGraphTimer = setTimeout(() => {
+        setCurrentComponent('end'); // End state
+      }, fadeOutDuration);
+      timers.push(hideGraphTimer);
+    }, textDisplayDuration + imageDisplayDuration + graphDisplayDuration + 3 * fadeInDuration);
 
     // Navigation timer
     const navigationTimer = setTimeout(() => {
       navigate('/atlanta', { state: { zipcode } });
-    }, 9500); // Total time: 3.2 seconds (image display and fade) + 7.5 seconds (graph display)
+    }, textDisplayDuration + imageDisplayDuration + graphDisplayDuration + 4 * fadeInDuration);
 
     return () => {
-      clearTimeout(fadeInTimer);
-      clearTimeout(showGraphTimer);
-      clearTimeout(navigationTimer); // Cleanup the timers
+      timers.forEach(clearTimeout); // Cleanup all timers
     };
   }, [navigate, zipcode]);
 
@@ -44,31 +73,44 @@ function AtlMap() {
       <div style={{ textAlign: 'center', padding: '0 10%' }}>
         <h2>Connecting Neighborhoods...</h2>
         <br />
+        
+        {/* Display the Text Component */}
+        {currentComponent === 'text' && (
+          <div style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+            <TextComponent /> {/* Replace with your actual TextComponent */}
+          </div>
+        )}
+        
         {/* Image Container */}
-        <div style={{ position: 'relative', height: '350px', width: '100%', maxWidth: '500px', margin: '0 auto' }}>
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '350px',
-              transform: 'scale(1.15)',
-              backgroundImage: `url(${atlCityMap})`,
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-              opacity: isFading ? 0 : opacity,
-              transition: 'opacity 1s ease-in-out',
-            }}
-          ></div>
-          {/* Graph Container */}
-          {showGraph && (
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '350px' }}>
+        {currentComponent === 'image' && (
+          <div style={{ position: 'relative', height: '350px', width: '100%', maxWidth: '500px', margin: '0 auto' }}>
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '350px',
+                transform: 'scale(1.15)',
+                backgroundImage: `url(${atlCityMap})`,
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                opacity,
+                transition: 'opacity 1s ease-in-out',
+              }}
+            ></div>
+          </div>
+        )}
+
+        {/* Graph Container */}
+        {currentComponent === 'graph' && (
+          <div style={{ position: 'relative', top: 0, left: 0, width: '100%', height: '350px', padding: '0px 5%' }}>
+            <div style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
               <Graph zipcode={zipcode} />
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
       <Footer />
     </div>
