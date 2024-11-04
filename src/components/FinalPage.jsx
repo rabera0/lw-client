@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import Header from './Header';
+import text from '../assets/fp-text.png'
 
 function FinalPage() {
     const navigate = useNavigate();
@@ -29,10 +30,11 @@ function FinalPage() {
            <br />
            <br />
            <div  className="FinalPage" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
-              <div className="FinalText">
-                  <h4> Connecting </h4>
+              <div>
+                  {/* <h4> Connecting </h4>
                   <h3> Changes</h3>
-                  <h4> Everything™ </h4>
+                  <h4> Everything™ </h4> */}
+                  <img src={text} className="fp-logo" alt="Logo" />
               </div>
           </div>
           <Footer />

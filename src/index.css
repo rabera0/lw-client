@@ -101,14 +101,8 @@ header {
 }
 
 .FinalPage {
-  padding: 30%;
+  padding: 10%;
 
-}
-
-.FinalText{
-    justify-content: center;
-    scale: 1.5;
-    margin-right: -25px;
 }
 
 
@@ -116,7 +110,6 @@ header {
     position: fixed; /* Use fixed to keep it at the bottom */
     left: 0;
     bottom: 0; /* Stick to the bottom */
-    scale: 0.6;
     width: 100%; /* Full width */
     text-align: center; /* Center the text */
     padding: 10px 0; /* Padding for spacing */
@@ -125,6 +118,11 @@ header {
 .logo {
     height: 15vmin; /* Responsive height */
     pointer-events: none; /* Prevent interactions */
+}
+
+.fp-logo {
+  height: 45vmin; /* Responsive height */
+  pointer-events: none; /* Prevent interactions */
 }
 
 

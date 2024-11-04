@@ -39,7 +39,7 @@ function International() {
           <br />
           <p>Watch the mural to see how you connect with other fans.</p>
           <br />
-          <h6>#attatlperch</h6>
+          <h6>Tag us @ATT</h6>
           <br></br> 
         </div> 
         <Footer /> 
