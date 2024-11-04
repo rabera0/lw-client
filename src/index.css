@@ -247,7 +247,7 @@ button:hover {
   width: 100vw; /* Allow it to fill the parent */
   height: auto; /* Maintain aspect ratio */
   margin: 0 auto;
-  transform: scale(0.6);
+  transform: scale(0.5);
   transform-origin: top left;
   /* background-color: rgba(224, 228, 231, 0.473); */
 /*   background-image: './src/usOutline.png?v=1727798339161'; */
