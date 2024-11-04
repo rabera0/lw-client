@@ -81,8 +81,8 @@ function StateMap() {
   return (
     <div>
       <Header />
-      <div style={{ textAlign: 'center', marginTop: '20px', padding: '0 10%' }}>
-        <p>From To</p>
+      <div style={{ textAlign: 'center', padding: '10%' }}>
+        <p>From     To</p>
         <h5>ATL → {state}</h5>
         <br />
         

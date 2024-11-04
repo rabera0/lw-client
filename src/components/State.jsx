@@ -101,7 +101,6 @@ function State() {
       <Header />
       <div className="State" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
         <p>From     To</p>
-         <br />
         <h5>ATL → {state}</h5>
         <br />
         {/* Display the state message here */}

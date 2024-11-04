@@ -70,7 +70,7 @@ function AtlMap() {
   return (
     <div>
       <Header />
-      <div style={{ textAlign: 'center', padding: '0 10%' }}>
+      <div style={{ textAlign: 'center', padding: '10%' }}>
         <h2>Connecting Neighborhoods...</h2>
         <br />
         
@@ -91,7 +91,6 @@ function AtlMap() {
                 left: 0,
                 width: '100%',
                 height: '350px',
-                transform: 'scale(1.15)',
                 backgroundImage: `url(${atlCityMap})`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',

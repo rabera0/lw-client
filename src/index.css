@@ -169,7 +169,10 @@ input {
 .Header {
   display: flex;
   align-items: center; /* Vertically center the logo and text */
-  padding: 10%; /* Adjust as needed */
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 10%;
+  padding-bottom: 0;
 }
 
 .perch {
