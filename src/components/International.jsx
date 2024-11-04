@@ -37,7 +37,7 @@ function International() {
           <p>Hello, Global Travelers! From across the seas and lands, welcome to Georgia’s heart. We’re thrilled to share this moment with you.</p>
           <br />
           <br />
-          <p>Watch the mural to see your impact</p>
+          <p>Watch the mural to see how you connect with other fans.</p>
           <br />
           <h6>#attatlperch</h6>
           <br></br> 

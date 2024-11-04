@@ -33,7 +33,7 @@ function FinalPage() {
               <div className="FinalText">
                   <h4> Connecting </h4>
                   <h3> Changes</h3>
-                  <h4> Everything </h4>
+                  <h4> Everything™ </h4>
               </div>
           </div>
           <Footer />

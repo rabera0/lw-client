@@ -83,7 +83,7 @@ const Zipcode = () => {
       <div>
         <Header />
         <div  className="Zipcode">
-          <p>What is your zipcode?</p>
+          <p>What is your zip code?</p>
           <br></br>
           <br></br>
           <form onSubmit={handleSubmit}>

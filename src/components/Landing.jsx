@@ -21,7 +21,7 @@ function Landing() {
       <Header />
       <div className="Landing" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
         <p>
-          At AT&T, we know connecting changes everything. In service of this mindset, this artwork represents a cultural touchpoint that bridges 
+          At AT&T, we know Connecting Changes Everything™. With that in mind, this artwork represents a cultural touchpoint that bridges 
           Mercedes-Benz stadium and Metropolitan Atlanta. The mural features an interactive map showing how fans from nearby neighborhoods all come 
           together and connect with each other.
         

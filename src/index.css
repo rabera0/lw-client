@@ -1,7 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
+@font-face {
+  font-family: 'Aleck';
+  src: url('../src/assets/ATTAleckSans_Rg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aleck';
+  src: url('../src/assets/ATTAleckSans_Bd.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Lucida Handwriting",
+  font-family: 'Aleck', -apple-system, BlinkMacSystemFont, "Lucida Handwriting",
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -12,7 +26,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 body,
 html {
   color: #fff;
