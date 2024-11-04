@@ -34,12 +34,12 @@ function StateMap() {
       setTimeout(() => {
         setShowGraph(true); // Show the Graph after the image has fully faded out
       }, 1000); // Wait for the fade-out duration (1 second)
-    }, 2200); // Total time for image display before fading out
+    }, 22000); // Total time for image display before fading out
 
     // Navigation timer
     const navigationTimer = setTimeout(() => {
       navigate('/state', { state: { zipcode } }); // Navigate to the state route
-    }, 9500); // Total time: 5.5 seconds (graph display) + 3 seconds (image display and fade)
+    }, 95000); // Total time: 5.5 seconds (graph display) + 3 seconds (image display and fade)
 
     return () => {
       clearTimeout(fadeInTimer);

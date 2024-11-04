@@ -125,6 +125,11 @@ header {
   pointer-events: none; /* Prevent interactions */
 }
 
+.earth {
+  height: 75vmin; /* Responsive height */
+  pointer-events: none; /* Prevent interactions */
+}
+
 
 .iframe {
 /*   width: 100%;

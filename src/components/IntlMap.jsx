@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import Header from './Header';
+import earth from '../assets/earth.gif';
 import Graph from './Graph'; 
 import GraphState from './GraphState'
 import AFrameScene from './AFrame';
 
 function IntlMap() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
   const zipcode = location.state?.zipcode; // Get the zipcode from the state
   const [isFading, setIsFading] = useState(false);
@@ -37,7 +38,9 @@ function IntlMap() {
         <Header />
         <div  className="International" style={{ opacity, transition: 'opacity 3s ease-in-out' }}>
           <h2> Connecting Atlanta to the World... </h2>
-          <AFrameScene />
+          {/* <AFrameScene /> */}
+          <img src={earth} className="earth" alt="loading..." />
+          <></>
         </div>
         <Footer />
       </div>
