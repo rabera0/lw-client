@@ -99,10 +99,11 @@ function StateMap() {
             <div
               style={{
                 position: 'absolute',
-                top: -10,
+                top: -25,
                 left: 0,
                 width: '100%',
                 height: '350px',
+                transform: 'scale(1.18)',
                 backgroundImage: `url(${img})`, // Set background image
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',

@@ -29,6 +29,7 @@ function FinalPage() {
           <Header />
            <br />
            <br />
+           <br />
            <div  className="FinalPage" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
               <div>
                   {/* <h4> Connecting </h4>

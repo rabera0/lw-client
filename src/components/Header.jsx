@@ -1,6 +1,6 @@
 import React from 'react';
 import '../index.css';
-import logo from '../assets/PerchMark.png';
+import logo from '../assets/perch-white.png';
 
 function Header() {
   return (

@@ -20,8 +20,8 @@ function Proceed() {
         <div>
             <Header />
             <div className="Proceed">
-                <p>What is your zip code?</p>
                 <br />
+                <p>What is your zip code?</p>
                 <br />
                 <Link to='/zipcode'>
                     <button>Atlanta Visitor</button>

@@ -19,6 +19,7 @@ function Landing() {
   return (
     <div>
       <Header />
+      <br />
       <div className="Landing" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
         <p>
           At AT&T, we know Connecting Changes Everything™. With that in mind, this artwork represents a cultural touchpoint that bridges 

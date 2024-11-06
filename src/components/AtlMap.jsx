@@ -87,10 +87,11 @@ function AtlMap() {
             <div
               style={{
                 position: 'absolute',
-                top: 0,
+                top: -25,
                 left: 0,
                 width: '100%',
                 height: '350px',
+                transform: 'scale(1.2)',
                 backgroundImage: `url(${atlCityMap})`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
