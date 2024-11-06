@@ -102,9 +102,12 @@ function Atlanta() {
           >
           </div>
         )}
+        <br />
+        <br />
         <h5>{city}</h5>
         <br />
-         <h6>{message}</h6> {/* Replace "county message" with the retrieved message */}
+        <p>{message}</p> {/* Replace "county message" with the retrieved message */}
+        <br />
         <p>Watch the mural to see how you connect with other fans.</p>
         <p>Tag us @ATT</p>
         <Footer />

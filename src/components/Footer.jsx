@@ -1,13 +1,20 @@
 // Footer.js
 import React from 'react';
-import logo from '../att_logo.png';
+import { Link } from 'react-router-dom'; // Use Link for navigation
+import logo from '../att_logo.png'; // Your logo path
 import '../index.css';
-// const img = 'https://cdn.glitch.global/f45e1b7b-5bbc-4ef0-82cf-33f60ccdb1c4/AT%26T%20White%20Logo.png?v=1727867649060';
 
-function Footer() {
+function Footer({ onLogoClick }) {
+  // Handle logo click and notify parent
+  const handleLogoClick = () => {
+    if (onLogoClick) onLogoClick();  // Notify parent component that the logo was clicked
+  };
+
   return (
     <div className="footer">
-       <img src={logo} className="logo" alt="Logo" />
+      <Link to="/" onClick={handleLogoClick}> {/* This link will now navigate to / */}
+        <img src={logo} className="logo" alt="Logo" />
+      </Link>
     </div>
   );
 }

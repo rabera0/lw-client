@@ -83,9 +83,9 @@ const Zipcode = () => {
       <div>
         <Header />
         <div  className="Zipcode">
+          <br />
           <p>What is your zip code?</p>
-          <br></br>
-          <br></br>
+          <br />
           <form onSubmit={handleSubmit}>
             <input 
               placeholder="enter your input"

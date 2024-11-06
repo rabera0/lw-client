@@ -106,9 +106,8 @@ function State() {
         {/* Display the state message here */}
         <p>{message}</p>
         <br />
-        <br /> 
-        <br />
-        <br />
+        <p>Watch the mural to see how you connect with other fans.</p>
+        <p>Tag us @ATT</p>
         <br />
         <br />
         <br />
