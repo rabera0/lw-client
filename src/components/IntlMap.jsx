@@ -53,6 +53,8 @@ function IntlMap() {
   return (
     <div>
       <Header />
+      <br />
+      <br />
       <div className="International" style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
         {currentComponent === 'text' && (
           <TextComponent />
