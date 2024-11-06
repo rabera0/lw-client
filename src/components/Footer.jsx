@@ -12,9 +12,8 @@ function Footer({ onLogoClick }) {
 
   return (
     <div className="footer">
-      <Link to="/" onClick={handleLogoClick}> {/* This link will now navigate to / */}
-        <img src={logo} className="logo" alt="Logo" />
-      </Link>
+      {/* <Link to="/" onClick={handleLogoClick}>  */}
+      <img src={logo} className="logo" alt="Logo" />
     </div>
   );
 }

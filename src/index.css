@@ -117,7 +117,7 @@ html {
 }
 
 .fp-logo {
-  height: 45vmin; /* Responsive height */
+  height: 55vmin; /* Responsive height */
   pointer-events: none; /* Prevent interactions */
 }
 
@@ -176,7 +176,7 @@ input {
 }
 
 .perch {
-  width: 70px; /* Adjust size as needed */
+  width: 75px; /* Adjust size as needed */
   height: auto; /* Maintain aspect ratio */
   margin-right: 10px; /* Space between logo and text */
 }
