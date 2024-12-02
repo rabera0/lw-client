@@ -21,10 +21,10 @@ function Proceed() {
             <Header />
             <div className="Proceed">
                 <br />
-                <p>What is your zip code?</p>
+                <p>Select where you are from?</p>
                 <br />
                 <Link to='/zipcode'>
-                    <button>Atlanta Visitor</button>
+                    <button>Atlanta Resident</button>
                 </Link> 
                 <br />
                 <br />

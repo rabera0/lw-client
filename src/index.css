@@ -38,6 +38,7 @@ html {
 .perch {
   height: 40px; /* Adjust the height as needed */
   margin-right: 10px; /* Space between the logo and text */
+  background-color: white;
 }
 
 .Landing {

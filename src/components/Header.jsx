@@ -6,7 +6,7 @@ function Header() {
   return (
     <div className="Header">
       <img src={logo} alt="logo" className="perch" />
-      <h1>THE AT&T PERCH LIVING MURAL</h1>
+      <h1>LIVING MURAL</h1>
     </div>
   );
 }
