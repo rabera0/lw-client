@@ -88,7 +88,7 @@ const Zipcode = () => {
           <br />
           <form onSubmit={handleSubmit}>
             <input 
-              placeholder="enter here"
+              placeholder="enter zipcode here"
               className="zip"
               name="zip"
               id="zip"
