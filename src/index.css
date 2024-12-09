@@ -156,8 +156,12 @@ html {
   background-color: #2195CB;
   
 }
-input {
+form {
   width: 90%;
+  margin: auto;
+}
+input {
+  width: 100%;
   background-color: #ffffff;
   color: #2195CB;
   border-radius: 15px;

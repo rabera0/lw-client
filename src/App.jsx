@@ -12,6 +12,7 @@ import Admin from './components/Admin';
 import Final from './components/FinalPage';
 import AtlMap from './components/AtlMap';
 import State from './components/State';
+import Graph from './components/GraphAnimation';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
     <div className="App">  
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/g" element={<Graph />} />
           <Route path="/proceed" element={<Proceed />} />
           <Route path="/zipcode" element={<Zipcode />} />
           <Route path="/international" element={<International />} />
