@@ -17,7 +17,7 @@ const useWebSockets = (url) => {
   }, [url]);
 
   const handleClickSendMessage = useCallback((zipcode) => {
-    sendJsonMessage({ type: 'zipcode', zipcode });
+    sendJsonMessage({ zipcode });
   }, [sendJsonMessage]);
 
   const handleClickSendMode = useCallback((mode) => {

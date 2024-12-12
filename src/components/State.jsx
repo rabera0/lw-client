@@ -71,7 +71,7 @@ function State() {
   const [isFading, setIsFading] = useState(false);
   const [opacity, setOpacity] = useState(0); // State for fade-in
 
-  console.log("ZIP Code:", zipcode); // Log the zipcode
+  // console.log("ZIP Code:", zipcode); // Log the zipcode
 
   const state = zipcode ? findStateByZip(zipcode) : 'ZIP code not provided';
   // console.log("State:", state); // Log the state

@@ -58,8 +58,7 @@ const Admin = () => {
     return (
       <div className="Admin">
         <h2>Admin Page</h2>
-        <p>Login</p>
-        <form onSubmit={(e) => {
+        <form id = "adminForm" onSubmit={(e) => {
           e.preventDefault();
           const username = e.target.username.value;
           const password = e.target.password.value;
@@ -72,6 +71,9 @@ const Admin = () => {
           }
         }}>
           <div>
+          <p>Login</p>
+          <br />
+          <br />
             <input name="username" placeholder="Username" type="text" required />
           </div>
           <div>
@@ -86,12 +88,14 @@ const Admin = () => {
   return (
     <div className="Admin">
       <h1>Admin Dashboard</h1>
-      <div>
+      <br />
+      <br />
+      <p>Selected Mode: {selectedMode}</p>
+      <div id="modes">
         <button onClick={() => { setSelectedMode('Mode 1'); sendMode('Mode 1'); }}>Mode 1</button>
         <button onClick={() => { setSelectedMode('Mode 2'); sendMode('Mode 2'); }}>Mode 2</button>
         <button onClick={() => { setSelectedMode('Mode 3'); sendMode('Mode 3'); }}>Mode 3</button>
       </div>
-      <p>Selected Mode: {selectedMode}</p>
       <button onClick={handleLogout}>Logout</button>
       <Footer />
     </div>

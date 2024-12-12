@@ -160,6 +160,23 @@ form {
   width: 90%;
   margin: auto;
 }
+
+#adminForm {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-row-gap: 10%;
+  align-content: center;
+  grid-auto-flow: row;
+  padding-top: 15%;
+}
+
+#modes{
+  padding-top: 15%;
+  padding-bottom: 15%;
+}
+
+
 input {
   width: 100%;
   background-color: #ffffff;

@@ -9,6 +9,58 @@ import Header from './Header';
 
 
 const Zipcode = () => {
+  const stateDir = {
+    "IN": "N",
+    "KY": "N",
+    "MI": "N",
+    "MN": "N",
+    "OH": "N",
+    "TN": "N",
+    "WI": "N",
+    "IA": "N",
+    "CT": "NE",
+    "DE": "NE",
+    "MD": "NE",
+    "ME": "NE",
+    "MA": "NE",
+    "NH": "NE",
+    "NJ": "NE",
+    "NY": "NE",
+    "NC": "NE",
+    "PA": "NE",
+    "RI": "NE",
+    "VT": "NE",
+    "VA": "NE",
+    "WV": "NE",
+    "SC": "E",
+    "FL": "SE",
+    "GA": "SE",
+    "HI": "SW",
+    "LA": "SW",
+    "NM": "W",
+    "TX": "W",
+    "AL": "W",
+    "AZ": "W",
+    "AR": "W",
+    "CA": "W",
+    "CO": "NW",
+    "MS": "W",
+    "NE": "NW",
+    "OK": "NW",
+    "KS": "NW",
+    "UT": "NW",
+    "WY": "NW",
+    "AK": "NW",
+    "ID": "NW",
+    "IL": "NW",
+    "MO": "NW",
+    "MT": "NW",
+    "NV": "NW",
+    "ND": "NW",
+    "OR": "NW",
+    "SD": "NW",
+    "WA": "NW"
+  }
   const [zipcode, setZipcode] = useState('');
   const [isAtlanta, setIsAtlanta] = useState(false);
   const navigate = useNavigate();
@@ -28,6 +80,20 @@ const Zipcode = () => {
     const zipString = zip.toString();
     return uszips.some(entry => entry.zip_code.toString() === zipString);
   };
+
+  function findStateByZip(zipCode) {
+    const numericZipCode = Number(zipCode);
+    const result = uszips.find(entry => entry.zip_code === numericZipCode);
+    return result ? result.state : 'ZIP code not found';
+  }
+
+   // Function to find direction by state
+   function findDirectionByState(state) {
+    return stateDir[state] || null; // Return null if state not found
+  }
+
+  const state = zipcode ? findStateByZip(zipcode) : null;
+  const direction = state ? findDirectionByState(state) : null;
 
   const displayMessage = (message) => {
     const messageContainer = document.getElementById('message-container');
@@ -49,8 +115,6 @@ const Zipcode = () => {
       return;
     }
 
-    handleClickSendMessage(zipcode);
-
     if (!checkZipcode(zipcode)) {
       displayMessage('Looks like that zip code does not exist, are you an ATLalien? Try Again');
       return;
@@ -58,9 +122,11 @@ const Zipcode = () => {
 
     if (checkAtl(zipcode)) {
       setIsAtlanta(true);
+      handleClickSendMessage(zipcode);
       navigate('/atlmap', { state: { zipcode } }); 
     } else {
       setIsAtlanta(false);
+      handleClickSendMessage(direction);
       navigate('/statemap', { state: { zipcode } });
     }
   }, [zipcode, handleClickSendMessage, navigate]);

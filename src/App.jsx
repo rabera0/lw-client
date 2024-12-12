@@ -13,6 +13,7 @@ import Final from './components/FinalPage';
 import AtlMap from './components/AtlMap';
 import State from './components/State';
 import Graph from './components/GraphAnimation';
+import Us from './components/Usmap';
 
 function App() {
   return (
@@ -21,16 +22,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/g" element={<Graph />} />
-          <Route path="/proceed" element={<Proceed />} />
-          <Route path="/zipcode" element={<Zipcode />} />
-          <Route path="/international" element={<International />} />
-          <Route path="/intlmap" element={<IntlMap />} />
-          <Route path="/statemap" element={<StateMap />} />
-          <Route path="/atlanta" element={<Atlanta />} />
-          <Route path="/atlmap" element={<AtlMap />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/state" element={<State />} />
-          <Route path="/finalpage" element={<Final />} />
+        <Route path="/us" element={<Us />} />
+        <Route path="/proceed" element={<Proceed />} />
+        <Route path="/zipcode" element={<Zipcode />} />
+        <Route path="/international" element={<International />} />
+        <Route path="/intlmap" element={<IntlMap />} />
+        <Route path="/statemap" element={<StateMap />} />
+        <Route path="/atlanta" element={<Atlanta />} />
+        <Route path="/atlmap" element={<AtlMap />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/state" element={<State />} />
+        <Route path="/finalpage" element={<Final />} />
       </Routes>
     </div>
     </BrowserRouter>
