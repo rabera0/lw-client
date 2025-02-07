@@ -1,8 +1,10 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 
 const useWebSockets = (url) => {
-  const [socketUrl, setSocketUrl] = useState(url);
+  // Memoize the socket URL to avoid re-initializing the socket on every render
+  const socketUrl = useMemo(() => url, [url]);
+
   const [messageHistory, setMessageHistory] = useState([]);
   const { sendJsonMessage, lastMessage, readyState } = useWebSocket(socketUrl);
 
@@ -12,18 +14,11 @@ const useWebSockets = (url) => {
     }
   }, [lastMessage]);
 
-  const handleClickChangeSocketUrl = useCallback(() => {
-    setSocketUrl(url);
-  }, [url]);
-
   const handleClickSendMessage = useCallback((zipcode) => {
+    console.log('Sending message: ', { zipcode });  // Added log here
     sendJsonMessage({ zipcode });
   }, [sendJsonMessage]);
 
-  const handleClickSendMode = useCallback((mode) => {
-    sendJsonMessage({ type: 'SET_MODE', mode });
-  }, [sendJsonMessage]);
-  
   const connectionStatus = {
     [ReadyState.CONNECTING]: 'Connecting',
     [ReadyState.OPEN]: 'Open',
@@ -35,7 +30,6 @@ const useWebSockets = (url) => {
   return {
     messageHistory,
     connectionStatus,
-    handleClickChangeSocketUrl,
     handleClickSendMessage,
   };
 };
