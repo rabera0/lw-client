@@ -75,51 +75,85 @@ const Zipcode = () => {
     return atlzips.AtlantaZipCodes.includes(zipString);
   };
 
-  // Checking if existing zipcode
-  const checkZipcode = (zip) => {
-    const zipString = zip.toString();
-    return uszips.some(entry => entry.zip_code.toString() === zipString);
-  };
+// Checking if the ZIP code exists (loose matching included)
+const checkZipcode = (zip) => {
+  const zipString = zip.toString();
 
-  function findStateByZip(zipCode) {
-    const numericZipCode = Number(zipCode);
-    const result = uszips.find(entry => entry.zip_code === numericZipCode);
-    return result ? result.state : 'ZIP code not found';
+  // Exact match check
+  const exactMatch = uszips.some(entry => entry.zip_code.toString() === zipString);
+  if (exactMatch) {
+    return true;
   }
 
-   // Function to find direction by state
-   function findDirectionByState(state) {
-    return stateDir[state] || null; // Return null if state not found
+  // Loose match: check if any ZIP starts with the same first 3 digits AND has the same number of digits
+  const zipPrefix = zipString.slice(0, 3);
+  const zipLength = zipString.length;
+
+  const looseMatch = uszips.some(entry => {
+    const entryZipString = entry.zip_code.toString();
+    return entryZipString.startsWith(zipPrefix) && entryZipString.length === zipLength;
+  });
+
+  return looseMatch;
+};
+
+// Find state by ZIP code with loose matching
+function findStateByZip(zipCode) {
+  const numericZipCode = Number(zipCode);
+  const zipString = numericZipCode.toString();
+
+  // Try to find an exact match first
+  const exactMatch = uszips.find(entry => entry.zip_code.toString() === zipString);
+  if (exactMatch) {
+    return exactMatch.state;
   }
 
-  const state = zipcode ? findStateByZip(zipcode) : null;
-  const direction = state ? findDirectionByState(state) : null;
+  // If no exact match, try finding a match by the first three digits AND same number of digits
+  const zipPrefix = zipString.slice(0, 3);
+  const zipLength = zipString.length;
 
-  const displayMessage = (message) => {
-    const messageContainer = document.getElementById('message-container');
-    if (messageContainer) {
-      // Clear previous messages
-      messageContainer.innerHTML = '';
-      // Create a new <h5> element
-      const p = document.createElement('p');
-      p.textContent = message;
-      // Append the <p> element to the container
-      messageContainer.appendChild(p);
-    }
-  };
+  const closestMatch = uszips.find(entry => {
+    const entryZipString = entry.zip_code.toString();
+    return entryZipString.startsWith(zipPrefix) && entryZipString.length === zipLength;
+  });
+  return closestMatch ? closestMatch.state : 'ZIP code not found';
+}
+
+// Function to find direction by state
+function findDirectionByState(state) {
+  return stateDir[state] || null; // Return null if state not found
+}
+
+const state = zipcode ? findStateByZip(zipcode) : null;
+const direction = state ? findDirectionByState(state) : null;
+
+const displayMessage = (message) => {
+  const messageContainer = document.getElementById('message-container');
+  if (messageContainer) {
+    // Clear previous messages
+    messageContainer.innerHTML = '';
+    // Create a new <p> element
+    const p = document.createElement('p');
+    p.textContent = message;
+    // Append the <p> element to the container
+    messageContainer.appendChild(p);
+  }
+};
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
-
-    if (zipcode.length !== 5 || !/^\d{5}$/.test(zipcode)) {
+  
+    // Allow ZIP codes with 3, 4, or 5 digits
+    if (!/^\d{3,5}$/.test(zipcode)) {
+      displayMessage('Invalid ZIP code format. Enter a 3, 4, or 5-digit ZIP.');
       return;
     }
-
+  
     if (!checkZipcode(zipcode)) {
-      displayMessage('Looks like that zip code does not exist, are you an ATLalien? Try Again');
+      displayMessage('Looks like that ZIP code does not exist, are you an ATLalien? Try Again');
       return;
     }
-
+  
     if (checkAtl(zipcode)) {
       setIsAtlanta(true);
       handleClickSendMessage(zipcode);
@@ -130,6 +164,7 @@ const Zipcode = () => {
       navigate('/statemap', { state: { zipcode } });
     }
   }, [zipcode, handleClickSendMessage, navigate]);
+  
 
   useEffect(() => {
     // Clean up the debounce timer on unmount
