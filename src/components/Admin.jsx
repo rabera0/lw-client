@@ -122,9 +122,9 @@ const Admin = () => {
       <br/>
       <p>Selected Mode: {selectedMode}</p>
       <div id="modes">
-        <button onClick={() => { setSelectedMode('Mode 1'); sendMode('Mode 1'); }}>Mode 1</button>
-        <button onClick={() => { setSelectedMode('Mode 2'); sendMode('Mode 2'); }}>Mode 2</button>
-        <button onClick={() => { setSelectedMode('Mode 3'); sendMode('Mode 3'); }}>Mode 3</button>
+        <button onClick={() => { setSelectedMode('Mode 1'); sendMode('Mode 1'); }}>AT&T</button>
+        <button onClick={() => { setSelectedMode('Mode 2'); sendMode('Mode 2'); }}>Soccer</button>
+        <button onClick={() => { setSelectedMode('Mode 3'); sendMode('Mode 3'); }}>Concert</button>
       </div>
       <button onClick={handleLogout}>Logout</button>
       <Footer />

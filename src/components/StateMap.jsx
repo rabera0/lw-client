@@ -4,6 +4,7 @@ import uszips from '../data/USCities.json';
 import '../index.css';
 import GraphState from './GraphState'; // Import the Graph component
 import TextComponent from "./Lookup";
+import Usmap from "./Usmap";
 import Footer from './Footer';
 import Header from './Header';
 
@@ -117,24 +118,11 @@ function StateMap() {
         
         {/* Image Container */}
         {currentComponent === 'image' && (
-          <div style={{ position: 'relative', height: '350px', width: '100%', maxWidth: '500px', margin: '-10px auto' }}>
-            <div
-              style={{
-                position: 'absolute',
-                top: -25,
-                left: 0,
-                width: '100%',
-                height: '350px',
-                transform: 'scale(1.18)',
-                backgroundImage: `url(${img})`, // Set background image
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                opacity,
-                transition: 'opacity 1s ease-in-out',
-              }}
-            ></div>
+        <div style={{ position: 'relative', height: '350px', width: '100%', maxWidth: '500px', margin: '-10px auto' }}>
+          <div style={{ opacity, transition: 'opacity 1s ease-in-out' }}>
+            <Usmap highlightedState={state} />
           </div>
+        </div>
         )}
 
         {/* Graph Container */}
