@@ -62,12 +62,10 @@ const stateMessages = {
   function findStateByZip(zipCode) {
     const numericZipCode = Number(zipCode);
     const zipString = numericZipCode.toString();
-    console.log("Searching for state by ZIP:", zipString);
-
-    // Try to find an exact match first
+    // console.log("Searching for state by ZIP:", zipString);
     const exactMatch = uszips.find(entry => entry.zip_code.toString() === zipString);
     if (exactMatch) {
-      console.log("Exact match found:", exactMatch.state);
+      // console.log("Exact match found:", exactMatch.state);
       return exactMatch.state;
     }
 

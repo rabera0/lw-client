@@ -8,18 +8,18 @@ import Usmap from "./Usmap";
 import Footer from './Footer';
 import Header from './Header';
 
-const img = "https://cdn.glitch.global/f45e1b7b-5bbc-4ef0-82cf-33f60ccdb1c4/usOutline.png?v=1727804021010";
+//const img = "https://cdn.glitch.global/f45e1b7b-5bbc-4ef0-82cf-33f60ccdb1c4/usOutline.png?v=1727804021010";
 
   // Find state by ZIP code with loose matching
   function findStateByZip(zipCode) {
     const numericZipCode = Number(zipCode);
     const zipString = numericZipCode.toString();
-    console.log("Searching for state by ZIP:", zipString);
+    // console.log("Searching for state by ZIP:", zipString);
 
     // Try to find an exact match first
     const exactMatch = uszips.find(entry => entry.zip_code.toString() === zipString);
     if (exactMatch) {
-      console.log("Exact match found:", exactMatch.state);
+      // console.log("Exact match found:", exactMatch.state);
       return exactMatch.state;
     }
 
