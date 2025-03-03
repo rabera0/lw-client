@@ -202,7 +202,7 @@ const Zipcode = () => {
 
     if (checkAtl(numericZip)) { 
       setIsAtlanta(true);
-      handleClickSendMessage(numericZip);
+      handleClickSendMessage( String(numericZip));
       navigate('/atlmap', { state: { zipcode: numericZip } }); 
     } else {
       setIsAtlanta(false);
